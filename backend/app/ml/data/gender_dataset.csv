@@ -1,0 +1,13 @@
+Symptom & Injury Analyzer — Base Dataset,
+,
+Sheet Guide,
+Sheet,Contents
+Symptoms,"54 common symptoms across body systems, with likely causes, severity, self-care, and red-flag signs."
+Injuries,"35 common injury types, with causes, first aid, red-flag signs, and typical recovery time."
+Categories,"Reference list of the category values used in each sheet, for dropdowns / filters."
+,
+Severity Key,
+Mild,Manageable at home; monitor and use routine self-care.
+Moderate,"Worth medical attention if persistent, worsening, or combined with other symptoms."
+Severe,See a doctor promptly / same-day care generally advised.
+Emergency,Seek emergency care immediately (ER / call emergency services).

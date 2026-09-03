@@ -1,0 +1,19 @@
+{
+  "Normal": [
+    "Values look broadly within common adult ranges (lab-specific ranges may differ).",
+    "Keep a copy for your doctor and maintain diet, sleep, and hydration.",
+    "Repeat routine labs as your clinician advises."
+  ],
+  "Attention": [
+    "Some values are outside common ranges \u2014 discuss with your doctor.",
+    "Do not start/stop prescription medicines based only on this scan.",
+    "Note related symptoms (fatigue, thirst, pain, bruising) for your visit.",
+    "Ask whether a repeat test at the same lab is needed."
+  ],
+  "Critical": [
+    "One or more values look significantly abnormal \u2014 seek medical care promptly.",
+    "If you have chest pain, confusion, severe bleeding, or breathlessness, go to ER.",
+    "Bring this report to a clinician today or as soon as possible.",
+    "Do not self-medicate high-risk abnormalities."
+  ]
+}

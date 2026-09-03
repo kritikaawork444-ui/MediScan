@@ -1,0 +1,1584 @@
+{
+  "symptoms": [
+    {
+      "name": "Abdominal pain",
+      "category": "Digestive",
+      "likely_causes": "Gastritis, IBS, appendicitis, kidney stones, pancreatitis, hernia",
+      "severity": "Severe",
+      "severity_raw": "Mild to Severe",
+      "co_occurs": [
+        "Bloating",
+        "nausea",
+        "vomiting",
+        "diarrhea",
+        "constipation"
+      ],
+      "red_flags": "Severe sharp pain, fever, vomiting blood, rigid abdomen",
+      "self_care": "Rest, heat pad, bland diet, hydration, avoid NSAIDs initially",
+      "male_notes": "Consider appendicitis, kidney stones, IBS equally",
+      "female_notes": "Consider menstrual cramping, ovulation pain, endometriosis, pelvic inflammatory disease",
+      "when_to_see_doctor": "Severe pain, lasts >24 hours, accompanied by fever/vomiting"
+    },
+    {
+      "name": "Anxiety",
+      "category": "Mental Health",
+      "likely_causes": "Stress, life changes, underlying anxiety disorder",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "co_occurs": [
+        "Restlessness",
+        "rapid heartbeat",
+        "trouble sleeping"
+      ],
+      "red_flags": "Panic with chest pain/breathlessness, or thoughts of self-harm",
+      "self_care": "Breathing exercises, reduce stimulants, talk to someone trusted",
+      "male_notes": "Often presents as irritability/anger. Underdiagnosed. May manifest as physical symptoms",
+      "female_notes": "More likely diagnosed. Linked to hormonal cycles. Postpartum anxiety/depression common",
+      "when_to_see_doctor": "Interferes with daily life or persists"
+    },
+    {
+      "name": "Back pain",
+      "category": "Musculoskeletal",
+      "likely_causes": "Muscle strain, herniated disc, poor posture, osteoarthritis, kidney stones",
+      "severity": "Severe",
+      "severity_raw": "Mild to Severe",
+      "co_occurs": [
+        "Muscle stiffness",
+        "numbness",
+        "leg pain",
+        "reduced mobility"
+      ],
+      "red_flags": "Severe pain, leg numbness/weakness, loss of bowel control",
+      "self_care": "Rest, heat/ice therapy, proper posture, stretching, core strengthening",
+      "male_notes": "Often work-related muscle strain. Disc herniation more common",
+      "female_notes": "Pregnancy-related sacroiliac pain common. Osteoporosis risk postmenopause",
+      "when_to_see_doctor": "Severe pain, accompanied by numbness/weakness, or follows trauma"
+    },
+    {
+      "name": "Bloating/gas",
+      "category": "Digestive",
+      "likely_causes": "Diet, food intolerance, swallowing air, digestive disorders",
+      "severity": "Mild",
+      "severity_raw": "Mild",
+      "co_occurs": [
+        "Abdominal discomfort",
+        "belching"
+      ],
+      "red_flags": "Bloating with severe pain or vomiting",
+      "self_care": "Smaller meals, limit gas-producing foods, gentle walking",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Persistent or worsening despite diet changes"
+    },
+    {
+      "name": "Blood in stool",
+      "category": "Digestive",
+      "likely_causes": "Hemorrhoids, GI infection, ulcers, more serious GI conditions",
+      "severity": "Severe",
+      "severity_raw": "Severe",
+      "co_occurs": [
+        "Abdominal pain",
+        "fatigue"
+      ],
+      "red_flags": "Large amounts of blood, black tarry stool, dizziness/fainting",
+      "self_care": "Note color/amount, avoid straining",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Any occurrence should be medically evaluated"
+    },
+    {
+      "name": "Blood in urine",
+      "category": "Urinary",
+      "likely_causes": "UTI, kidney stones, strenuous exercise, more serious causes",
+      "severity": "Severe",
+      "severity_raw": "Severe",
+      "co_occurs": [
+        "Pain",
+        "urgency"
+      ],
+      "red_flags": "Blood in urine with severe pain or inability to urinate",
+      "self_care": "Note frequency/amount, stay hydrated",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Any occurrence should be medically evaluated"
+    },
+    {
+      "name": "Blurred vision",
+      "category": "Eye",
+      "likely_causes": "Eye strain, dry eyes, refractive error, migraine",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "co_occurs": [
+        "Headache",
+        "eye discomfort"
+      ],
+      "red_flags": "Sudden vision loss/change, especially one-sided",
+      "self_care": "Rest eyes, reduce screen time, adequate lighting",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Sudden onset or persistent change"
+    },
+    {
+      "name": "Chest pain",
+      "category": "Cardiovascular",
+      "likely_causes": "Muscle strain, acid reflux, anxiety, heart-related causes",
+      "severity": "Emergency",
+      "severity_raw": "Emergency",
+      "co_occurs": [
+        "Shortness of breath",
+        "sweating",
+        "nausea"
+      ],
+      "red_flags": "Pressure/tightness radiating to arm/jaw, sweating, breathlessness",
+      "self_care": "Rest and stop exertion; do not self-diagnose",
+      "male_notes": "Classic crushing/pressure pain more likely. Higher cardiac risk age 45+",
+      "female_notes": "Often atypical: sharp, indigestion-like, fatigue, shortness of breath. Higher risk postmenopause",
+      "when_to_see_doctor": "Any unexplained chest pain warrants prompt evaluation"
+    },
+    {
+      "name": "Chills",
+      "category": "General",
+      "likely_causes": "Fever onset, cold exposure, infection",
+      "severity": "Mild",
+      "severity_raw": "Mild",
+      "co_occurs": [
+        "Fever",
+        "shivering",
+        "body aches"
+      ],
+      "red_flags": "Chills with high fever and confusion",
+      "self_care": "Warm layers, warm fluids, rest",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Recurrent chills with fever over 48 hours"
+    },
+    {
+      "name": "Congestion",
+      "category": "ENT",
+      "likely_causes": "Common cold, flu, allergies, sinusitis, nasal polyps",
+      "severity": "Moderate",
+      "severity_raw": "Mild to Moderate",
+      "co_occurs": [
+        "Cough",
+        "runny nose",
+        "sneezing",
+        "sinus pressure"
+      ],
+      "red_flags": "High fever, severe headache, facial swelling",
+      "self_care": "Saline nasal drops, humidifier, steam inhalation, hydration",
+      "male_notes": "Usually viral/allergic. Sinusitis more common in women",
+      "female_notes": "Hormonal nasal congestion during menstrual cycle. Pregnancy rhinitis common",
+      "when_to_see_doctor": "Lasts >2 weeks, accompanied by high fever or facial pain"
+    },
+    {
+      "name": "Constipation",
+      "category": "Digestive",
+      "likely_causes": "Low fiber diet, dehydration, inactivity, medication",
+      "severity": "Mild",
+      "severity_raw": "Mild",
+      "co_occurs": [
+        "Bloating",
+        "abdominal discomfort"
+      ],
+      "red_flags": "Severe pain, inability to pass gas/stool, vomiting",
+      "self_care": "Increase fiber and water intake, gentle activity",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Lasts more than a week or with severe pain"
+    },
+    {
+      "name": "Cough",
+      "category": "Respiratory",
+      "likely_causes": "Common cold, flu, pneumonia, asthma, GERD, smoking, allergies",
+      "severity": "Moderate",
+      "severity_raw": "Mild to Moderate",
+      "co_occurs": [
+        "Sore throat",
+        "runny nose",
+        "fever",
+        "wheezing",
+        "chest pain"
+      ],
+      "red_flags": "Bloody phlegm, severe shortness of breath, chest pain",
+      "self_care": "Hydration, honey, throat lozenges, humidifier, steam inhalation",
+      "male_notes": "Smokers at higher risk. Occupational exposure consideration",
+      "female_notes": "ACE inhibitor side effect more common in women. Pregnancy affects cough reflex",
+      "when_to_see_doctor": "Lasts >3 weeks, productive with discolored sputum, or with fever >101°F"
+    },
+    {
+      "name": "Cough (dry)",
+      "category": "Respiratory",
+      "likely_causes": "Viral infection, allergies, irritants, acid reflux",
+      "severity": "Mild",
+      "severity_raw": "Mild",
+      "co_occurs": [
+        "Sore throat",
+        "congestion"
+      ],
+      "red_flags": "Cough with blood, severe breathlessness, or chest pain",
+      "self_care": "Honey/warm fluids, humidifier, avoid irritants",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Lasts more than 3 weeks"
+    },
+    {
+      "name": "Cough (productive/phlegm)",
+      "category": "Respiratory",
+      "likely_causes": "Bacterial/viral chest infection, bronchitis",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "co_occurs": [
+        "Fever",
+        "fatigue",
+        "chest discomfort"
+      ],
+      "red_flags": "Green/bloody phlegm with high fever and breathlessness",
+      "self_care": "Fluids, rest, steam inhalation",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Phlegm is discolored/bloody or persists beyond 10 days"
+    },
+    {
+      "name": "Depression/low mood",
+      "category": "Mental Health",
+      "likely_causes": "Stress, life events, underlying mood disorder",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "co_occurs": [
+        "Fatigue",
+        "appetite changes",
+        "withdrawal"
+      ],
+      "red_flags": "Thoughts of self-harm or hopelessness",
+      "self_care": "Stay connected with others, gentle routine, sunlight/activity",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Persists beyond 2 weeks or affects daily functioning"
+    },
+    {
+      "name": "Diarrhea",
+      "category": "Digestive",
+      "likely_causes": "Infection, food intolerance, medication side effect, stress",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "co_occurs": [
+        "Cramping",
+        "nausea",
+        "dehydration"
+      ],
+      "red_flags": "Blood in stool, high fever, signs of severe dehydration",
+      "self_care": "Oral rehydration fluids, bland diet (BRAT), rest",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Lasts more than 2 days or with blood/fever"
+    },
+    {
+      "name": "Dizziness",
+      "category": "Neurological",
+      "likely_causes": "Dehydration, low blood pressure, inner ear issues, low blood sugar",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "co_occurs": [
+        "Nausea",
+        "blurred vision",
+        "unsteadiness"
+      ],
+      "red_flags": "Dizziness with chest pain, slurred speech, or one-sided weakness",
+      "self_care": "Sit/lie down, hydrate, avoid sudden movements",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Recurrent episodes or accompanied by fainting"
+    },
+    {
+      "name": "Dry skin",
+      "category": "Skin",
+      "likely_causes": "Weather, dehydration, harsh soap, skin conditions",
+      "severity": "Mild",
+      "severity_raw": "Mild",
+      "co_occurs": [
+        "Flaking",
+        "itching",
+        "tightness"
+      ],
+      "red_flags": "Cracking with signs of infection (redness, pus)",
+      "self_care": "Moisturize regularly, lukewarm showers, hydrate",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Persistent cracking or signs of infection"
+    },
+    {
+      "name": "Ear pain",
+      "category": "ENT",
+      "likely_causes": "Ear infection, fluid buildup, wax blockage, air pressure changes",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "co_occurs": [
+        "Hearing changes",
+        "fever",
+        "irritability (children)"
+      ],
+      "red_flags": "Severe pain with high fever, swelling behind ear, or fluid discharge",
+      "self_care": "Warm compress, avoid inserting objects in ear",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Pain persists over 2 days or with fever/discharge"
+    },
+    {
+      "name": "Excessive bruising",
+      "category": "Skin",
+      "likely_causes": "Minor trauma, blood thinners, vitamin deficiency, clotting issues",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "co_occurs": [
+        "Tenderness",
+        "skin discoloration"
+      ],
+      "red_flags": "Bruising with no clear cause, or with unusual bleeding elsewhere",
+      "self_care": "Ice pack initially, elevate area, monitor",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Frequent unexplained bruising"
+    },
+    {
+      "name": "Eye redness/irritation",
+      "category": "Eye",
+      "likely_causes": "Allergies, dryness, infection (conjunctivitis), irritant exposure",
+      "severity": "Mild",
+      "severity_raw": "Mild",
+      "co_occurs": [
+        "Itching",
+        "discharge",
+        "watering"
+      ],
+      "red_flags": "Severe pain, vision changes, or thick discharge",
+      "self_care": "Cool compress, avoid rubbing, artificial tears",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Persists beyond a few days or with pain/vision changes"
+    },
+    {
+      "name": "Fatigue",
+      "category": "General",
+      "likely_causes": "Poor sleep, anemia, stress, thyroid issues, viral illness, overtraining",
+      "severity": "Mild",
+      "severity_raw": "Mild",
+      "co_occurs": [
+        "Low mood",
+        "weakness",
+        "poor concentration"
+      ],
+      "red_flags": "Sudden extreme fatigue with chest pain or fainting",
+      "self_care": "Prioritize sleep, hydrate, balanced meals, moderate activity",
+      "male_notes": "Often indicates infection or serious condition. May mask depression initially",
+      "female_notes": "Common with anemia, thyroid issues, hormonal imbalances, menstrual cycle. Iron deficiency more common",
+      "when_to_see_doctor": "Persists beyond 2 weeks or interferes with daily life"
+    },
+    {
+      "name": "Fever",
+      "category": "General",
+      "likely_causes": "Infection (viral/bacterial), inflammation, heat exhaustion, immune response",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "co_occurs": [
+        "Chills",
+        "fatigue",
+        "headache",
+        "body aches"
+      ],
+      "red_flags": "Temp above 103°F/39.4°C, stiff neck, confusion, difficulty breathing, seizure",
+      "self_care": "Rest, fluids, light clothing, paracetamol/acetaminophen per label",
+      "male_notes": "May spike higher; higher metabolic rate. Recovery typically 5-7 days",
+      "female_notes": "Hormonal cycle affects baseline temp. Higher in luteal phase. May worsen PMS",
+      "when_to_see_doctor": "Fever lasts >3 days, or in infants under 3 months with any fever"
+    },
+    {
+      "name": "Frequent urination",
+      "category": "Urinary",
+      "likely_causes": "Excess fluid intake, UTI, diabetes, bladder irritation",
+      "severity": "Mild",
+      "severity_raw": "Mild",
+      "co_occurs": [
+        "Urgency",
+        "thirst"
+      ],
+      "red_flags": "Frequent urination with excessive thirst and fatigue (possible diabetes signs)",
+      "self_care": "Monitor fluid intake, avoid bladder irritants",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Sudden change in pattern or with other symptoms"
+    },
+    {
+      "name": "Headache",
+      "category": "Neurological",
+      "likely_causes": "Tension, dehydration, eye strain, migraine, sinus congestion",
+      "severity": "Mild",
+      "severity_raw": "Mild",
+      "co_occurs": [
+        "Neck stiffness",
+        "light sensitivity",
+        "nausea"
+      ],
+      "red_flags": "Sudden 'worst-ever' headache, headache with fever/stiff neck, or after head injury",
+      "self_care": "Rest in dark quiet room, hydration, OTC pain relief",
+      "male_notes": "Often tension-type. Less likely migraine (except cluster headaches more common)",
+      "female_notes": "Migraines 3x more common. Hormonal fluctuations trigger migraines. Estrogen withdrawal effect",
+      "when_to_see_doctor": "Frequent, worsening, or unlike usual headaches"
+    },
+    {
+      "name": "Hearing loss",
+      "category": "ENT",
+      "likely_causes": "Wax buildup, infection, loud noise exposure, aging",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "co_occurs": [
+        "Ringing in ears",
+        "ear fullness"
+      ],
+      "red_flags": "Sudden hearing loss in one or both ears",
+      "self_care": "Avoid loud noise, do not use cotton swabs deep in ear",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Sudden or unexplained hearing loss"
+    },
+    {
+      "name": "Heartburn/acid reflux",
+      "category": "Digestive",
+      "likely_causes": "Spicy/fatty food, overeating, lying down after meals, GERD",
+      "severity": "Mild",
+      "severity_raw": "Mild",
+      "co_occurs": [
+        "Chest burning",
+        "sour taste",
+        "bloating"
+      ],
+      "red_flags": "Chest pain that could mimic heart issues, difficulty swallowing",
+      "self_care": "Smaller meals, avoid trigger foods, don't lie down right after eating",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Frequent (2+ times/week) or worsening"
+    },
+    {
+      "name": "High blood pressure symptoms",
+      "category": "Cardiovascular",
+      "likely_causes": "Diet, stress, genetics, lack of activity",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "co_occurs": [
+        "Headache",
+        "dizziness",
+        "blurred vision"
+      ],
+      "red_flags": "Severe headache with vision changes, chest pain, or confusion",
+      "self_care": "Reduce salt/stress, regular monitoring, activity",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Readings consistently above normal range"
+    },
+    {
+      "name": "Hives",
+      "category": "Skin",
+      "likely_causes": "Allergic reaction, stress, infection, food/medication trigger",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "co_occurs": [
+        "Itching",
+        "swelling"
+      ],
+      "red_flags": "Hives with facial/throat swelling or breathing difficulty (anaphylaxis)",
+      "self_care": "Antihistamine per label, avoid trigger, cool compress",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Widespread, recurring, or with swelling of face/throat"
+    },
+    {
+      "name": "Insomnia",
+      "category": "Mental Health",
+      "likely_causes": "Stress, anxiety, depression, caffeine, sleep apnea, poor sleep hygiene",
+      "severity": "Moderate",
+      "severity_raw": "Mild to Moderate",
+      "co_occurs": [
+        "Daytime fatigue",
+        "irritability",
+        "difficulty concentrating",
+        "anxiety"
+      ],
+      "red_flags": "Persistent severe insomnia, suicidal ideation, manic episodes",
+      "self_care": "Regular sleep schedule, avoid screens before bed, relaxation techniques, exercise",
+      "male_notes": "Often sleep apnea related (more common in men). Earlier onset age",
+      "female_notes": "Hormonal disruptions (perimenopause, menopause). Pregnancy-related. Postpartum insomnia",
+      "when_to_see_doctor": "Lasts >2 weeks, significantly impacts daily functioning, or worsening"
+    },
+    {
+      "name": "Insomnia/sleep disturbance",
+      "category": "Mental Health",
+      "likely_causes": "Stress, caffeine, screen time, irregular schedule",
+      "severity": "Mild",
+      "severity_raw": "Mild",
+      "co_occurs": [
+        "Fatigue",
+        "irritability",
+        "poor concentration"
+      ],
+      "red_flags": "Chronic insomnia with mood changes or thoughts of self-harm",
+      "self_care": "Consistent sleep schedule, reduce screens/caffeine before bed",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Persists beyond 3-4 weeks"
+    },
+    {
+      "name": "Irregular menstrual cycle",
+      "category": "Reproductive",
+      "likely_causes": "Stress, hormonal changes, weight changes, underlying conditions",
+      "severity": "Mild",
+      "severity_raw": "Mild",
+      "co_occurs": [
+        "Cramping",
+        "mood changes"
+      ],
+      "red_flags": "Severe pain, very heavy bleeding, or bleeding after menopause",
+      "self_care": "Track cycle, manage stress, balanced diet",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Persistent irregularity or very heavy/painful periods"
+    },
+    {
+      "name": "Itching",
+      "category": "Skin",
+      "likely_causes": "Dry skin, allergic reaction, insect bite, irritant",
+      "severity": "Mild",
+      "severity_raw": "Mild",
+      "co_occurs": [
+        "Redness",
+        "rash"
+      ],
+      "red_flags": "Itching with widespread hives and breathing difficulty",
+      "self_care": "Moisturize, avoid scratching, cool compress",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Persistent, widespread, or affecting sleep"
+    },
+    {
+      "name": "Joint pain",
+      "category": "Musculoskeletal",
+      "likely_causes": "Arthritis, gout, injury, overuse, lupus, Lyme disease",
+      "severity": "Severe",
+      "severity_raw": "Mild to Severe",
+      "co_occurs": [
+        "Swelling",
+        "stiffness",
+        "reduced mobility",
+        "redness"
+      ],
+      "red_flags": "Severe swelling, warmth, fever, sudden onset inability to move",
+      "self_care": "Rest, ice/heat therapy, compression, elevation, gentle stretching",
+      "male_notes": "Often sports/overuse related. Gout 4x more common in men",
+      "female_notes": "Autoimmune arthritis (RA) 3x more common. Hormonal changes affect joint inflammation",
+      "when_to_see_doctor": "Lasts >2 weeks, accompanied by fever, or significantly limits mobility"
+    },
+    {
+      "name": "Loss of appetite",
+      "category": "General",
+      "likely_causes": "Illness, stress, medication, digestive upset",
+      "severity": "Mild",
+      "severity_raw": "Mild",
+      "co_occurs": [
+        "Nausea",
+        "fatigue",
+        "weight loss"
+      ],
+      "red_flags": "Combined with severe abdominal pain or vomiting",
+      "self_care": "Small frequent meals, stay hydrated",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Lasts more than a week or causes noticeable weight loss"
+    },
+    {
+      "name": "Loss of smell/taste",
+      "category": "ENT",
+      "likely_causes": "Viral infection, sinus congestion, nasal polyps",
+      "severity": "Mild",
+      "severity_raw": "Mild",
+      "co_occurs": [
+        "Nasal congestion",
+        "reduced appetite"
+      ],
+      "red_flags": "Sudden loss with no other symptoms lasting weeks",
+      "self_care": "Saline rinse, allow infection to resolve",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Persists beyond 2 weeks"
+    },
+    {
+      "name": "Memory loss/confusion",
+      "category": "Neurological",
+      "likely_causes": "Fatigue, dehydration, stress, medication side effects, aging",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "co_occurs": [
+        "Disorientation",
+        "difficulty concentrating"
+      ],
+      "red_flags": "Sudden confusion, especially with fever, head injury, or slurred speech",
+      "self_care": "Rest, hydration, reduce distractions",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Sudden onset or progressively worsening confusion"
+    },
+    {
+      "name": "Migraine",
+      "category": "Neurological",
+      "likely_causes": "Triggers: stress, hormones, certain foods, sleep changes",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "co_occurs": [
+        "Nausea",
+        "light",
+        "sound sensitivity",
+        "visual aura"
+      ],
+      "red_flags": "Sudden severe migraine unlike prior ones, with confusion or vision loss",
+      "self_care": "Dark quiet rest, hydration, known trigger avoidance",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Migraines increasing in frequency or severity"
+    },
+    {
+      "name": "Muscle pain/soreness",
+      "category": "Musculoskeletal",
+      "likely_causes": "Overexertion, tension, minor strain, viral illness",
+      "severity": "Mild",
+      "severity_raw": "Mild",
+      "co_occurs": [
+        "Stiffness",
+        "fatigue"
+      ],
+      "red_flags": "Severe pain with swelling, weakness, or dark urine",
+      "self_care": "Rest, gentle stretching, hydration, warm compress",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Persists beyond a week or is severe"
+    },
+    {
+      "name": "Muscle weakness",
+      "category": "Musculoskeletal",
+      "likely_causes": "Overuse, dehydration, electrolyte imbalance, nerve issues",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "co_occurs": [
+        "Fatigue",
+        "cramping"
+      ],
+      "red_flags": "Sudden one-sided weakness, facial drooping, slurred speech",
+      "self_care": "Rest, hydrate, balanced electrolytes",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Sudden onset or progressively worsening"
+    },
+    {
+      "name": "Nausea",
+      "category": "Digestive",
+      "likely_causes": "Food poisoning, gastroenteritis, migraines, pregnancy, medication side-effect",
+      "severity": "Moderate",
+      "severity_raw": "Mild to Moderate",
+      "co_occurs": [
+        "Vomiting",
+        "diarrhea",
+        "abdominal cramping",
+        "loss of appetite"
+      ],
+      "red_flags": "Severe abdominal pain, persistent vomiting, signs of dehydration",
+      "self_care": "Small frequent meals, ginger, peppermint tea, avoid strong smells",
+      "male_notes": "Primarily GI or medication-related. Less common overall",
+      "female_notes": "Consider pregnancy, hormonal contraceptives, hormonal cycle. Morning sickness in pregnancy",
+      "when_to_see_doctor": "Lasts >24 hours, accompanied by severe pain or fever"
+    },
+    {
+      "name": "Neck stiffness",
+      "category": "Musculoskeletal",
+      "likely_causes": "Poor posture, sleeping position, muscle strain",
+      "severity": "Mild",
+      "severity_raw": "Mild",
+      "co_occurs": [
+        "Headache",
+        "limited range of motion"
+      ],
+      "red_flags": "Stiff neck with high fever and headache (possible meningitis)",
+      "self_care": "Gentle stretching, warm compress, posture adjustment",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "With fever/headache, or lasts beyond a week"
+    },
+    {
+      "name": "Night sweats",
+      "category": "General",
+      "likely_causes": "Infection, hormonal changes, medication side effect, anxiety",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "co_occurs": [
+        "Fever",
+        "weight loss",
+        "fatigue"
+      ],
+      "red_flags": "Drenching sweats with unexplained weight loss or fever",
+      "self_care": "Breathable bedding/clothing, track frequency",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Occurs regularly for more than a week"
+    },
+    {
+      "name": "Numbness/tingling in limbs",
+      "category": "Neurological",
+      "likely_causes": "Nerve compression, poor circulation, vitamin deficiency",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "co_occurs": [
+        "Weakness",
+        "pain",
+        "coldness in limb"
+      ],
+      "red_flags": "Sudden numbness on one side of body, face drooping, slurred speech",
+      "self_care": "Change position, gentle stretching",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Persistent, spreading, or affecting one side suddenly"
+    },
+    {
+      "name": "Painful urination",
+      "category": "Urinary",
+      "likely_causes": "Urinary tract infection, irritation, dehydration",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "co_occurs": [
+        "Urgency",
+        "frequency",
+        "lower abdominal pain"
+      ],
+      "red_flags": "Pain with fever, back pain, or blood in urine",
+      "self_care": "Increase water intake, avoid irritants (caffeine/alcohol)",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Persists beyond a day or with fever"
+    },
+    {
+      "name": "Palpitations (irregular heartbeat)",
+      "category": "Cardiovascular",
+      "likely_causes": "Caffeine, stress, dehydration, anxiety, heart rhythm issues",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "co_occurs": [
+        "Dizziness",
+        "chest discomfort",
+        "anxiety"
+      ],
+      "red_flags": "Palpitations with fainting, chest pain, or breathlessness",
+      "self_care": "Reduce caffeine/stimulants, relax, hydrate",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Frequent, prolonged, or with fainting/chest pain"
+    },
+    {
+      "name": "Rash",
+      "category": "General",
+      "likely_causes": "Dermatitis, eczema, fungal infection, viral infection, drug reaction, allergies",
+      "severity": "Moderate",
+      "severity_raw": "Mild to Moderate",
+      "co_occurs": [
+        "Itching",
+        "redness",
+        "swelling",
+        "blistering"
+      ],
+      "red_flags": "Spreading rapidly, severe blistering, fever, difficulty breathing",
+      "self_care": "Moisturize, avoid irritants, cool compresses, oatmeal baths",
+      "male_notes": "Often fungal (jock itch) or contact dermatitis",
+      "female_notes": "Yeast infections more common. Hormonal triggers. Cosmetics/product reactions",
+      "when_to_see_doctor": "Spreads rapidly, severe itching, accompanied by fever or systemic symptoms"
+    },
+    {
+      "name": "Runny/stuffy nose",
+      "category": "ENT",
+      "likely_causes": "Common cold, allergies, sinus infection",
+      "severity": "Mild",
+      "severity_raw": "Mild",
+      "co_occurs": [
+        "Sneezing",
+        "sore throat",
+        "headache"
+      ],
+      "red_flags": "Thick discolored discharge with facial pain and fever",
+      "self_care": "Saline rinse, fluids, rest",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Persists beyond 10 days or with facial pain"
+    },
+    {
+      "name": "Seizure",
+      "category": "Neurological",
+      "likely_causes": "Epilepsy, high fever (children), head injury, low blood sugar",
+      "severity": "Emergency",
+      "severity_raw": "Emergency",
+      "co_occurs": [
+        "Confusion",
+        "loss of consciousness",
+        "muscle jerking"
+      ],
+      "red_flags": "Any first-time seizure, seizure lasting over 5 minutes, or repeated seizures",
+      "self_care": "Move away from hazards, do not restrain, time the episode",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Always requires medical evaluation"
+    },
+    {
+      "name": "Sensitivity to light",
+      "category": "Eye",
+      "likely_causes": "Migraine, eye infection, eye strain",
+      "severity": "Mild",
+      "severity_raw": "Mild",
+      "co_occurs": [
+        "Headache",
+        "eye discomfort"
+      ],
+      "red_flags": "With severe eye pain or sudden vision change",
+      "self_care": "Dim lighting, sunglasses outdoors, rest eyes",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Persistent or with headache/vision changes"
+    },
+    {
+      "name": "Shortness of breath",
+      "category": "Respiratory",
+      "likely_causes": "Asthma, anxiety, chest infection, exertion, heart issues",
+      "severity": "Severe",
+      "severity_raw": "Severe",
+      "co_occurs": [
+        "Chest tightness",
+        "wheezing",
+        "rapid heartbeat"
+      ],
+      "red_flags": "Sudden severe breathlessness, blue lips, chest pain",
+      "self_care": "Sit upright, slow breathing, use prescribed inhaler if applicable",
+      "male_notes": "Usually indicates cardiac/pulmonary pathology. Take seriously",
+      "female_notes": "May be anxiety-related. Pregnancy-related dyspnea normal. Iron deficiency anemia contribution",
+      "when_to_see_doctor": "Any unexplained or worsening breathlessness"
+    },
+    {
+      "name": "Sore throat",
+      "category": "ENT",
+      "likely_causes": "Strep throat, pharyngitis, viral infection, allergies, GERD",
+      "severity": "Moderate",
+      "severity_raw": "Mild to Moderate",
+      "co_occurs": [
+        "Fever",
+        "cough",
+        "swollen glands",
+        "difficulty swallowing"
+      ],
+      "red_flags": "Severe difficulty swallowing, drooling, breathing difficulty",
+      "self_care": "Gargle with salt water, throat lozenges, warm tea with honey, rest voice",
+      "male_notes": "Similar presentation. Slightly higher risk of strep in children",
+      "female_notes": "May worsen with hormonal cycle. Consider candida with certain contraceptives",
+      "when_to_see_doctor": "Lasts >1 week, severe pain, fever >101°F, difficulty swallowing"
+    },
+    {
+      "name": "Swelling in legs/ankles",
+      "category": "Cardiovascular",
+      "likely_causes": "Prolonged standing/sitting, poor circulation, heart/kidney issues",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "co_occurs": [
+        "Heaviness",
+        "skin tightness"
+      ],
+      "red_flags": "Sudden one-leg swelling with pain/warmth (possible clot), or breathlessness",
+      "self_care": "Elevate legs, reduce salt intake, move regularly",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Sudden, one-sided, or with breathing difficulty"
+    },
+    {
+      "name": "Swollen joints",
+      "category": "Musculoskeletal",
+      "likely_causes": "Injury, arthritis, infection, overuse",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "co_occurs": [
+        "Pain",
+        "warmth",
+        "reduced motion"
+      ],
+      "red_flags": "Sudden severe swelling with fever or inability to move joint",
+      "self_care": "Rest, ice, elevation, compression",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Persistent swelling or with fever"
+    },
+    {
+      "name": "Unexplained weight loss",
+      "category": "General",
+      "likely_causes": "Metabolic changes, chronic illness, stress, thyroid issues",
+      "severity": "Severe",
+      "severity_raw": "Severe",
+      "co_occurs": [
+        "Fatigue",
+        "appetite changes"
+      ],
+      "red_flags": "Weight loss with persistent pain, blood in stool, or severe fatigue",
+      "self_care": "Track diet and weight; ensure adequate calorie intake",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Loss of more than 5% body weight in 6-12 months"
+    },
+    {
+      "name": "Vomiting",
+      "category": "Digestive",
+      "likely_causes": "Infection, food poisoning, motion sickness, migraine",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "co_occurs": [
+        "Nausea",
+        "abdominal pain",
+        "diarrhea"
+      ],
+      "red_flags": "Blood in vomit, signs of dehydration, severe abdominal pain",
+      "self_care": "Sip clear fluids, rest stomach, bland diet when able",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Lasts more than 24 hours or with dehydration signs"
+    },
+    {
+      "name": "Wheezing",
+      "category": "Respiratory",
+      "likely_causes": "Asthma, allergies, respiratory infection",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "co_occurs": [
+        "Cough",
+        "chest tightness",
+        "shortness of breath"
+      ],
+      "red_flags": "Wheezing with severe breathing difficulty or blue lips",
+      "self_care": "Avoid triggers, use prescribed inhaler if applicable",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "New or worsening wheeze, especially in children"
+    }
+  ],
+  "injuries": [
+    {
+      "name": "Cut/Laceration",
+      "body_part": "Skin/Soft tissue",
+      "category": "Wound",
+      "severity": "Mild",
+      "severity_raw": "Mild",
+      "common_causes": "Sharp object, fall, kitchen accident",
+      "first_aid": "Clean wound, apply pressure to stop bleeding, cover with sterile bandage",
+      "red_flags": "Deep wound, won't stop bleeding, exposed fat/muscle/bone",
+      "recovery_time": "3-14 days depending on depth",
+      "male_notes": "Higher incidence in workplace/occupational injuries. Slower wound healing with age",
+      "female_notes": "Similar treatment. Pregnancy affects healing speed. May be more visible scarring concern",
+      "when_to_see_doctor": "Deep, gaping, or won't stop bleeding after 10 min pressure"
+    },
+    {
+      "name": "Abrasion (Scrape)",
+      "body_part": "Skin",
+      "category": "Wound",
+      "severity": "Mild",
+      "severity_raw": "Mild",
+      "common_causes": "Fall, friction against rough surface",
+      "first_aid": "Clean with water, remove debris, apply antiseptic and bandage",
+      "red_flags": "Signs of infection (pus, spreading redness, warmth)",
+      "recovery_time": "3-7 days",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Signs of infection or large/dirty area"
+    },
+    {
+      "name": "Puncture wound",
+      "body_part": "Skin/Soft tissue",
+      "category": "Wound",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "common_causes": "Nail, needle, animal bite, splinter",
+      "first_aid": "Clean thoroughly, do not force out deep objects, cover",
+      "red_flags": "Deep puncture, rusty object, near joint/eye, signs of infection",
+      "recovery_time": "1-2 weeks",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Any deep puncture (tetanus risk) or from a dirty/rusty object"
+    },
+    {
+      "name": "Bruise (Contusion)",
+      "body_part": "Soft tissue",
+      "category": "Soft tissue",
+      "severity": "Mild",
+      "severity_raw": "Mild",
+      "common_causes": "Blunt impact, fall, bump",
+      "first_aid": "Ice pack (wrapped) for 15-20 min, rest, elevate if possible",
+      "red_flags": "Rapid severe swelling, inability to move area, numbness",
+      "recovery_time": "1-2 weeks",
+      "male_notes": "Common in contact sports. Higher pain tolerance may delay seeking care",
+      "female_notes": "May bruise more easily (genetic/blood clotting factors). Hormonal cycle affects bruising",
+      "when_to_see_doctor": "Severe pain, large swelling, or no improvement after 2 weeks"
+    },
+    {
+      "name": "Sprain (Ankle)",
+      "body_part": "Ankle",
+      "category": "Ligament",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "common_causes": "Twisting/rolling ankle, uneven surface",
+      "first_aid": "RICE: Rest, Ice, Compression, Elevation",
+      "red_flags": "Unable to bear weight at all, visible deformity, severe swelling",
+      "recovery_time": "2-6 weeks",
+      "male_notes": "Higher incidence in sports. More likely inversion injuries",
+      "female_notes": "Higher ankle sprain rate in women athletes. Hormonal factors (ligament laxity) in luteal phase",
+      "when_to_see_doctor": "Cannot bear weight, severe swelling, or no improvement in a few days"
+    },
+    {
+      "name": "Sprain (Wrist)",
+      "body_part": "Wrist",
+      "category": "Ligament",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "common_causes": "Fall onto outstretched hand, twisting",
+      "first_aid": "RICE, avoid gripping/lifting with injured wrist",
+      "red_flags": "Visible deformity, severe pain, numbness in fingers",
+      "recovery_time": "2-4 weeks",
+      "male_notes": "Often from fall on outstretched hand in sports",
+      "female_notes": "Osteoporosis risk postmenopause increases severity. May be fall-related",
+      "when_to_see_doctor": "Deformity, severe swelling, or persistent pain"
+    },
+    {
+      "name": "Strain (Muscle pull - Hamstring)",
+      "body_part": "Thigh/Leg",
+      "category": "Muscle",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "common_causes": "Sudden sprinting, inadequate warm-up",
+      "first_aid": "RICE, gentle stretching once pain subsides",
+      "red_flags": "Sudden 'pop' sensation, inability to walk, large bruising",
+      "recovery_time": "2-8 weeks",
+      "male_notes": "Common sports injury. Higher muscle mass aids recovery",
+      "female_notes": "Increased risk mid-cycle due to ligament laxity. Pregnancy affects all muscle strains",
+      "when_to_see_doctor": "Severe pain, inability to walk, or large bruise/swelling"
+    },
+    {
+      "name": "Strain (Lower back)",
+      "body_part": "Lower back",
+      "category": "Muscle",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "common_causes": "Heavy lifting, sudden twist, poor posture",
+      "first_aid": "Rest briefly, ice/heat alternating, gentle movement as tolerated",
+      "red_flags": "Numbness/weakness in legs, loss of bladder/bowel control",
+      "recovery_time": "2-6 weeks",
+      "male_notes": "Often occupational/lifting. Disc herniation more common",
+      "female_notes": "Pregnancy causes significant strain. Postpartum recovery longer. Osteoporosis risk",
+      "when_to_see_doctor": "Radiating leg pain, numbness, or loss of bladder/bowel control"
+    },
+    {
+      "name": "Fracture (Simple/Closed)",
+      "body_part": "Bone (varies)",
+      "category": "Bone",
+      "severity": "Severe",
+      "severity_raw": "Severe",
+      "common_causes": "Fall, direct impact, sports injury",
+      "first_aid": "Immobilize area, apply cold pack, avoid moving the person unnecessarily",
+      "red_flags": "Visible deformity, bone through skin, severe swelling, numbness",
+      "recovery_time": "6-12 weeks",
+      "male_notes": "Higher incidence before age 50. Usually trauma-related",
+      "female_notes": "Osteoporosis risk increases significantly postmenopause. May occur with minimal trauma",
+      "when_to_see_doctor": "Suspected fracture always needs medical imaging/treatment"
+    },
+    {
+      "name": "Fracture (Compound/Open)",
+      "body_part": "Bone (varies)",
+      "category": "Bone",
+      "severity": "Emergency",
+      "severity_raw": "Emergency",
+      "common_causes": "High-impact trauma, severe fall, accident",
+      "first_aid": "Do not push bone back in; cover wound with clean cloth; keep still; call emergency services",
+      "red_flags": "Bone visible through skin, heavy bleeding, shock symptoms",
+      "recovery_time": "3+ months",
+      "male_notes": "Usually high-energy trauma (falls, accidents). Faster healing typical",
+      "female_notes": "Similar trauma mechanism. Postmenopausal women at higher risk of complications",
+      "when_to_see_doctor": "Always a medical emergency"
+    },
+    {
+      "name": "Dislocation (Shoulder)",
+      "body_part": "Shoulder",
+      "category": "Joint",
+      "severity": "Severe",
+      "severity_raw": "Severe",
+      "common_causes": "Fall on outstretched arm, sports collision",
+      "first_aid": "Immobilize in position found, do not attempt to relocate it yourself, ice pack",
+      "red_flags": "Visible deformity, numbness/tingling in arm, no pulse in limb",
+      "recovery_time": "4-12 weeks",
+      "male_notes": "Higher incidence in contact sports. Faster typical recovery",
+      "female_notes": "Genetic ligament laxity more common. Recurrent dislocations more likely. Slower recovery",
+      "when_to_see_doctor": "Always needs medical relocation and evaluation"
+    },
+    {
+      "name": "Dislocation (Finger)",
+      "body_part": "Finger",
+      "category": "Joint",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "common_causes": "Jammed finger, ball sports, fall",
+      "first_aid": "Immobilize, avoid trying to pop it back yourself, ice pack",
+      "red_flags": "Numbness, severe deformity, no blood flow to fingertip",
+      "recovery_time": "3-6 weeks",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Any suspected dislocation needs medical evaluation"
+    },
+    {
+      "name": "Concussion / Mild Head Injury",
+      "body_part": "Head",
+      "category": "Head injury",
+      "severity": "Severe",
+      "severity_raw": "Severe",
+      "common_causes": "Fall, sports collision, blow to head",
+      "first_aid": "Rest, monitor closely, cold pack on area (no swelling relief needed internally)",
+      "red_flags": "Repeated vomiting, worsening headache, confusion, unequal pupils, loss of consciousness",
+      "recovery_time": "1-4 weeks",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Any head injury with vomiting, confusion, or loss of consciousness — seek care immediately"
+    },
+    {
+      "name": "Whiplash",
+      "body_part": "Neck",
+      "category": "Soft tissue/Ligament",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "common_causes": "Car accident, sudden jolt to head/neck",
+      "first_aid": "Gentle movement as tolerated, ice/heat, OTC pain relief",
+      "red_flags": "Numbness/weakness in arms, severe neck pain, loss of bladder control",
+      "recovery_time": "2-6 weeks",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Severe pain, numbness, or symptoms worsening after a few days"
+    },
+    {
+      "name": "Burn (First-degree)",
+      "body_part": "Skin (surface)",
+      "category": "Burn",
+      "severity": "Mild",
+      "severity_raw": "Mild",
+      "common_causes": "Brief hot surface/liquid contact, sunburn",
+      "first_aid": "Cool running water 10-20 min, do not apply ice, loose dressing",
+      "red_flags": "Covers large area, or on face/hands/genitals",
+      "recovery_time": "3-6 days",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Large area, or on sensitive areas (face, hands, groin)"
+    },
+    {
+      "name": "Burn (Second-degree)",
+      "body_part": "Skin (deeper)",
+      "category": "Burn",
+      "severity": "Severe",
+      "severity_raw": "Severe",
+      "common_causes": "Hot liquid/surface contact, flame, chemical",
+      "first_aid": "Cool running water, do not pop blisters, cover loosely with sterile non-stick dressing",
+      "red_flags": "Blistering over large area, signs of infection, on face/joints",
+      "recovery_time": "2-3 weeks",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Blistering, large area, on face/hands/joints, or unclear how deep"
+    },
+    {
+      "name": "Burn (Third-degree)",
+      "body_part": "Skin (full thickness)",
+      "category": "Burn",
+      "severity": "Emergency",
+      "severity_raw": "Emergency",
+      "common_causes": "Prolonged flame/chemical/electrical contact",
+      "first_aid": "Call emergency services, cover loosely with clean cloth, do not remove stuck clothing",
+      "red_flags": "Charred/white skin, numbness at site, signs of shock",
+      "recovery_time": "Months, often needs surgery",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Always a medical emergency"
+    },
+    {
+      "name": "Frostbite",
+      "body_part": "Extremities",
+      "category": "Cold injury",
+      "severity": "Severe",
+      "severity_raw": "Severe",
+      "common_causes": "Prolonged cold exposure, inadequate clothing",
+      "first_aid": "Move to warmth, warm gradually with lukewarm (not hot) water, do not rub area",
+      "red_flags": "Skin white/waxy and hard, numbness, blistering",
+      "recovery_time": "Weeks, depends on severity",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Any suspected frostbite needs medical evaluation"
+    },
+    {
+      "name": "Chemical burn/exposure",
+      "body_part": "Skin/Eyes",
+      "category": "Burn",
+      "severity": "Emergency",
+      "severity_raw": "Emergency",
+      "common_causes": "Contact with corrosive chemical, splash injury",
+      "first_aid": "Rinse with large amounts of water for 15-20 min, remove contaminated clothing, call poison control/emergency",
+      "red_flags": "Severe pain, eye involvement, large area affected",
+      "recovery_time": "Varies widely",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Always seek immediate medical attention"
+    },
+    {
+      "name": "Eye injury (foreign object/scratch)",
+      "body_part": "Eye",
+      "category": "Eye injury",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "common_causes": "Dust/debris, scratch from fingernail or object",
+      "first_aid": "Do not rub; rinse gently with clean water; blink to encourage tearing",
+      "red_flags": "Object embedded, vision changes, severe pain, chemical involved",
+      "recovery_time": "1-7 days for minor scratches",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Object embedded, vision changes, or pain persists"
+    },
+    {
+      "name": "Nosebleed (Epistaxis)",
+      "body_part": "Nose",
+      "category": "Bleeding",
+      "severity": "Mild",
+      "severity_raw": "Mild",
+      "common_causes": "Dry air, nose picking, minor trauma",
+      "first_aid": "Sit forward, pinch soft part of nose for 10 minutes, breathe through mouth",
+      "red_flags": "Doesn't stop after 20 min, heavy bleeding, after significant head trauma",
+      "recovery_time": "Resolves same day",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Doesn't stop after 20 minutes or is heavy/recurrent"
+    },
+    {
+      "name": "Broken/Chipped tooth",
+      "body_part": "Mouth/Teeth",
+      "category": "Dental",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "common_causes": "Fall, impact, biting hard object",
+      "first_aid": "Rinse mouth with warm water, save any tooth fragment, cold compress for swelling",
+      "red_flags": "Severe pain, tooth knocked out completely, visible nerve",
+      "recovery_time": "Depends on dental treatment",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Any broken tooth should be seen by a dentist promptly"
+    },
+    {
+      "name": "Insect bite/sting",
+      "body_part": "Skin",
+      "category": "Bite/Sting",
+      "severity": "Mild",
+      "severity_raw": "Mild",
+      "common_causes": "Mosquito, bee, wasp, ant",
+      "first_aid": "Remove stinger if present, cold compress, antihistamine/anti-itch cream",
+      "red_flags": "Facial/throat swelling, difficulty breathing, widespread hives (anaphylaxis)",
+      "recovery_time": "A few days",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Signs of allergic reaction or infection at site"
+    },
+    {
+      "name": "Animal bite",
+      "body_part": "Skin/Soft tissue",
+      "category": "Bite/Wound",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "common_causes": "Dog/cat/wild animal bite or scratch",
+      "first_aid": "Clean wound thoroughly with soap and water, apply pressure if bleeding, cover",
+      "red_flags": "Deep wound, bite from unknown/wild animal, signs of infection",
+      "recovery_time": "1-2 weeks",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Always seek care for possible rabies risk and infection/tetanus"
+    },
+    {
+      "name": "Electric shock",
+      "body_part": "Whole body",
+      "category": "Electrical injury",
+      "severity": "Emergency",
+      "severity_raw": "Emergency",
+      "common_causes": "Contact with live wire, faulty appliance",
+      "first_aid": "Turn off power source before touching person; call emergency services; check breathing",
+      "red_flags": "Loss of consciousness, burns, irregular heartbeat, difficulty breathing",
+      "recovery_time": "Varies widely",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Always a medical emergency, even if person seems fine"
+    },
+    {
+      "name": "Blister",
+      "body_part": "Skin",
+      "category": "Skin injury",
+      "severity": "Mild",
+      "severity_raw": "Mild",
+      "common_causes": "Friction from shoes/tools, burns",
+      "first_aid": "Leave intact if possible, cover with padded bandage, avoid popping",
+      "red_flags": "Signs of infection (pus, spreading redness, warmth)",
+      "recovery_time": "3-7 days",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Signs of infection or blister is very large/painful"
+    },
+    {
+      "name": "Torn ligament (e.g., ACL)",
+      "body_part": "Knee",
+      "category": "Ligament",
+      "severity": "Severe",
+      "severity_raw": "Severe",
+      "common_causes": "Sudden twist/pivot in sports, direct blow to knee",
+      "first_aid": "RICE, avoid weight-bearing, immobilize if possible",
+      "red_flags": "Pop sound at injury, immediate severe swelling, knee gives way",
+      "recovery_time": "6-12 months (often with surgery)",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Always needs medical/orthopedic evaluation"
+    },
+    {
+      "name": "Rotator cuff injury",
+      "body_part": "Shoulder",
+      "category": "Tendon/Muscle",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "common_causes": "Repetitive overhead motion, fall, heavy lifting",
+      "first_aid": "Rest, ice, avoid overhead activity, gentle range-of-motion as tolerated",
+      "red_flags": "Sudden severe weakness or inability to lift arm at all",
+      "recovery_time": "6-12 weeks (longer if severe)",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Persistent weakness, pain at night, or limited range of motion"
+    },
+    {
+      "name": "Tendonitis (overuse)",
+      "body_part": "Tendon (varies)",
+      "category": "Overuse injury",
+      "severity": "Mild",
+      "severity_raw": "Mild",
+      "common_causes": "Repetitive motion, overtraining, poor technique",
+      "first_aid": "Rest the area, ice, gradual return to activity, gentle stretching",
+      "red_flags": "Sudden inability to move joint, severe swelling",
+      "recovery_time": "2-6 weeks",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Persistent pain despite rest, or worsening symptoms"
+    },
+    {
+      "name": "Shin splints",
+      "body_part": "Lower leg",
+      "category": "Overuse injury",
+      "severity": "Mild",
+      "severity_raw": "Mild",
+      "common_causes": "Running on hard surfaces, sudden increase in activity",
+      "first_aid": "Rest, ice, supportive footwear, gradual return to activity",
+      "red_flags": "Severe localized pain that could indicate stress fracture",
+      "recovery_time": "2-4 weeks",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Pain persists despite rest or worsens with walking"
+    },
+    {
+      "name": "Heat exhaustion/heat stroke",
+      "body_part": "Whole body",
+      "category": "Environmental",
+      "severity": "Severe",
+      "severity_raw": "Severe",
+      "common_causes": "Prolonged heat exposure, dehydration, overexertion in heat",
+      "first_aid": "Move to cool area, remove excess clothing, cool with water/fanning, rehydrate",
+      "red_flags": "Confusion, very high body temp, hot dry skin, loss of consciousness (heat stroke)",
+      "recovery_time": "Hours to a day for exhaustion",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Heat stroke signs (confusion, no sweating, very high temp) is an emergency"
+    },
+    {
+      "name": "Hypothermia",
+      "body_part": "Whole body",
+      "category": "Environmental",
+      "severity": "Severe",
+      "severity_raw": "Severe",
+      "common_causes": "Prolonged cold exposure, wet clothing, cold water immersion",
+      "first_aid": "Move to warmth, remove wet clothing, warm gradually with blankets",
+      "red_flags": "Confusion, slurred speech, slow breathing, loss of consciousness",
+      "recovery_time": "Hours to days depending on severity",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Moderate-severe hypothermia is a medical emergency"
+    },
+    {
+      "name": "Choking",
+      "body_part": "Airway",
+      "category": "Airway obstruction",
+      "severity": "Emergency",
+      "severity_raw": "Emergency",
+      "common_causes": "Food/object blocking airway",
+      "first_aid": "Encourage coughing; if unable to breathe/speak, perform abdominal thrusts (Heimlich)",
+      "red_flags": "Unable to speak/breathe/cough, turning blue, loss of consciousness",
+      "recovery_time": "Resolves once airway cleared",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Always seek medical check after a choking episode"
+    },
+    {
+      "name": "Drowning/Near-drowning",
+      "body_part": "Whole body/Lungs",
+      "category": "Respiratory/Whole body",
+      "severity": "Emergency",
+      "severity_raw": "Emergency",
+      "common_causes": "Submersion in water, swimming accidents",
+      "first_aid": "Remove from water, call emergency services, begin CPR if not breathing",
+      "red_flags": "Any period of submersion with coughing, breathing difficulty, or altered consciousness",
+      "recovery_time": "Varies widely",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Always requires emergency medical evaluation, even if person seems recovered"
+    },
+    {
+      "name": "Spinal injury (suspected)",
+      "body_part": "Spine",
+      "category": "Bone/Nerve",
+      "severity": "Emergency",
+      "severity_raw": "Emergency",
+      "common_causes": "Fall from height, diving accident, high-impact collision",
+      "first_aid": "Do not move the person; keep head/neck still; call emergency services immediately",
+      "red_flags": "Numbness, paralysis, loss of bladder/bowel control, neck/back pain after trauma",
+      "recovery_time": "Varies widely, long-term care often needed",
+      "male_notes": "",
+      "female_notes": "",
+      "when_to_see_doctor": "Always a medical emergency — do not move the person"
+    },
+    {
+      "name": "Burns (Thermal)",
+      "body_part": "Skin",
+      "category": "Burn",
+      "severity": "Severe",
+      "severity_raw": "Mild to Severe",
+      "common_causes": "Contact with hot surfaces, steam, boiling water, flames",
+      "first_aid": "Cool with running water for 15-20 mins, remove tight items, cover loosely",
+      "red_flags": "Large area affected, blistering, loss of skin, difficulty breathing",
+      "recovery_time": "1-3 weeks for minor burns; severe burns require hospitalization",
+      "male_notes": "Higher incidence (occupational, recreational). Similar treatment",
+      "female_notes": "Pregnancy affects pain management options. Healing may be delayed",
+      "when_to_see_doctor": "Burns >2-3 inches, deep, or on face/hands/genitals need medical attention"
+    },
+    {
+      "name": "Head injury",
+      "body_part": "Head/Brain",
+      "category": "Neurological",
+      "severity": "Severe",
+      "severity_raw": "Moderate to Severe",
+      "common_causes": "Falls, motor vehicle accidents, assaults, sports injuries",
+      "first_aid": "Call 911 for loss of consciousness, monitor breathing, keep person still",
+      "red_flags": "Loss of consciousness, vomiting, clear fluid from ears/nose, confusion",
+      "recovery_time": "2 weeks to months depending on severity; concussion needs medical evaluation",
+      "male_notes": "Higher incidence. May underreport symptoms. Sports-related more common",
+      "female_notes": "Pregnancy complicates imaging/treatment options. Postpartum mood changes post-concussion",
+      "when_to_see_doctor": "ANY significant head trauma requires emergency evaluation"
+    },
+    {
+      "name": "Ankle sprain (Grade II-III)",
+      "body_part": "Ankle",
+      "category": "Bone",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "common_causes": "Rolling ankle during sports/walking, stepping off curb, ligament tear",
+      "first_aid": "Rest, ice (20 mins), compression wrapping, elevation, immobilization",
+      "red_flags": "Severe swelling, inability to bear any weight, visible deformity",
+      "recovery_time": "2-6 weeks for Grade II; 6-12 weeks for Grade III; may need PT",
+      "male_notes": "Higher incidence in male athletes. Faster return-to-play typical",
+      "female_notes": "Hormonal cycle increases injury risk (lower ligament strength mid-cycle). Longer recovery",
+      "when_to_see_doctor": "Cannot bear weight, severe swelling, or no improvement in 48 hours"
+    },
+    {
+      "name": "Laceration",
+      "body_part": "Multiple",
+      "category": "Bite/Wound",
+      "severity": "Moderate",
+      "severity_raw": "Mild to Moderate",
+      "common_causes": "Cuts from sharp objects, falls, accidents",
+      "first_aid": "Stop bleeding with pressure, wash with soap/water, apply antibiotic ointment",
+      "red_flags": "Uncontrolled bleeding, gaping wound, deep penetration",
+      "recovery_time": "7-10 days for simple cuts; larger lacerations may need stitches",
+      "male_notes": "Occupational/trauma related. Wound closure easier typically",
+      "female_notes": "Pregnancy affects anesthesia options. Scarring may be cosmetic concern",
+      "when_to_see_doctor": "Deep lacerations, won't stop bleeding, or edges won't stay together"
+    },
+    {
+      "name": "Muscle strain (Grade I)",
+      "body_part": "Multiple",
+      "category": "Muscle/Soft tissue",
+      "severity": "Mild",
+      "severity_raw": "Mild",
+      "common_causes": "Overexertion, sudden movement, lack of warm-up",
+      "first_aid": "Rest, ice (15-20 mins), compression, elevation, NSAIDs for pain",
+      "red_flags": "Severe bruising, inability to move muscle, severe pain",
+      "recovery_time": "3-7 days for minor strains",
+      "male_notes": "Often occupational/overuse. Recovery 3-7 days typical",
+      "female_notes": "Hormonal effects on muscle recovery. Pregnancy increases strain risk significantly",
+      "when_to_see_doctor": "Severe pain, inability to function, or no improvement in 48 hours"
+    },
+    {
+      "name": "Severe bleeding",
+      "body_part": "Multiple",
+      "category": "Bleeding",
+      "severity": "Severe",
+      "severity_raw": "Severe",
+      "common_causes": "Deep wounds, arterial injury, significant trauma",
+      "first_aid": "Call 911, apply direct pressure with clean cloth, elevate if possible",
+      "red_flags": "Continuous heavy bleeding, blood spurting, dizziness, pale skin",
+      "recovery_time": "Varies; requires emergency medical intervention",
+      "male_notes": "Consider trauma, alcohol use. Higher baseline hemoglobin",
+      "female_notes": "Pregnancy complicates management. Menstrual bleeding disorders may predispose. Lower baseline Hgb",
+      "when_to_see_doctor": "ALWAYS call 911 for severe bleeding; medical emergency"
+    },
+    {
+      "name": "Heat exhaustion",
+      "body_part": "Whole body",
+      "category": "Environmental",
+      "severity": "Severe",
+      "severity_raw": "Moderate to Severe",
+      "common_causes": "Prolonged heat exposure, dehydration, intense exercise in heat",
+      "first_aid": "Move to cool area, remove excess clothing, apply cool water, drink fluids",
+      "red_flags": "No sweating despite heat, confusion, loss of consciousness, body temp >104°F",
+      "recovery_time": "2-24 hours after cooling and hydration; may need hospital care",
+      "male_notes": "Higher incidence in occupational settings. Sweat response more efficient",
+      "female_notes": "Hormonal cycle affects thermoregulation. Higher core temp in luteal phase. Pregnant women at higher risk",
+      "when_to_see_doctor": "Symptoms don't improve in 30 minutes or signs of heat stroke appear"
+    },
+    {
+      "name": "Concussion",
+      "body_part": "Head/Brain",
+      "category": "Neurological",
+      "severity": "Moderate",
+      "severity_raw": "Moderate",
+      "common_causes": "Head impact during sports, falls, accidents",
+      "first_aid": "Stop activity, observe for confusion/dizziness, seek medical evaluation",
+      "red_flags": "Loss of consciousness, severe headache, vomiting, slurred speech",
+      "recovery_time": "1-3 weeks with physical/cognitive rest; return-to-play protocol required",
+      "male_notes": "Higher incidence in contact sports. May return-to-play faster per old protocols",
+      "female_notes": "Longer recovery typical. Hormonal factors affect recovery. Postpartum mood effects",
+      "when_to_see_doctor": "Any suspected concussion needs medical evaluation; required before return to activity"
+    },
+    {
+      "name": "Allergic reaction (Severe)",
+      "body_part": "Multiple",
+      "category": "Airway/Emergency",
+      "severity": "Severe",
+      "severity_raw": "Severe",
+      "common_causes": "Peanuts, shellfish, medications, insect stings, latex",
+      "first_aid": "Call 911, administer epinephrine auto-injector if available, lay person flat",
+      "red_flags": "Difficulty breathing, throat swelling, hives, anaphylaxis signs",
+      "recovery_time": "Requires emergency hospital care; variable recovery",
+      "male_notes": "Similar presentation. Epinephrine dosing same weight-based",
+      "female_notes": "Pregnancy affects medication choices. Certain triggers more common (cosmetics, latex in medical settings)",
+      "when_to_see_doctor": "ALWAYS call 911 for severe allergic reactions; medical emergency"
+    }
+  ]
+}

@@ -1,0 +1,902 @@
+{
+  "Infection (viral/bacterial), inflammation, heat exhaustion, immune response": {
+    "hi": "संक्रमण (वायरल/बैक्टीरियल), सूजन, गर्मी से थकान, प्रतिरक्षा प्रतिक्रिया",
+    "hinglish": "Infection (viral/bacterial), soojan, garmi se thakaan, immune response"
+  },
+  "Rest, fluids, light clothing, paracetamol/acetaminophen per label": {
+    "hi": "आराम करें, तरल लें, हल्के कपड़े पहनें, पैरासिटामोल लेबल के अनुसार",
+    "hinglish": "Aaram karo, fluids lo, halka kapda, paracetamol label ke hisaab se"
+  },
+  "Temp above 103°F/39.4°C, stiff neck, confusion, difficulty breathing, seizure": {
+    "hi": "बुखार 103°F/39.4°C से ऊपर, गर्दन अकड़ना, भ्रम, साँस लेने में तकलीफ, दौरा",
+    "hinglish": "Temp 103°F/39.4°C se upar, stiff neck, confusion, saans ki takleef, seizure"
+  },
+  "Fever lasts >3 days, or in infants under 3 months with any fever": {
+    "hi": "बुखार 3 दिन से ज़्यादा रहे, या 3 महीने से छोटे शिशु में कोई भी बुखार",
+    "hinglish": "Bukhar 3 din se zyada rahe, ya 3 mahine se chhote shishu mein koi bhi bukhar"
+  },
+  "Common cold, flu, pneumonia, asthma, GERD, smoking, allergies": {
+    "hi": "सर्दी-ज़ुकाम, फ्लू, निमोनिया, अस्थमा, GERD, धूम्रपान, एलर्जी",
+    "hinglish": "Common cold, flu, pneumonia, asthma, GERD, smoking, allergies"
+  },
+  "Honey/warm fluids, humidifier, avoid irritants": {
+    "hi": "शहद/गुनगुना तरल, ह्यूमिडिफायर, उत्तेजक चीज़ों से बचें",
+    "hinglish": "Shahad/gunguna liquid, humidifier, irritants se bacho"
+  },
+  "Lasts >3 weeks, productive with discolored sputum, or with fever >101°F": {
+    "hi": "3 हफ़्ते से ज़्यादा, रंगीन बलगम, या बुखार 101°F से ऊपर",
+    "hinglish": "3 hafte se zyada, rangin balgam, ya bukhar 101°F se upar"
+  },
+  "Tension, dehydration, eye strain, migraine, sinus congestion": {
+    "hi": "तनाव, पानी की कमी, आँखों पर ज़ोर, माइग्रेन, साइनस जमाव",
+    "hinglish": "Tanaav, dehydration, aankhon par zor, migraine, sinus congestion"
+  },
+  "Rest in dark quiet room, hydration, OTC pain relief": {
+    "hi": "अँधेरे शांत कमरे में आराम, पानी, ज़रूरत पर दर्द निवारक (OTC)",
+    "hinglish": "Andhere shaant kamre mein rest, paani, zarurat par OTC pain relief"
+  },
+  "Sudden 'worst-ever' headache, headache with fever/stiff neck, or after head injury": {
+    "hi": "अचानक सबसे तेज़ सिरदर्द, बुखार/गर्दन अकड़न के साथ, या सिर की चोट के बाद",
+    "hinglish": "Achanak sabse tez sirdard, bukhar/stiff neck ke saath, ya sir ki chot ke baad"
+  },
+  "Viral infection, allergies, irritants, acid reflux": {
+    "hi": "वायरल संक्रमण, एलर्जी, उत्तेजक, एसिडिटी",
+    "hinglish": "Viral infection, allergies, irritants, acid reflux"
+  },
+  "Gargle with salt water, throat lozenges, warm tea with honey, rest voice": {
+    "hi": "नमक के पानी से गरारे, गले की गोली, शहद वाली चाय, आवाज़ आराम",
+    "hinglish": "Namak pani se garaare, throat lozenge, shahad wali chai, awaaz rest"
+  },
+  "Lasts >1 week, severe pain, fever >101°F, difficulty swallowing": {
+    "hi": "1 हफ़्ते से ज़्यादा, तेज़ दर्द, बुखार 101°F+, निगलने में तकलीफ",
+    "hinglish": "1 hafte se zyada, tez dard, bukhar 101°F+, nigalne mein takleef"
+  },
+  "Poor sleep, anemia, stress, thyroid issues, viral illness, overtraining": {
+    "hi": "कम नींद, एनीमिया, तनाव, थायरॉइड, वायरल बीमारी, ज़्यादा व्यायाम",
+    "hinglish": "Kam neend, anemia, stress, thyroid, viral illness, overtraining"
+  },
+  "Prioritize sleep, hydrate, balanced meals, moderate activity": {
+    "hi": "नींद प्राथमिकता, पानी, संतुलित भोजन, हल्की गतिविधि",
+    "hinglish": "Neend priority, paani, balanced khana, halki activity"
+  },
+  "Sudden extreme fatigue with chest pain or fainting": {
+    "hi": "अचानक बहुत थकान साथ सीने में दर्द या बेहोशी",
+    "hinglish": "Achanak bahut thakaan saath seene mein dard ya behoshi"
+  },
+  "Food poisoning, gastroenteritis, migraines, pregnancy, medication side-effect": {
+    "hi": "फूड पॉइज़निंग, गैस्ट्रो, माइग्रेन, गर्भावस्था, दवा का असर",
+    "hinglish": "Food poisoning, gastro, migraine, pregnancy, dawai ka asar"
+  },
+  "Small frequent meals, ginger, peppermint tea, avoid strong smells": {
+    "hi": "छोटे-छोटे भोजन, अदरक, पुदीना चाय, तेज़ गंध से बचें",
+    "hinglish": "Chhote meals, adrak, pudina chai, tez gandh se bacho"
+  },
+  "Lasts more than 24 hours or with dehydration signs": {
+    "hi": "24 घंटे से ज़्यादा या निर्जलीकरण के लक्षण",
+    "hinglish": "24 hours se zyada ya dehydration ke lakshan"
+  },
+  "Muscle strain, acid reflux, anxiety, heart-related causes": {
+    "hi": "मांसपेशी खिंचाव, एसिडिटी, चिंता, हृदय संबंधी कारण",
+    "hinglish": "Muscle strain, acidity, anxiety, heart-related causes"
+  },
+  "Rest and stop exertion; do not self-diagnose": {
+    "hi": "आराम करें, मेहनत बंद; खुद निदान न करें",
+    "hinglish": "Rest lo, mehnat band; khud diagnose mat karo"
+  },
+  "Any unexplained chest pain warrants prompt evaluation": {
+    "hi": "बिना वजह सीने का दर्द तुरंत जाँच के लायक है",
+    "hinglish": "Bina wajah seene ka dard turant jaanch ke layak hai"
+  },
+  "Pressure/tightness radiating to arm/jaw, sweating, breathlessness": {
+    "hi": "दबाव/जकड़न बाजू/जबड़े तक, पसीना, साँस फूलना",
+    "hinglish": "Dabav/jakdan baazu/jabde tak, paseena, saans phoolna"
+  },
+  "Overexertion, tension, minor strain, viral illness": {
+    "hi": "ज़्यादा मेहनत, तनाव, हल्का खिंचाव, वायरल बीमारी",
+    "hinglish": "Zyada mehnat, tanaav, halka strain, viral illness"
+  },
+  "Rest, gentle stretching, hydration, warm compress": {
+    "hi": "आराम, हल्की स्ट्रेचिंग, पानी, गर्म सेंक",
+    "hinglish": "Rest, halki stretching, paani, garm senk"
+  },
+  "Lasts >2 weeks, accompanied by fever, or significantly limits mobility": {
+    "hi": "2 हफ़्ते+, बुखार, या गति बहुत सीमित",
+    "hinglish": "2 hafte+, bukhar, ya gati bahut limited"
+  },
+  "Dehydration, low blood pressure, inner ear issues, low blood sugar": {
+    "hi": "पानी की कमी, लो बीपी, आंतरिक कान, लो शुगर",
+    "hinglish": "Dehydration, low BP, inner ear, low sugar"
+  },
+  "Sit/lie down, hydrate, avoid sudden movements": {
+    "hi": "बैठें/लेटें, पानी पिएँ, अचानक हलचल से बचें",
+    "hinglish": "Baitho/leto, paani piyo, achanak harkat se bacho"
+  },
+  "Dizziness with chest pain, slurred speech, or one-sided weakness": {
+    "hi": "चक्कर साथ सीने दर्द, slurred speech, या एक तरफ़ कमज़ोरी",
+    "hinglish": "Chakkar saath seene dard, slurred speech, ya ek taraf kamzori"
+  },
+  "Common cold, allergies, sinus infection": {
+    "hi": "सर्दी-ज़ुकाम, एलर्जी, साइनस संक्रमण",
+    "hinglish": "Common cold, allergies, sinus infection"
+  },
+  "Common cold, flu, allergies, sinusitis, nasal polyps": {
+    "hi": "सर्दी, फ्लू, एलर्जी, साइनसाइटिस, नेज़ल पॉलिप",
+    "hinglish": "Cold, flu, allergies, sinusitis, nasal polyps"
+  },
+  "Saline nasal drops, humidifier, steam inhalation, hydration": {
+    "hi": "सलाइन ड्रॉप्स, ह्यूमिडिफायर, भाप, पानी",
+    "hinglish": "Saline drops, humidifier, bhaap, paani"
+  },
+  "Persists beyond 10 days or with facial pain": {
+    "hi": "10 दिन से ज़्यादा या चेहरे में दर्द",
+    "hinglish": "10 din se zyada ya chehre mein dard"
+  },
+  "Thick discolored discharge with facial pain and fever": {
+    "hi": "गाढ़ा रंगीन स्राव, चेहरे दर्द और बुखार",
+    "hinglish": "Gadha rangin sraav, chehre dard aur bukhar"
+  },
+  "Strep throat, pharyngitis, viral infection, allergies, GERD": {
+    "hi": "स्ट्रेप थ्रोट, गले की सूजन, वायरल, एलर्जी, GERD",
+    "hinglish": "Strep throat, pharyngitis, viral, allergies, GERD"
+  },
+  "Hydration, honey, throat lozenges, humidifier, steam inhalation": {
+    "hi": "पानी, शहद, गले की गोली, ह्यूमिडिफायर, भाप",
+    "hinglish": "Paani, shahad, throat lozenge, humidifier, bhaap"
+  },
+  "Severe difficulty swallowing, drooling, breathing difficulty": {
+    "hi": "निगलने में बहुत तकलीफ, लार बहना, साँस की तकलीफ",
+    "hinglish": "Nigalne mein bahut takleef, laar bahna, saans ki takleef"
+  },
+  "Fever onset, cold exposure, infection": {
+    "hi": "बुखार शुरू, ठंड लगना, संक्रमण",
+    "hinglish": "Bukhar shuru, thand, infection"
+  },
+  "Warm layers, warm fluids, rest": {
+    "hi": "गर्म कपड़े परतदार, गुनगुना तरल, आराम",
+    "hinglish": "Garam kapde, gunguna liquid, rest"
+  },
+  "Chills with high fever and confusion": {
+    "hi": "तेज़ बुखार और भ्रम के साथ कंपकंपी",
+    "hinglish": "Tez bukhar aur confusion ke saath kampkampi"
+  },
+  "Recurrent chills with fever over 48 hours": {
+    "hi": "48 घंटे से ज़्यादा बुखार के साथ बार-बार ठंड",
+    "hinglish": "48 hours se zyada bukhar ke saath baar-baar thand"
+  },
+  "Gastritis, IBS, appendicitis, kidney stones, pancreatitis, hernia": {
+    "hi": "गैस्ट्राइटिस, IBS, अपेंडिसाइटिस, किडनी स्टोन, पैन्क्रियाटाइटिस, हर्निया",
+    "hinglish": "Gastritis, IBS, appendicitis, kidney stones, pancreatitis, hernia"
+  },
+  "Rest, heat pad, bland diet, hydration, avoid NSAIDs initially": {
+    "hi": "आराम, गर्म सेंक, हल्का भोजन, पानी, शुरुआत में NSAID से बचें",
+    "hinglish": "Rest, garm senk, halka khana, paani, shuruaat mein NSAID se bacho"
+  },
+  "Severe sharp pain, fever, vomiting blood, rigid abdomen": {
+    "hi": "तेज़ चुभता दर्द, बुखार, खून की उल्टी, सख्त पेट",
+    "hinglish": "Tez chubhta dard, bukhar, khoon ki ulti, sakht pet"
+  },
+  "Severe pain, lasts >24 hours, accompanied by fever/vomiting": {
+    "hi": "तेज़ दर्द 24 घंटे+, बुखार/उल्टी के साथ",
+    "hinglish": "Tez dard 24 hours+, bukhar/ulti ke saath"
+  },
+  "Asthma, anxiety, chest infection, exertion, heart issues": {
+    "hi": "अस्थमा, चिंता, सीने का संक्रमण, मेहनत, हृदय समस्या",
+    "hinglish": "Asthma, anxiety, chest infection, mehnat, heart issues"
+  },
+  "Sit upright, slow breathing, use prescribed inhaler if applicable": {
+    "hi": "सीधे बैठें, धीमी साँस, निर्धारित इनहेलर अगर हो",
+    "hinglish": "Seedhe baitho, dheemi saans, prescribed inhaler agar ho"
+  },
+  "Any unexplained or worsening breathlessness": {
+    "hi": "बिना वजह या बढ़ती साँस की तकलीफ",
+    "hinglish": "Bina wajah ya badhti saans ki takleef"
+  },
+  "Sudden severe breathlessness, blue lips, chest pain": {
+    "hi": "अचानक तेज़ साँस फूलना, होठ नीले, सीने दर्द",
+    "hinglish": "Achanak tez saans phoolna, hoth neele, seene dard"
+  },
+  "Infection, food intolerance, medication side effect, stress": {
+    "hi": "संक्रमण, भोजन असहिष्णुता, दवा असर, तनाव",
+    "hinglish": "Infection, food intolerance, dawai asar, stress"
+  },
+  "Oral rehydration fluids, bland diet (BRAT), rest": {
+    "hi": "ORS/तरल, हल्का भोजन (BRAT), आराम",
+    "hinglish": "ORS/fluids, halka khana (BRAT), rest"
+  },
+  "Blood in stool, high fever, signs of severe dehydration": {
+    "hi": "मल में खून, तेज़ बुखार, गंभीर निर्जलीकरण",
+    "hinglish": "Mal mein khoon, tez bukhar, severe dehydration"
+  },
+  "Lasts more than 2 days or with blood/fever": {
+    "hi": "2 दिन से ज़्यादा या खून/बुखार के साथ",
+    "hinglish": "2 din se zyada ya khoon/bukhar ke saath"
+  },
+  "Infection, food poisoning, motion sickness, migraine": {
+    "hi": "संक्रमण, फूड पॉइज़निंग, मोशन सिकनेस, माइग्रेन",
+    "hinglish": "Infection, food poisoning, motion sickness, migraine"
+  },
+  "Sip clear fluids, rest stomach, bland diet when able": {
+    "hi": "साफ़ तरल चुस्कियाँ, पेट आराम, जब हो हल्का भोजन",
+    "hinglish": "Saaf liquid chuskiyan, pet rest, jab ho halka khana"
+  },
+  "Blood in vomit, signs of dehydration, severe abdominal pain": {
+    "hi": "उल्टी में खून, निर्जलीकरण, तेज़ पेट दर्द",
+    "hinglish": "Ulti mein khoon, dehydration, tez pet dard"
+  },
+  "Injury, arthritis, infection, overuse": {
+    "hi": "चोट, गठिया, संक्रमण, ज़्यादा उपयोग",
+    "hinglish": "Chot, gathiya, infection, overuse"
+  },
+  "Rest, ice/heat therapy, compression, elevation, gentle stretching": {
+    "hi": "आराम, बर्फ/गर्मी, दबाव पट्टी, ऊँचा रखना, हल्की स्ट्रेचिंग",
+    "hinglish": "Rest, ice/heat, compression, elevation, halki stretching"
+  },
+  "Severe pain with swelling, weakness, or dark urine": {
+    "hi": "सूजन/कमज़ोरी/गहरा पेशाब के साथ तेज़ दर्द",
+    "hinglish": "Soojan/kamzori/dark urine ke saath tez dard"
+  },
+  "Muscle strain, herniated disc, poor posture, osteoarthritis, kidney stones": {
+    "hi": "मांसपेशी खिंचाव, डिस्क, गलत मुद्रा, ऑस्टियोआर्थराइटिस, किडनी स्टोन",
+    "hinglish": "Muscle strain, disc, poor posture, osteoarthritis, kidney stones"
+  },
+  "Rest, heat/ice therapy, proper posture, stretching, core strengthening": {
+    "hi": "आराम, गर्मी/बर्फ, सही मुद्रा, स्ट्रेचिंग, कोर मज़बूती",
+    "hinglish": "Rest, heat/ice, sahi posture, stretching, core strength"
+  },
+  "Severe pain, leg numbness/weakness, loss of bowel control": {
+    "hi": "तेज़ दर्द, पैर सुन्न/कमज़ोर, मल नियंत्रण खोना",
+    "hinglish": "Tez dard, pair sunn/kamzor, mal control khona"
+  },
+  "Lasts >2 weeks, significantly impacts daily functioning, or worsening": {
+    "hi": "2 हफ़्ते+, रोज़मर्रा बहुत प्रभावित, या बिगड़ता",
+    "hinglish": "2 hafte+, rozmarra bahut affected, ya bigadta"
+  },
+  "Triggers: stress, hormones, certain foods, sleep changes": {
+    "hi": "ट्रिगर: तनाव, हार्मोन, कुछ भोजन, नींद बदलाव",
+    "hinglish": "Triggers: stress, hormones, kuch khana, neend change"
+  },
+  "Dark quiet rest, hydration, known trigger avoidance": {
+    "hi": "अँधेरा शांत आराम, पानी, ज्ञात ट्रिगर से बचें",
+    "hinglish": "Andhera shaant rest, paani, known trigger se bacho"
+  },
+  "Sudden severe migraine unlike prior ones, with confusion or vision loss": {
+    "hi": "अचानक अलग/तेज़ माइग्रेन, भ्रम या नज़र जाना",
+    "hinglish": "Achanak alag/tez migraine, confusion ya nazar jana"
+  },
+  "Migraines increasing in frequency or severity": {
+    "hi": "माइग्रेन बार-बार या और तेज़",
+    "hinglish": "Migraine baar-baar ya aur tez"
+  },
+  "Stress, anxiety, depression, caffeine, sleep apnea, poor sleep hygiene": {
+    "hi": "तनाव, चिंता, डिप्रेशन, कैफ़ीन, स्लीप एपनिया, खराब नींद आदत",
+    "hinglish": "Stress, anxiety, depression, caffeine, sleep apnea, poor sleep hygiene"
+  },
+  "Regular sleep schedule, avoid screens before bed, relaxation techniques, exercise": {
+    "hi": "नियमित नींद समय, सोने से पहले स्क्रीन कम, रिलैक्सेशन, व्यायाम",
+    "hinglish": "Regular sleep schedule, screen kam before bed, relaxation, exercise"
+  },
+  "Persistent severe insomnia, suicidal ideation, manic episodes": {
+    "hi": "गंभीर अनिद्रा, आत्महत्या के विचार, मैनीक एपिसोड",
+    "hinglish": "Severe insomnia, suicidal thoughts, manic episodes"
+  },
+  "Chronic insomnia with mood changes or thoughts of self-harm": {
+    "hi": "पुरानी अनिद्रा + मूड बदलाव या खुद को नुकसान के विचार",
+    "hinglish": "Chronic insomnia + mood changes ya self-harm thoughts"
+  },
+  "Stress, life changes, underlying anxiety disorder": {
+    "hi": "तनाव, जीवन बदलाव, अंतर्निहित चिंता विकार",
+    "hinglish": "Stress, life changes, underlying anxiety"
+  },
+  "Breathing exercises, reduce stimulants, talk to someone trusted": {
+    "hi": "साँस की कसरत, उत्तेजक कम, भरोसेमंद से बात",
+    "hinglish": "Breathing exercises, stimulants kam, trusted se baat"
+  },
+  "Panic with chest pain/breathlessness, or thoughts of self-harm": {
+    "hi": "पैनिक + सीने दर्द/साँस, या खुद को नुकसान के विचार",
+    "hinglish": "Panic + seene dard/saans, ya self-harm thoughts"
+  },
+  "Interferes with daily life or persists": {
+    "hi": "रोज़मर्रा बिगाड़े या बना रहे",
+    "hinglish": "Rozmarra bigade ya bana rahe"
+  },
+  "Diet, food intolerance, swallowing air, digestive disorders": {
+    "hi": "आहार, भोजन असहिष्णुता, हवा निगलना, पाचन विकार",
+    "hinglish": "Diet, food intolerance, hawa nigalna, digestive disorders"
+  },
+  "Smaller meals, limit gas-producing foods, gentle walking": {
+    "hi": "छोटे भोजन, गैस वाले भोजन कम, हल्की सैर",
+    "hinglish": "Chhote meals, gas wale khane kam, halki sair"
+  },
+  "Bloating with severe pain or vomiting": {
+    "hi": "पेट फूलना + तेज़ दर्द या उल्टी",
+    "hinglish": "Pet phoolna + tez dard ya ulti"
+  },
+  "Persistent or worsening despite diet changes": {
+    "hi": "आहार बदलने पर भी बना/बिगड़ा",
+    "hinglish": "Diet change ke baad bhi bana/bigda"
+  },
+  "Spicy/fatty food, overeating, lying down after meals, GERD": {
+    "hi": "मसालेदार/तली चीज़, ज़्यादा खाना, खाने के बाद लेटना, GERD",
+    "hinglish": "Masaledar/tali, zyada khana, khane ke baad letna, GERD"
+  },
+  "Smaller meals, avoid trigger foods, don't lie down right after eating": {
+    "hi": "छोटे भोजन, ट्रिगर भोजन से बचें, खाने के तुरंत बाद न लेटें",
+    "hinglish": "Chhote meals, trigger foods se bacho, khane ke turant baad mat leto"
+  },
+  "Chest pain that could mimic heart issues, difficulty swallowing": {
+    "hi": "सीने दर्द जो दिल जैसी लगे, निगलने में तकलीफ",
+    "hinglish": "Seene dard dil jaisi, nigalne mein takleef"
+  },
+  "Asthma, allergies, respiratory infection": {
+    "hi": "अस्थमा, एलर्जी, श्वसन संक्रमण",
+    "hinglish": "Asthma, allergies, respiratory infection"
+  },
+  "Avoid triggers, use prescribed inhaler if applicable": {
+    "hi": "ट्रिगर से बचें, निर्धारित इनहेलर अगर हो",
+    "hinglish": "Triggers se bacho, prescribed inhaler agar ho"
+  },
+  "Wheezing with severe breathing difficulty or blue lips": {
+    "hi": "घरघराहट + तेज़ साँस तकलीफ या होठ नीले",
+    "hinglish": "Ghargharahat + tez saans takleef ya hoth neele"
+  },
+  "New or worsening wheeze, especially in children": {
+    "hi": "नई या बढ़ती घरघराहट, खासकर बच्चों में",
+    "hinglish": "Nayi ya badhti wheeze, khas kar bachchon mein"
+  },
+  "Bacterial/viral chest infection, bronchitis": {
+    "hi": "बैक्टीरियल/वायरल सीने संक्रमण, ब्रोंकाइटिस",
+    "hinglish": "Bacterial/viral chest infection, bronchitis"
+  },
+  "Fluids, rest, steam inhalation": {
+    "hi": "तरल, आराम, भाप लेना",
+    "hinglish": "Fluids, rest, bhaap lena"
+  },
+  "Bloody phlegm, severe shortness of breath, chest pain": {
+    "hi": "खूनी बलगम, तेज़ साँस फूलना, सीने दर्द",
+    "hinglish": "Khooni balgam, tez saans phoolna, seene dard"
+  },
+  "Green/bloody phlegm with high fever and breathlessness": {
+    "hi": "हरा/खूनी बलगम + तेज़ बुखार और साँस फूलना",
+    "hinglish": "Hara/khooni balgam + tez bukhar aur saans phoolna"
+  },
+  "Cough with blood, severe breathlessness, or chest pain": {
+    "hi": "खाँसी में खून, तेज़ साँस फूलना, या सीने दर्द",
+    "hinglish": "Khansi mein khoon, tez saans phoolna, ya seene dard"
+  },
+  "Allergies, dryness, infection (conjunctivitis), irritant exposure": {
+    "hi": "एलर्जी, सूखापन, संक्रमण (कंजक्टिवाइटिस), उत्तेजक",
+    "hinglish": "Allergies, dryness, infection (conjunctivitis), irritant"
+  },
+  "Cool compress, avoid rubbing, artificial tears": {
+    "hi": "ठंडा सेंक, रगड़ें नहीं, आर्टिफिशियल टियर्स",
+    "hinglish": "Thanda senk, mat ragdo, artificial tears"
+  },
+  "Severe pain, vision changes, or thick discharge": {
+    "hi": "तेज़ दर्द, नज़र बदलाव, या गाढ़ा स्राव",
+    "hinglish": "Tez dard, nazar badlav, ya gadha sraav"
+  },
+  "Persists beyond a few days or with pain/vision changes": {
+    "hi": "कुछ दिन से ज़्यादा या दर्द/नज़र बदलाव",
+    "hinglish": "Kuch din se zyada ya dard/nazar change"
+  },
+  "Dermatitis, eczema, fungal infection, viral infection, drug reaction, allergies": {
+    "hi": "डर्मेटाइटिस, एक्ज़िमा, फंगल, वायरल, दवा प्रतिक्रिया, एलर्जी",
+    "hinglish": "Dermatitis, eczema, fungal, viral, drug reaction, allergies"
+  },
+  "Moisturize, avoid irritants, cool compresses, oatmeal baths": {
+    "hi": "मॉइस्चराइज़, उत्तेजक से बचें, ठंडा सेंक, ओटमील बाथ",
+    "hinglish": "Moisturize, irritants se bacho, thanda senk, oatmeal bath"
+  },
+  "Spreading rapidly, severe blistering, fever, difficulty breathing": {
+    "hi": "तेज़ी से फैलना, गंभीर छाले, बुखार, साँस तकलीफ",
+    "hinglish": "Tezi se failna, severe chhale, bukhar, saans takleef"
+  },
+  "Spreads rapidly, severe itching, accompanied by fever or systemic symptoms": {
+    "hi": "तेज़ी से फैलना, तेज़ खुजली, बुखार या पूरे शरीर लक्षण",
+    "hinglish": "Tezi se failna, tez khujli, bukhar ya body-wide symptoms"
+  },
+  "Dry skin, allergic reaction, insect bite, irritant": {
+    "hi": "रूखी त्वचा, एलर्जी, कीड़े का काटना, उत्तेजक",
+    "hinglish": "Rookhi twacha, allergy, keede ka katna, irritant"
+  },
+  "Moisturize, avoid scratching, cool compress": {
+    "hi": "मॉइस्चराइज़, खुजाएँ नहीं, ठंडा सेंक",
+    "hinglish": "Moisturize, mat khujao, thanda senk"
+  },
+  "Itching with widespread hives and breathing difficulty": {
+    "hi": "खुजली + पूरे शरीर पित्ती + साँस तकलीफ",
+    "hinglish": "Khujli + body-wide hives + saans takleef"
+  },
+  "Persistent, widespread, or affecting sleep": {
+    "hi": "बनी रहे, फैली हो, या नींद बिगाड़े",
+    "hinglish": "Bani rahe, faili ho, ya neend bigade"
+  },
+  "Allergic reaction, stress, infection, food/medication trigger": {
+    "hi": "एलर्जी प्रतिक्रिया, तनाव, संक्रमण, भोजन/दवा ट्रिगर",
+    "hinglish": "Allergic reaction, stress, infection, food/dawai trigger"
+  },
+  "Antihistamine per label, avoid trigger, cool compress": {
+    "hi": "एंटीहिस्टामिन लेबल अनुसार, ट्रिगर से बचें, ठंडा सेंक",
+    "hinglish": "Antihistamine label ke hisaab se, trigger se bacho, thanda senk"
+  },
+  "Hives with facial/throat swelling or breathing difficulty (anaphylaxis)": {
+    "hi": "पित्ती + चेहरा/गला सूजन या साँस तकलीफ (एनाफिलेक्सिस)",
+    "hinglish": "Hives + chehra/gala soojan ya saans takleef (anaphylaxis)"
+  },
+  "Widespread, recurring, or with swelling of face/throat": {
+    "hi": "फैली, दोबारा, या चेहरा/गला सूजन",
+    "hinglish": "Faili, dobara, ya chehra/gala soojan"
+  },
+  "Weather, dehydration, harsh soap, skin conditions": {
+    "hi": "मौसम, पानी कमी, कठोर साबुन, त्वचा रोग",
+    "hinglish": "Mausam, dehydration, hard soap, skin conditions"
+  },
+  "Moisturize regularly, lukewarm showers, hydrate": {
+    "hi": "नियमित मॉइस्चराइज़, गुनगुना शावर, पानी",
+    "hinglish": "Regular moisturize, gunguna shower, paani"
+  },
+  "Cracking with signs of infection (redness, pus)": {
+    "hi": "दरार + संक्रमण संकेत (लालिमा, मवाद)",
+    "hinglish": "Darar + infection signs (redness, pus)"
+  },
+  "Persistent cracking or signs of infection": {
+    "hi": "दरार बनी रहे या संक्रमण संकेत",
+    "hinglish": "Darar bani rahe ya infection signs"
+  },
+  "Ear infection, fluid buildup, wax blockage, air pressure changes": {
+    "hi": "कान संक्रमण, तरल जमाव, मोम जाम, दबाव बदलाव",
+    "hinglish": "Kaan infection, fluid jamav, wax block, pressure change"
+  },
+  "Warm compress, avoid inserting objects in ear": {
+    "hi": "गर्म सेंक, कान में कुछ न डालें",
+    "hinglish": "Garm senk, kaan mein kuch mat dalo"
+  },
+  "Severe pain with high fever, swelling behind ear, or fluid discharge": {
+    "hi": "तेज़ दर्द + तेज़ बुखार, कान पीछे सूजन, या स्राव",
+    "hinglish": "Tez dard + tez bukhar, kaan peeche soojan, ya sraav"
+  },
+  "Pain persists over 2 days or with fever/discharge": {
+    "hi": "2 दिन से ज़्यादा दर्द या बुखार/स्राव",
+    "hinglish": "2 din se zyada dard ya bukhar/sraav"
+  },
+  "Wax buildup, infection, loud noise exposure, aging": {
+    "hi": "मोम जमाव, संक्रमण, तेज़ आवाज़, उम्र",
+    "hinglish": "Wax jamav, infection, tez awaaz, umr"
+  },
+  "Avoid loud noise, do not use cotton swabs deep in ear": {
+    "hi": "तेज़ शोर से बचें, कान में रुई की सलाई गहराई तक न डालें",
+    "hinglish": "Tez shor se bacho, kaan mein cotton swab deep mat dalo"
+  },
+  "Sudden hearing loss in one or both ears": {
+    "hi": "एक या दोनों कान में अचानक सुनना कम",
+    "hinglish": "Ek ya dono kaan mein achanak sunna kam"
+  },
+  "Sudden or unexplained hearing loss": {
+    "hi": "अचानक या बिना वजह सुनने में कमी",
+    "hinglish": "Achanak ya bina wajah sunne mein kami"
+  },
+  "Urinary tract infection, irritation, dehydration": {
+    "hi": "मूत्र मार्ग संक्रमण, जलन, पानी कमी",
+    "hinglish": "UTI, jalan, dehydration"
+  },
+  "Increase water intake, avoid irritants (caffeine/alcohol)": {
+    "hi": "पानी बढ़ाएँ, कैफ़ीन/शराब से बचें",
+    "hinglish": "Paani badhao, caffeine/sharab se bacho"
+  },
+  "Pain with fever, back pain, or blood in urine": {
+    "hi": "दर्द + बुखार, कमर दर्द, या पेशाब में खून",
+    "hinglish": "Dard + bukhar, kamar dard, ya peshab mein khoon"
+  },
+  "Persists beyond a day or with fever": {
+    "hi": "एक दिन से ज़्यादा या बुखार के साथ",
+    "hinglish": "Ek din se zyada ya bukhar ke saath"
+  },
+  "UTI, kidney stones, strenuous exercise, more serious causes": {
+    "hi": "UTI, किडनी स्टोन, कड़ी कसरत, गंभीर कारण",
+    "hinglish": "UTI, kidney stones, heavy exercise, serious causes"
+  },
+  "Note color/amount, avoid straining": {
+    "hi": "रंग/मात्रा नोट करें, ज़ोर लगाने से बचें",
+    "hinglish": "Rang/matra note karo, zor lagane se bacho"
+  },
+  "Blood in urine with severe pain or inability to urinate": {
+    "hi": "पेशाब में खून + तेज़ दर्द या पेशाब न आना",
+    "hinglish": "Peshab mein khoon + tez dard ya peshab na aana"
+  },
+  "Any occurrence should be medically evaluated": {
+    "hi": "हर बार मेडिकल जाँच ज़रूरी",
+    "hinglish": "Har baar medical jaanch zaroori"
+  },
+  "Excess fluid intake, UTI, diabetes, bladder irritation": {
+    "hi": "ज़्यादा तरल, UTI, डायबिटीज़, ब्लैडर जलन",
+    "hinglish": "Zyada liquid, UTI, diabetes, bladder irritation"
+  },
+  "Monitor fluid intake, avoid bladder irritants": {
+    "hi": "तरल सेवन देखें, ब्लैडर उत्तेजक से बचें",
+    "hinglish": "Liquid intake dekho, bladder irritants se bacho"
+  },
+  "Frequent urination with excessive thirst and fatigue (possible diabetes signs)": {
+    "hi": "बार-बार पेशाब + बहुत प्यास + थकान (डायबिटीज़ संकेत संभव)",
+    "hinglish": "Baar-baar peshab + bahut pyaas + thakaan (diabetes signs possible)"
+  },
+  "Occurs regularly for more than a week": {
+    "hi": "एक हफ़्ते से नियमित",
+    "hinglish": "Ek hafte se regular"
+  },
+  "Hemorrhoids, GI infection, ulcers, more serious GI conditions": {
+    "hi": "बवासीर, आंत संक्रमण, अल्सर, गंभीर GI",
+    "hinglish": "Bawasir, GI infection, ulcer, serious GI"
+  },
+  "Note frequency/amount, stay hydrated": {
+    "hi": "आवृत्ति/मात्रा नोट, हाइड्रेटेड रहें",
+    "hinglish": "Frequency/amount note, hydrated raho"
+  },
+  "Large amounts of blood, black tarry stool, dizziness/fainting": {
+    "hi": "ज़्यादा खून, काला चिपचिपा मल, चक्कर/बेहोशी",
+    "hinglish": "Zyada khoon, kala chipchipa mal, chakkar/behoshi"
+  },
+  "Caffeine, stress, dehydration, anxiety, heart rhythm issues": {
+    "hi": "कैफ़ीन, तनाव, पानी कमी, चिंता, हृदय लय समस्या",
+    "hinglish": "Caffeine, stress, dehydration, anxiety, heart rhythm"
+  },
+  "Reduce caffeine/stimulants, relax, hydrate": {
+    "hi": "कैफ़ीन/उत्तेजक कम, आराम, पानी",
+    "hinglish": "Caffeine/stimulants kam, relax, paani"
+  },
+  "Palpitations with fainting, chest pain, or breathlessness": {
+    "hi": "धड़कन + बेहोशी, सीने दर्द, या साँस फूलना",
+    "hinglish": "Dhadkan + behoshi, seene dard, ya saans phoolna"
+  },
+  "Frequent, prolonged, or with fainting/chest pain": {
+    "hi": "बार-बार, लंबी, या बेहोशी/सीने दर्द",
+    "hinglish": "Baar-baar, lambi, ya behoshi/seene dard"
+  },
+  "Arthritis, gout, injury, overuse, lupus, Lyme disease": {
+    "hi": "गठिया, गाउट, चोट, ज़्यादा उपयोग, लूपस, लाइम",
+    "hinglish": "Gathiya, gout, chot, overuse, lupus, Lyme"
+  },
+  "Rest, ice, elevation, compression": {
+    "hi": "आराम, बर्फ, ऊँचा, दबाव पट्टी",
+    "hinglish": "Rest, ice, elevation, compression"
+  },
+  "Severe swelling, warmth, fever, sudden onset inability to move": {
+    "hi": "तेज़ सूजन, गर्माहट, बुखार, अचानक हिल न पाना",
+    "hinglish": "Tez soojan, garmahat, bukhar, achanak hil na pana"
+  },
+  "Persistent swelling or with fever": {
+    "hi": "सूजन बनी रहे या बुखार के साथ",
+    "hinglish": "Soojan bani rahe ya bukhar ke saath"
+  },
+  "Prolonged standing/sitting, poor circulation, heart/kidney issues": {
+    "hi": "देर तक खड़े/बैठे, खराब सर्कुलेशन, हृदय/किडनी",
+    "hinglish": "Der tak khade/baithe, poor circulation, heart/kidney"
+  },
+  "Elevate legs, reduce salt intake, move regularly": {
+    "hi": "पैर ऊँचे, नमक कम, नियमित हलचल",
+    "hinglish": "Pair oonche, namak kam, regular harkat"
+  },
+  "Sudden one-leg swelling with pain/warmth (possible clot), or breathlessness": {
+    "hi": "एक पैर अचानक सूजन + दर्द/गर्मी (क्लॉट संभव), या साँस फूलना",
+    "hinglish": "Ek pair achanak soojan + dard/garmi (clot possible), ya saans phoolna"
+  },
+  "Nerve compression, poor circulation, vitamin deficiency": {
+    "hi": "नस दबाव, खराब सर्कुलेशन, विटामिन कमी",
+    "hinglish": "Nerve compression, poor circulation, vitamin kami"
+  },
+  "Change position, gentle stretching": {
+    "hi": "पोज़िशन बदलें, हल्की स्ट्रेचिंग",
+    "hinglish": "Position badlo, halki stretching"
+  },
+  "Sudden numbness on one side of body, face drooping, slurred speech": {
+    "hi": "शरीर एक तरफ़ सुन्न, चेहरा लटकना, slurred speech",
+    "hinglish": "Shareer ek taraf sunn, chehra latakna, slurred speech"
+  },
+  "Sudden one-sided weakness, facial drooping, slurred speech": {
+    "hi": "एक तरफ़ कमज़ोरी, चेहरा लटकना, slurred speech",
+    "hinglish": "Ek taraf kamzori, chehra latakna, slurred speech"
+  },
+  "Persistent, spreading, or affecting one side suddenly": {
+    "hi": "बना रहे, फैले, या अचानक एक तरफ़",
+    "hinglish": "Bana rahe, faile, ya achanak ek taraf"
+  },
+  "Eye strain, dry eyes, refractive error, migraine": {
+    "hi": "आँख थकान, सूखी आँख, नंबर, माइग्रेन",
+    "hinglish": "Aankh thakaan, sookhi aankh, number, migraine"
+  },
+  "Rest eyes, reduce screen time, adequate lighting": {
+    "hi": "आँख आराम, स्क्रीन कम, अच्छी रोशनी",
+    "hinglish": "Aankh rest, screen kam, acchi roshni"
+  },
+  "Sudden vision loss/change, especially one-sided": {
+    "hi": "अचानक नज़र जाना/बदलाव, खासकर एक तरफ़",
+    "hinglish": "Achanak nazar jana/badlav, khas kar ek taraf"
+  },
+  "With severe eye pain or sudden vision change": {
+    "hi": "तेज़ आँख दर्द या अचानक नज़र बदलाव",
+    "hinglish": "Tez aankh dard ya achanak nazar change"
+  },
+  "Migraine, eye infection, eye strain": {
+    "hi": "माइग्रेन, आँख संक्रमण, आँख थकान",
+    "hinglish": "Migraine, aankh infection, aankh thakaan"
+  },
+  "Dim lighting, sunglasses outdoors, rest eyes": {
+    "hi": "धीमी रोशनी, बाहर धूप के चश्मे, आँख आराम",
+    "hinglish": "Dheemi roshni, bahar sunglasses, aankh rest"
+  },
+  "With fever/headache, or lasts beyond a week": {
+    "hi": "बुखार/सिरदर्द के साथ, या एक हफ़्ते से ज़्यादा",
+    "hinglish": "Bukhar/sirdard ke saath, ya ek hafte se zyada"
+  },
+  "Epilepsy, high fever (children), head injury, low blood sugar": {
+    "hi": "मिर्गी, तेज़ बुखार (बच्चे), सिर चोट, लो शुगर",
+    "hinglish": "Mirgi, tez bukhar (bachche), sir chot, low sugar"
+  },
+  "Move away from hazards, do not restrain, time the episode": {
+    "hi": "खतरे से दूर, न पकड़ें, समय नोट करें",
+    "hinglish": "Khatre se door, mat pakdo, time note karo"
+  },
+  "Any first-time seizure, seizure lasting over 5 minutes, or repeated seizures": {
+    "hi": "पहली बार दौरा, 5 मिनट+, या बार-बार दौरे",
+    "hinglish": "Pehli baar daura, 5 min+, ya baar-baar daure"
+  },
+  "Always requires medical evaluation": {
+    "hi": "हमेशा मेडिकल जाँच ज़रूरी",
+    "hinglish": "Hamesha medical jaanch zaroori"
+  },
+  "Stress, hormonal changes, weight changes, underlying conditions": {
+    "hi": "तनाव, हार्मोन, वजन बदलाव, अन्य स्थितियाँ",
+    "hinglish": "Stress, hormones, wajan badlav, anya conditions"
+  },
+  "Track cycle, manage stress, balanced diet": {
+    "hi": "साइकल ट्रैक, तनाव प्रबंधन, संतुलित आहार",
+    "hinglish": "Cycle track, stress manage, balanced diet"
+  },
+  "Severe pain, very heavy bleeding, or bleeding after menopause": {
+    "hi": "तेज़ दर्द, बहुत ज़्यादा रक्तस्राव, या मेनोपॉज़ बाद रक्तस्राव",
+    "hinglish": "Tez dard, bahut zyada bleeding, ya menopause baad bleeding"
+  },
+  "Persistent irregularity or very heavy/painful periods": {
+    "hi": "लगातार अनियमित या बहुत भारी/दर्दनाक पीरियड्स",
+    "hinglish": "Lagatar aniyamit ya bahut heavy/dardnak periods"
+  },
+  "Metabolic changes, chronic illness, stress, thyroid issues": {
+    "hi": "मेटाबॉलिक बदलाव, पुरानी बीमारी, तनाव, थायरॉइड",
+    "hinglish": "Metabolic badlav, chronic illness, stress, thyroid"
+  },
+  "Track diet and weight; ensure adequate calorie intake": {
+    "hi": "आहार/वजन ट्रैक; पर्याप्त कैलोरी सुनिश्चित",
+    "hinglish": "Diet/wajan track; kaafi calorie lo"
+  },
+  "Loss of more than 5% body weight in 6-12 months": {
+    "hi": "6-12 महीने में 5%+ वजन घटना",
+    "hinglish": "6-12 mahine mein 5%+ wajan kam"
+  },
+  "Weight loss with persistent pain, blood in stool, or severe fatigue": {
+    "hi": "वजन घटना + लगातार दर्द, मल में खून, या तेज़ थकान",
+    "hinglish": "Wajan kam + lagatar dard, mal mein khoon, ya tez thakaan"
+  },
+  "Illness, stress, medication, digestive upset": {
+    "hi": "बीमारी, तनाव, दवा, पाचन गड़बड़",
+    "hinglish": "Bimari, stress, dawai, pachan gadbad"
+  },
+  "Small frequent meals, stay hydrated": {
+    "hi": "छोटे-बार भोजन, हाइड्रेटेड रहें",
+    "hinglish": "Chhote-baar meals, hydrated raho"
+  },
+  "Lasts more than a week or causes noticeable weight loss": {
+    "hi": "एक हफ़्ते+ या साफ़ वजन घटना",
+    "hinglish": "Ek hafte+ ya saaf wajan kam"
+  },
+  "Lasts more than a week or with severe pain": {
+    "hi": "एक हफ़्ते+ या तेज़ दर्द",
+    "hinglish": "Ek hafte+ ya tez dard"
+  },
+  "Viral infection, sinus congestion, nasal polyps": {
+    "hi": "वायरल संक्रमण, साइनस जमाव, नेज़ल पॉलिप",
+    "hinglish": "Viral infection, sinus jamav, nasal polyps"
+  },
+  "Saline rinse, fluids, rest": {
+    "hi": "सलाइन कुल्ला, तरल, आराम",
+    "hinglish": "Saline rinse, fluids, rest"
+  },
+  "Lasts more than 3 weeks": {
+    "hi": "3 हफ़्ते से ज़्यादा",
+    "hinglish": "3 hafte se zyada"
+  },
+  "Sudden loss with no other symptoms lasting weeks": {
+    "hi": "हफ़्तों तक बिना अन्य लक्षण अचानक कमी",
+    "hinglish": "Hafto tak bina anya lakshan achanak kami"
+  },
+  "Fatigue, dehydration, stress, medication side effects, aging": {
+    "hi": "थकान, पानी कमी, तनाव, दवा असर, उम्र",
+    "hinglish": "Thakaan, dehydration, stress, dawai asar, umr"
+  },
+  "Rest, hydration, reduce distractions": {
+    "hi": "आराम, पानी, ध्यान भटकाने वाली चीज़ें कम",
+    "hinglish": "Rest, paani, distractions kam"
+  },
+  "Sudden confusion, especially with fever, head injury, or slurred speech": {
+    "hi": "अचानक भ्रम, खासकर बुखार, सिर चोट, या slurred speech",
+    "hinglish": "Achanak bhram, khas kar bukhar, sir chot, ya slurred speech"
+  },
+  "Sudden onset or progressively worsening confusion": {
+    "hi": "अचानक या धीरे-धीरे बढ़ता भ्रम",
+    "hinglish": "Achanak ya dheere badhta bhram"
+  },
+  "Minor trauma, blood thinners, vitamin deficiency, clotting issues": {
+    "hi": "हल्की चोट, ब्लड थिनर, विटामिन कमी, क्लॉटिंग समस्या",
+    "hinglish": "Halki chot, blood thinner, vitamin kami, clotting issue"
+  },
+  "Ice pack initially, elevate area, monitor": {
+    "hi": "शुरुआत में आइस पैक, हिस्सा ऊँचा, निगरानी",
+    "hinglish": "Shuruaat mein ice pack, hissa ooncha, monitor"
+  },
+  "Bruising with no clear cause, or with unusual bleeding elsewhere": {
+    "hi": "बिना वजह नील, या अन्य जगह असामान्य रक्तस्राव",
+    "hinglish": "Bina wajah neel, ya anya jagah unusual bleeding"
+  },
+  "Frequent unexplained bruising": {
+    "hi": "बार-बार बिना वजह नील",
+    "hinglish": "Baar-baar bina wajah neel"
+  },
+  "Infection, hormonal changes, medication side effect, anxiety": {
+    "hi": "संक्रमण, हार्मोन, दवा असर, चिंता",
+    "hinglish": "Infection, hormones, dawai asar, anxiety"
+  },
+  "Breathable bedding/clothing, track frequency": {
+    "hi": "साँस लेने लायक बिस्तर/कपड़े, आवृत्ति नोट",
+    "hinglish": "Breathable bedding/kapde, frequency note"
+  },
+  "Drenching sweats with unexplained weight loss or fever": {
+    "hi": "भीगो देने वाला पसीना + बिना वजह वजन घटना या बुखार",
+    "hinglish": "Bheego dene wala paseena + bina wajah wajan kam ya bukhar"
+  },
+  "Frequent (2+ times/week) or worsening": {
+    "hi": "हफ़्ते में 2+ बार या बिगड़ता",
+    "hinglish": "Hafte mein 2+ baar ya bigadta"
+  },
+  "Stress, life events, underlying mood disorder": {
+    "hi": "तनाव, जीवन घटनाएँ, मूड विकार",
+    "hinglish": "Stress, life events, mood disorder"
+  },
+  "Stay connected with others, gentle routine, sunlight/activity": {
+    "hi": "लोगों से जुड़े रहें, हल्की दिनचर्या, धूप/गतिविधि",
+    "hinglish": "Logo se jude raho, halki routine, dhoop/activity"
+  },
+  "Thoughts of self-harm or hopelessness": {
+    "hi": "खुद को नुकसान या निराशा के विचार",
+    "hinglish": "Khud ko nuksan ya nirasha ke vichar"
+  },
+  "Low fiber diet, dehydration, inactivity, medication": {
+    "hi": "कम फाइबर, पानी कमी, निष्क्रियता, दवा",
+    "hinglish": "Kam fiber, dehydration, inactivity, dawai"
+  },
+  "Increase fiber and water intake, gentle activity": {
+    "hi": "फाइबर और पानी बढ़ाएँ, हल्की गतिविधि",
+    "hinglish": "Fiber aur paani badhao, halki activity"
+  },
+  "Severe pain, inability to pass gas/stool, vomiting": {
+    "hi": "तेज़ दर्द, गैस/मल न निकलना, उल्टी",
+    "hinglish": "Tez dard, gas/mal na nikalna, ulti"
+  },
+  "Poor posture, sleeping position, muscle strain": {
+    "hi": "गलत मुद्रा, सोने की पोज़, मांसपेशी खिंचाव",
+    "hinglish": "Galat posture, sone ki pose, muscle strain"
+  },
+  "Gentle stretching, warm compress, posture adjustment": {
+    "hi": "हल्की स्ट्रेचिंग, गर्म सेंक, मुद्रा सुधार",
+    "hinglish": "Halki stretching, garm senk, posture sudhar"
+  },
+  "Stiff neck with high fever and headache (possible meningitis)": {
+    "hi": "गर्दन अकड़ + तेज़ बुखार + सिरदर्द (मेनिन्जाइटिस संभव)",
+    "hinglish": "Gardan akad + tez bukhar + sirdard (meningitis possible)"
+  },
+  "Persists beyond a week or is severe": {
+    "hi": "एक हफ़्ते+ या गंभीर",
+    "hinglish": "Ek hafte+ ya serious"
+  },
+  "Overuse, dehydration, electrolyte imbalance, nerve issues": {
+    "hi": "ज़्यादा उपयोग, पानी/इलेक्ट्रोलाइट कमी, नस समस्या",
+    "hinglish": "Overuse, dehydration/electrolyte kami, nerve issue"
+  },
+  "Rest, hydrate, balanced electrolytes": {
+    "hi": "आराम, पानी, संतुलित इलेक्ट्रोलाइट",
+    "hinglish": "Rest, paani, balanced electrolyte"
+  },
+  "Persists beyond 2 weeks or interferes with daily life": {
+    "hi": "2 हफ़्ते+ या रोज़मर्रा बिगाड़े",
+    "hinglish": "2 hafte+ ya rozmarra bigade"
+  },
+  "Diet, stress, genetics, lack of activity": {
+    "hi": "आहार, तनाव, जेनेटिक्स, गतिविधि कमी",
+    "hinglish": "Diet, stress, genetics, activity kami"
+  },
+  "Reduce salt/stress, regular monitoring, activity": {
+    "hi": "नमक/तनाव कम, नियमित मॉनिटर, गतिविधि",
+    "hinglish": "Namak/stress kam, regular monitor, activity"
+  },
+  "Severe headache with vision changes, chest pain, or confusion": {
+    "hi": "तेज़ सिरदर्द + नज़र बदलाव, सीने दर्द, या भ्रम",
+    "hinglish": "Tez sirdard + nazar badlav, seene dard, ya bhram"
+  },
+  "Readings consistently above normal range": {
+    "hi": "रीडिंग लगातार सामान्य से ऊपर",
+    "hinglish": "Reading lagatar normal se upar"
+  },
+  "Rest, hydrate, and avoid strenuous activity today.": {
+    "hi": "आज आराम करें, पानी पिएँ, और भारी मेहनत से बचें।",
+    "hinglish": "Aaj rest lo, paani piyo, bhaari mehnat se bacho."
+  },
+  "If fever/pain medicine is needed, check dose with a pharmacist first.": {
+    "hi": "अगर बुखार/दर्द की दवा चाहिए, पहले फार्मासिस्ट से खुराक पूछ लें।",
+    "hinglish": "Agar bukhar/dard ki dawai chahiye, pehle pharmacist se dose pooch lo."
+  },
+  "Rest and drink plenty of water or warm fluids.": {
+    "hi": "आराम करें और खूब पानी या गुनगुना तरल पिएँ।",
+    "hinglish": "Rest lo aur khub paani ya gunguna liquid piyo."
+  },
+  "Eat light food and avoid heavy / oily meals for a day.": {
+    "hi": "हल्का खाना खाएँ, एक दिन भारी/तेल वाला भोजन से बचें।",
+    "hinglish": "Halka khana khao, ek din bhaari/oily khane se bacho."
+  },
+  "Track symptoms for 24–48 hours.": {
+    "hi": "24–48 घंटे लक्षण नोट करें।",
+    "hinglish": "24–48 hours symptoms note karo."
+  },
+  "See a doctor if it gets worse or new red-flag signs appear.": {
+    "hi": "बिगड़े या नए खतरे के संकेत हों तो डॉक्टर दिखाएँ।",
+    "hinglish": "Bigde ya naye red-flag dikhein to doctor dikhao."
+  },
+  "Basic home care: rest, fluids, and sleep.": {
+    "hi": "बुनियादी घरेलू देखभाल: आराम, तरल, नींद।",
+    "hinglish": "Basic ghar care: rest, fluids, neend."
+  },
+  "Ask a pharmacist before any OTC fever/pain reliever.": {
+    "hi": "कोई भी बुखार/दर्द की दवा लेने से पहले फार्मासिस्ट से पूछें।",
+    "hinglish": "Koi bhi bukhar/dard dawai se pehle pharmacist se poocho."
+  },
+  "Supportive home care.": {
+    "hi": "घरेलू सहायक देखभाल।",
+    "hinglish": "Ghar pe supportive care."
+  },
+  "See a doctor if symptoms persist or worsen.": {
+    "hi": "लक्षण बने रहें या बिगड़ें तो डॉक्टर दिखाएँ।",
+    "hinglish": "Symptoms rahein ya bigdein to doctor dikhao."
+  },
+  "See a doctor if unsure or worsening": {
+    "hi": "शक हो या बिगड़े तो डॉक्टर दिखाएँ",
+    "hinglish": "Shak ho ya bigde to doctor dikhao"
+  },
+  "Many everyday symptoms overlap with mild viral illness": {
+    "hi": "रोज़मर्रा के कई लक्षण हल्की वायरल बीमारी जैसे होते हैं",
+    "hinglish": "Kai aam symptoms halki viral illness jaisi lagti hain"
+  },
+  "Common when sleep or stress is off": {
+    "hi": "नींद या तनाव गड़बड़ हो तो आम",
+    "hinglish": "Neend ya stress kharab ho to common"
+  },
+  "Matches your selected symptoms": {
+    "hi": "आपके चुने लक्षणों से मेल खाता है",
+    "hinglish": "Aapke selected symptoms se match karta hai"
+  },
+  "Based on the symptoms you selected": {
+    "hi": "आपके चुने लक्षणों के आधार पर",
+    "hinglish": "Aapke selected symptoms ke base par"
+  },
+  "Severe abdominal pain, persistent vomiting, signs of dehydration": {
+    "hi": "तेज़ पेट दर्द, लगातार उल्टी, निर्जलीकरण के लक्षण",
+    "hinglish": "Tez pet dard, lagatar ulti, dehydration ke lakshan"
+  },
+  "unspecified location": {
+    "hi": "जगह बताई नहीं",
+    "hinglish": "location nahi batayi"
+  },
+  "Share this with a clinician if you visit one.": {
+    "hi": "डॉक्टर के पास जाएँ तो यह बताएँ।",
+    "hinglish": "Doctor ke paas jao to yeh batao."
+  },
+  " — share this with a clinician if you visit one.": {
+    "hi": " — डॉक्टर के पास जाएँ तो यह बताएँ।",
+    "hinglish": " — doctor ke paas jao to yeh batao."
+  }
+}
