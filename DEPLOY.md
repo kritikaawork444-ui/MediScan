@@ -21,7 +21,7 @@ git status                 # .env / .venv / node_modules NAHI hone chahiye
 git commit -m "Initial commit: MediScan AI Health Assistant"
 
 git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/MediScan.git
+git remote add origin https://github.com/aakibpatel1112-stack/Mediscan.git
 git push -u origin main
 ```
 
@@ -30,7 +30,7 @@ Login: browser / Personal Access Token (password ki jagah token).
 **SSH use karte ho to:**
 
 ```bash
-git remote add origin git@github.com:YOUR_USERNAME/MediScan.git
+git remote add origin git@github.com:aakibpatel1112-stack/Mediscan.git
 git push -u origin main
 ```
 
