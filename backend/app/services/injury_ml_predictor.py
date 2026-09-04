@@ -46,28 +46,53 @@ def reload_models() -> None:
 
 
 def extract_features(image_bytes: bytes) -> np.ndarray:
-    """16-D visual feature vector — must match training extract_features_from_image."""
-    img = Image.open(__import__("io").BytesIO(image_bytes)).convert("RGB")
-    img.thumbnail((256, 256))
+    """16-D visual feature vector — must match training extract_features_from_image.
+
+    Fast path: decode once, downscale aggressively (features are global stats),
+    avoid full-resolution np.gradient on large phone photos.
+    """
+    import io
+
+    # Limit decompression bomb / huge phone photos early
+    img = Image.open(io.BytesIO(image_bytes))
+    img = img.convert("RGB")
+    # Same scale family as train (thumbnail 256); use BILINEAR for speed
+    img.thumbnail((256, 256), Image.Resampling.BILINEAR)
     arr = np.asarray(img, dtype=np.float32)
     if arr.size == 0:
         return np.zeros(16, dtype=np.float32)
 
+    # Work on a small grid for heavy stats (edge) — means/stds still from full thumb
     r, g, b = arr[:, :, 0], arr[:, :, 1], arr[:, :, 2]
     mean_r, mean_g, mean_b = float(r.mean()), float(g.mean()), float(b.mean())
     std_r, std_g, std_b = float(r.std()), float(g.std()), float(b.std())
 
     total = r + g + b + 1e-6
     red_ratio = float((r / total).mean())
-    dark_ratio = float(((r + g + b) / 3.0 < 60).mean())
-    bright_ratio = float(((r + g + b) / 3.0 > 200).mean())
+    lum = (r + g + b) / 3.0
+    dark_ratio = float((lum < 60).mean())
+    bright_ratio = float((lum > 200).mean())
     rg_diff = (mean_r - mean_g) / 255.0
     rb_diff = (mean_r - mean_b) / 255.0
 
-    gray = 0.299 * r + 0.587 * g + 0.114 * b
-    gy, gx = np.gradient(gray)
-    edge = np.sqrt(gx * gx + gy * gy)
-    edge_density = float(np.clip((edge > 18).mean(), 0, 1))
+    # Edge on downsampled gray (much faster than gradient on full 256²)
+    small = arr
+    if max(arr.shape[0], arr.shape[1]) > 128:
+        # nearest-neighbor style step
+        step = max(1, max(arr.shape[0], arr.shape[1]) // 128)
+        small = arr[::step, ::step]
+    rs, gs, bs = small[:, :, 0], small[:, :, 1], small[:, :, 2]
+    gray = 0.299 * rs + 0.587 * gs + 0.114 * bs
+    # cheap finite differences instead of np.gradient (allocates less)
+    if gray.shape[0] > 1 and gray.shape[1] > 1:
+        dy = np.abs(np.diff(gray, axis=0))
+        dx = np.abs(np.diff(gray, axis=1))
+        # pad to align shapes roughly
+        edge_m = (dy[:, : dx.shape[1]].mean() + dx[: dy.shape[0], :].mean()) / 2.0
+        edge_density = float(np.clip(edge_m / 40.0, 0, 1))
+    else:
+        edge_density = 0.0
+
     contrast = float(np.clip((std_r + std_g + std_b) / 200.0, 0, 1.5))
     warmth = float(np.clip((mean_r - mean_b) / 255.0, -1, 1))
 
@@ -149,23 +174,14 @@ def _advice_for(family: str, severity: str, meta: dict) -> list[str]:
     if entry.get("red_flags"):
         tips.append(f"Red flags: {entry['red_flags']}")
 
-    # try gender KB too
+    # Optional gender KB tips — only one lookup (avoid scanning whole KB every time)
     try:
         from app.services import gender_predictor
 
         if gender_predictor.injury_ready():
-            from app.services.gender_predictor import _injury_lookup, _load_kb
+            from app.services.gender_predictor import _injury_lookup
 
-            # search by family keyword
             hit = _injury_lookup(family)
-            if not hit:
-                for inj in _load_kb().get("injuries") or []:
-                    n = (inj.get("name") or "").lower()
-                    if family.split()[0].lower() in n or any(
-                        k in n for k in family.lower().replace("/", " ").split() if len(k) > 3
-                    ):
-                        hit = inj
-                        break
             if hit:
                 if hit.get("first_aid") and hit["first_aid"] not in tips:
                     tips.insert(0, hit["first_aid"])

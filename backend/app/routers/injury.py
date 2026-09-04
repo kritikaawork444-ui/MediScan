@@ -1,5 +1,10 @@
 import json
 
+from PIL import Image
+
+# Cap mega-pixel phone photos so decode stays fast
+Image.MAX_IMAGE_PIXELS = 25_000_000
+
 from fastapi import APIRouter, UploadFile, File, Form, Depends, HTTPException
 from sqlalchemy.orm import Session
 

@@ -27,6 +27,51 @@ app = FastAPI(
     version="1.0.0",
 )
 
+
+@app.on_event("startup")
+def _preload_ml_models() -> None:
+    """Warm injury/gender/report models so first user request is not a multi-second cold start."""
+    try:
+        from app.services import injury_ml_predictor
+
+        if injury_ml_predictor.is_ready():
+            injury_ml_predictor._load()
+    except Exception:
+        pass
+    try:
+        from app.services import gender_predictor
+
+        if gender_predictor.is_ready():
+            gender_predictor._load_kb()
+            try:
+                gender_predictor._load_sym()
+            except Exception:
+                pass
+            try:
+                gender_predictor._load_inj()
+            except Exception:
+                pass
+    except Exception:
+        pass
+    try:
+        from app.services import ml_predictor
+
+        if hasattr(ml_predictor, "is_ready") and ml_predictor.is_ready():
+            # touch predict path / internal load if available
+            if hasattr(ml_predictor, "_load"):
+                ml_predictor._load()
+            elif hasattr(ml_predictor, "load_model"):
+                ml_predictor.load_model()
+    except Exception:
+        pass
+    try:
+        from app.services import report_ml_predictor
+
+        if report_ml_predictor.is_ready() and hasattr(report_ml_predictor, "_load"):
+            report_ml_predictor._load()
+    except Exception:
+        pass
+
 app.add_middleware(
     CORSMiddleware,
     # Preview environments use dynamic hosts; allow all origins in dev.

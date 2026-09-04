@@ -15,7 +15,8 @@ passlib[bcrypt]==1.7.4
 python-jose[cryptography]==3.3.0
 
 # ML Symptom Predictor (trained RandomForestClassifier, app/ml/train_model.py)
-scikit-learn>=1.6
+# Pin close to training version (1.6.1) — avoids slow/warn on unpickle with 1.9+
+scikit-learn==1.6.1
 pandas==2.2.3
 joblib==1.4.2
 openpyxl==3.1.5
