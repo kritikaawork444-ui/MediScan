@@ -4,8 +4,8 @@ app/ml/train_model.py) and turns raw symptom scores into a predicted
 disease + confidence + full probability breakdown.
 
 This is a completely separate, local, offline model from Ollama - it's a
-classic ML model (scikit-learn), not an LLM. Ollama is used afterwards
-(in ollama_service.generate_treatment_plan) to turn the predicted disease
+classic ML model (scikit-learn), not an LLM. Offline guide is used afterwards
+(in offline_fallback.generate_treatment_plan_offline) to turn the predicted disease
 into plain-language treatment advice.
 """
 from pathlib import Path

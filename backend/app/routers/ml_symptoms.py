@@ -1,7 +1,8 @@
 """
-Two-stage symptom checker:
-  1. Trained RandomForest (dataset1.csv) predicts disease from symptom scores.
-  2. Ollama explains treatment when available; otherwise offline knowledge-base plan.
+ML Symptom Predictor:
+  1. Trained RandomForest predicts disease from symptom scores.
+  2. Offline knowledge base builds treatment (profile gender notes when set).
+  No Ollama / cloud LLM.
 """
 import json
 
@@ -11,7 +12,7 @@ from sqlalchemy.orm import Session
 from app.database import get_db
 from app.models import Analysis
 from app.schemas import MLPredictRequest, MLPredictResponse
-from app.services import ml_predictor, ollama_service, offline_fallback
+from app.services import ml_predictor, offline_fallback, gender_predictor
 
 router = APIRouter(prefix="/api/symptoms", tags=["ML Symptom Predictor"])
 
@@ -36,34 +37,34 @@ def predict_ml(payload: MLPredictRequest, db: Session = Depends(get_db)):
         "Fatigue": payload.fatigue,
         "Body_Pain": payload.body_pain,
     }
+    lang = payload.language or "en"
+    gender = payload.gender
 
-    try:
-        plan = ollama_service.generate_treatment_plan(
-            prediction["disease"],
-            symptom_scores,
-            prediction["confidence"],
-            payload.language or "en",
-        )
-        title = "Symptom Predictor (ML + Local AI)"
-    except Exception:
-        plan = offline_fallback.generate_treatment_plan_offline(
-            prediction["disease"],
-            symptom_scores,
-            prediction["confidence"],
-            payload.language or "en",
-        )
-        title = "Symptom Predictor (ML + Offline guide)"
+    plan = offline_fallback.generate_treatment_plan_offline(
+        prediction["disease"],
+        symptom_scores,
+        prediction["confidence"],
+        lang,
+        gender=gender,
+    )
 
     result = {**prediction, **plan}
+    result = gender_predictor.enrich_with_profile_gender(
+        result, gender, condition_key="disease"
+    )
+
+    summary = ", ".join(f"{k}: {v}" for k, v in symptom_scores.items())
+    if gender:
+        summary += f" | Gender: {gender}"
 
     record = Analysis(
         analysis_type="symptom",
-        title=title,
-        input_summary=", ".join(f"{k}: {v}" for k, v in symptom_scores.items()),
+        title="Symptom Predictor (ML + Offline guide)",
+        input_summary=summary,
         result_label=result["disease"],
         confidence=result["confidence"],
         severity=None,
-        details_json=json.dumps(result),
+        details_json=json.dumps({**result, "source": "ml_offline"}),
     )
     db.add(record)
     db.commit()

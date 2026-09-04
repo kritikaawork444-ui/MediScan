@@ -6,7 +6,6 @@ from sqlalchemy.orm import Session
 from app.database import get_db
 from app.models import Analysis
 from app.schemas import InjuryAnalysisResponse
-from app.services.ollama_service import analyze_injury_image
 from app.services import offline_fallback, injury_ml_predictor
 
 router = APIRouter(prefix="/api/injury", tags=["Injury Analyzer"])
@@ -46,7 +45,7 @@ async def analyze_injury(
     result = None
     source = "unknown"
 
-    # 1) Dedicated injury ML model (always offline) — rejects non-injury photos
+    # 1) Dedicated injury ML model (offline)
     if injury_ml_predictor.is_ready():
         try:
             result = injury_ml_predictor.predict_from_image(file_bytes)
@@ -54,16 +53,12 @@ async def analyze_injury(
         except Exception:
             result = None
 
-    # 2) Ollama vision if ML unavailable
+    # 2) Offline heuristic fallback (no Ollama)
     if result is None:
-        try:
-            result = analyze_injury_image(file_bytes, file.content_type, language)
-            source = "ollama"
-        except Exception:
-            result = offline_fallback.analyze_injury_image_offline(
-                file_bytes, file.content_type, language
-            )
-            source = "offline"
+        result = offline_fallback.analyze_injury_image_offline(
+            file_bytes, file.content_type, language
+        )
+        source = "offline"
 
     result.setdefault("injury_type", "Unable to determine")
     result.setdefault("severity", "Moderate")
@@ -84,7 +79,6 @@ async def analyze_injury(
         )
     result["is_injury"] = bool(is_injury)
 
-    # UI severity colors expect Low/Moderate/High — normalize Emergency/Mild
     sev = result.get("severity") or "Moderate"
     if not result["is_injury"]:
         result["severity"] = "Low"

@@ -7,20 +7,16 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    anthropic_api_key: str = ""
     jwt_secret_key: str = "dev-secret-change-me"
     database_url: str = "sqlite:///./mediscan.db"
     frontend_origin: str = "http://localhost:5173"
 
-    # Which Claude model to call for text + vision analysis
-    claude_model: str = "claude-sonnet-4-6"
-
-    # Local Ollama server (run `ollama serve`, default port 11434)
-    ollama_base_url: str = "http://localhost:11434"
-    ollama_model: str = "llama3.1"
-
-    # Vision-capable local model, used for the Injury Analyzer (photo in -> JSON out)
-    ollama_vision_model: str = "llava"
+    # Legacy keys ignored (app runs fully offline / local ML — no Ollama required)
+    anthropic_api_key: str = ""
+    claude_model: str = ""
+    ollama_base_url: str = ""
+    ollama_model: str = ""
+    ollama_vision_model: str = ""
 
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 

@@ -7,13 +7,11 @@ from typing import Optional
 from app.database import get_db
 from app.models import DiseaseCache
 from app.schemas import DiseaseLookupRequest, DiseaseLookupResponse
-from app.services import ollama_service, offline_fallback
+from app.services import offline_fallback
 
 router = APIRouter(prefix="/api/encyclopedia", tags=["Encyclopedia"])
 
-# Static reference data for common conditions. In a bigger version this
-# would live in its own DB table, but a fixed list is fine for the
-# conditions the app currently supports.
+# Static reference data for common conditions.
 CONDITIONS = [
     {
         "name": "Common Cold",
@@ -56,7 +54,7 @@ def list_conditions(q: Optional[str] = Query(None), category: Optional[str] = Qu
 
 @router.post("/lookup", response_model=DiseaseLookupResponse)
 def lookup_disease(payload: DiseaseLookupRequest, db: Session = Depends(get_db)):
-    """Encyclopedia 'Ask AI': cache → Ollama → offline knowledge base."""
+    """Encyclopedia lookup: cache → offline knowledge base (no Ollama)."""
     query = payload.query.strip()
     language = payload.language or "en"
     if not query:
@@ -77,16 +75,12 @@ def lookup_disease(payload: DiseaseLookupRequest, db: Session = Depends(get_db))
                 "source": "cache",
             }
 
-    source = "ai"
-    try:
-        result = ollama_service.lookup_disease(query, language)
-    except Exception:
-        result = offline_fallback.lookup_disease_offline(query, language)
-        source = "offline"
+    result = offline_fallback.lookup_disease_offline(query, language)
+    source = "offline"
 
-    if language == "en" and source == "ai":
+    if language == "en":
         existing = db.query(DiseaseCache).filter(DiseaseCache.name.ilike(result["name"])).first()
-        if not existing:
+        if not existing and result.get("name"):
             db.add(
                 DiseaseCache(
                     name=result["name"],

@@ -1,5 +1,5 @@
 """
-Offline results when Ollama is not running.
+Offline knowledge-base results (primary path — no LLM required).
 
 Uses the gender knowledge base (spreadsheet) + simple heuristics so every
 feature still returns a useful JSON payload instead of a 503 error.
@@ -78,6 +78,7 @@ def analyze_symptoms_offline(
     pain_location: str | None = None,
     pain_description: str | None = None,
     language: str = "en",
+    gender: str | None = None,
 ) -> dict:
     catalog = []
     try:
@@ -219,12 +220,28 @@ def analyze_symptoms_offline(
     if red:
         tips.append(f"Red flags — seek urgent care if: {red}")
 
+    # Profile gender → male / female specific notes in treatment
+    gender_notes = ""
+    glabel = "unknown"
+    try:
+        from app.services.gender_predictor import _norm_gender, _gender_notes
+
+        glabel, _ = _norm_gender(gender)
+        gender_notes = _gender_notes(top, glabel)
+        if gender_notes:
+            treatment.insert(0, f"For {glabel} patients: {gender_notes}")
+            tips.insert(0, f"Gender-specific note ({glabel}): {gender_notes}")
+    except Exception:
+        pass
+
     result = {
         "condition": top["name"],
         "confidence": _sev_confidence(top.get("severity")),
         "possible_causes": causes,
         "recommendations": tips[:6],
         "treatment": treatment,
+        "gender": glabel,
+        "gender_notes": gender_notes,
         "disclaimer": (
             "This is not a medical diagnosis. Offline guide from the MediScan knowledge base — "
             "please consult a doctor for proper care."
@@ -238,6 +255,7 @@ def generate_treatment_plan_offline(
     symptom_scores: dict | None = None,
     confidence: float = 50,
     language: str = "en",
+    gender: str | None = None,
 ) -> dict:
     entry = None
     try:
@@ -259,13 +277,17 @@ def generate_treatment_plan_offline(
         scores_txt = ", ".join(f"{k}: {v}" for k, v in symptom_scores.items())
 
     if entry:
+        from app.services.gender_predictor import _norm_gender, _gender_notes
+
+        glabel, _ = _norm_gender(gender)
+        gnotes = _gender_notes(entry, glabel)
         recs = [entry.get("self_care") or "Rest and fluids."]
-        if entry.get("male_notes") or entry.get("female_notes"):
-            recs.append(
-                "Gender-specific notes are available on the Gender Health ML page for more detail."
-            )
+        if gnotes:
+            recs.insert(0, f"Gender-specific note ({glabel}): {gnotes}")
         recs.append("Monitor symptoms and avoid self-medicating with prescription drugs.")
         treatment = [entry.get("self_care") or "Supportive care."]
+        if gnotes:
+            treatment.insert(0, f"For {glabel} patients: {gnotes}")
         if entry.get("likely_causes"):
             treatment.append(f"Often linked to: {entry['likely_causes']}")
         return {
@@ -279,6 +301,8 @@ def generate_treatment_plan_offline(
             "treatment": treatment,
             "when_to_see_doctor": entry.get("when_to_see_doctor")
             or "See a doctor if symptoms worsen or last more than a few days.",
+            "gender": glabel,
+            "gender_notes": gnotes,
             "disclaimer": (
                 "This is not a medical diagnosis. Offline advice from the knowledge base — "
                 "confirm with a doctor."

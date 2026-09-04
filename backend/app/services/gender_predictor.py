@@ -478,3 +478,122 @@ def predict_injury(
         "probabilities": probabilities,
         **advice,
     }
+
+
+
+def enrich_with_profile_gender(
+    result: dict,
+    gender: str | None,
+    symptoms: Iterable[str] | None = None,
+    condition_key: str = "condition",
+) -> dict:
+    """
+    Attach male/female notes + gender-aware treatment lines using the profile gender.
+    Works on symptom-check / ML results without requiring the separate gender-ml page.
+    """
+    if not isinstance(result, dict):
+        return result
+    if not is_ready():
+        label, _ = _norm_gender(gender)
+        result.setdefault("gender", label)
+        result.setdefault("gender_notes", "")
+        return result
+
+    label, _ = _norm_gender(gender)
+    result["gender"] = label
+
+    # Prefer top condition / disease name, else first selected symptom match
+    condition = (
+        result.get(condition_key)
+        or result.get("disease")
+        or result.get("injury_type")
+        or ""
+    )
+    entry = _symptom_lookup(str(condition)) if condition else None
+    if not entry and symptoms:
+        for s in symptoms:
+            entry = _symptom_lookup(str(s))
+            if entry:
+                break
+    # Also try possible_causes[0]
+    if not entry:
+        pcs = result.get("possible_causes") or []
+        if pcs and isinstance(pcs[0], dict):
+            entry = _symptom_lookup(str(pcs[0].get("condition") or ""))
+    # ML disease names often differ from symptom catalog — map common ones
+    if not entry and condition:
+        ALIASES = {
+            "common cold": "Cough",
+            "cold": "Cough",
+            "flu": "Fever",
+            "influenza": "Fever",
+            "viral fever": "Fever",
+            "migraine": "Headache",
+            "tension headache": "Headache",
+            "gastroenteritis": "Nausea",
+            "food poisoning": "Nausea",
+            "anemia": "Fatigue",
+            "allergy": "Runny Nose",
+            "asthma": "Cough",
+            "bronchitis": "Cough",
+            "pneumonia": "Cough",
+            "typhoid": "Fever",
+            "malaria": "Fever",
+            "dengue": "Fever",
+            "covid": "Fever",
+            "covid-19": "Fever",
+        }
+        cl = condition.strip().lower()
+        if cl in ALIASES:
+            entry = _symptom_lookup(ALIASES[cl])
+        if not entry:
+            for key, sym in ALIASES.items():
+                if key in cl or cl in key:
+                    entry = _symptom_lookup(sym)
+                    if entry:
+                        break
+
+    if not entry:
+        result.setdefault("gender_notes", "")
+        if label in ("male", "female") and not any(
+            "profile gender" in str(x).lower() or "gender-specific" in str(x).lower()
+            for x in (result.get("treatment") or [])
+        ):
+            # gentle reminder only if we have gender but no KB hit
+            pass
+        return result
+
+    notes = _gender_notes(entry, label)
+    result["gender_notes"] = notes
+
+    treatment = list(result.get("treatment") or [])
+    recommendations = list(result.get("recommendations") or [])
+
+    # Prepend / insert gender-aware lines (avoid duplicates)
+    def _has(hay, needle: str) -> bool:
+        n = needle.lower()
+        return any(n in str(x).lower() for x in hay)
+
+    if notes:
+        gender_line = (
+            f"For {label} patients: {notes}"
+            if label in ("male", "female")
+            else notes
+        )
+        if not _has(treatment, notes[:40]):
+            treatment.insert(0, gender_line)
+        if not _has(recommendations, notes[:40]):
+            recommendations.insert(0, f"Gender-specific note ({label}): {notes}")
+    elif label in ("male", "female"):
+        # still mark that treatment is framed for this gender
+        tag = f"Guidance tailored using your profile gender ({label})."
+        if not _has(treatment, "profile gender"):
+            treatment.append(tag)
+
+    # Keep self-care from KB if treatment empty-ish
+    if entry.get("self_care") and not _has(treatment, entry["self_care"][:30]):
+        treatment.append(entry["self_care"])
+
+    result["treatment"] = treatment
+    result["recommendations"] = recommendations
+    return result

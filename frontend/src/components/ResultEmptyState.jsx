@@ -1,24 +1,17 @@
-import { Stethoscope, Sparkles } from "lucide-react";
-import { useLanguage } from "../context/LanguageContext.jsx";
+import { Stethoscope } from "lucide-react";
 
-export default function ResultEmptyState({ title, subtitle }) {
-  const { t } = useLanguage();
+export default function ResultEmptyState({
+  title = "Your result will show up here",
+  subtitle = "Pick your symptoms and tap Analyze — a local AI model reads them and shows 2-3 possible causes with a confidence score for each.",
+}) {
   return (
-    <div className="flex flex-col items-center text-center gap-3 card-surface border-dashed border-2 border-border/80 rounded-3xl p-8 bg-gradient-to-b from-white to-panel2/40">
-      <div className="relative">
-        <div className="absolute inset-0 rounded-full bg-accent/20 blur-xl animate-pulse-soft" />
-        <div className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-accent to-accent2 flex items-center justify-center shadow-glow">
-          <Stethoscope size={24} className="text-white" />
-        </div>
+    <div className="flex flex-col items-center text-center gap-3 bg-panel border border-dashed border-border rounded-xl2 p-8">
+      <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
+        <Stethoscope size={22} className="text-accent" />
       </div>
       <div>
-        <p className="text-sm font-bold text-ink flex items-center justify-center gap-1.5">
-          <Sparkles size={14} className="text-accent" />
-          {title || t("emptyResultTitle")}
-        </p>
-        <p className="text-xs text-muted mt-1.5 max-w-[260px] leading-relaxed">
-          {subtitle || t("emptyResultSubtitle")}
-        </p>
+        <p className="text-sm font-semibold">{title}</p>
+        <p className="text-xs text-muted mt-1 max-w-[240px]">{subtitle}</p>
       </div>
     </div>
   );

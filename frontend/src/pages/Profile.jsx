@@ -16,8 +16,6 @@ const HEALTH_ROWS = [
   { key: "dob", label: "Date of Birth", icon: Calendar, type: "date" },
 ];
 
-const GENDER_OPTIONS = ["", "Male", "Female", "Other"];
-
 export default function Profile() {
   const [profile, setProfile] = useState(getProfile());
   const [savedFlash, setSavedFlash] = useState(false);
@@ -39,17 +37,17 @@ export default function Profile() {
       .join("") || "?";
 
   return (
-    <div className="page-enter">
+    <div>
       <TopBar showBack />
       <div className="px-5 md:px-8 lg:px-10 pb-6">
         <h2 className="text-xl font-bold">My Profile</h2>
         <p className="text-muted text-sm mt-1">
-          Saved on this device only - used to personalize your dashboard and PDF receipts.
+          Saved on this device only — gender is used to personalize treatment tips on
+          Symptom Checker and ML Predictor.
         </p>
 
         <div className="lg:grid lg:grid-cols-2 lg:gap-6 lg:items-start mt-5">
-          {/* Basic info */}
-          <div className="card-surface p-5 shadow-card">
+          <div className="bg-panel border border-border rounded-xl2 p-5">
             <div className="flex items-center gap-4">
               <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent to-accent2 flex items-center justify-center text-white text-xl font-bold shrink-0">
                 {profile.name ? initials : <User size={24} />}
@@ -69,15 +67,14 @@ export default function Profile() {
                     value={profile[key]}
                     onChange={(e) => update(key, e.target.value)}
                     placeholder={placeholder}
-                    className="input-field mt-1"
+                    className="w-full bg-panel2 border border-border rounded-xl px-3 py-2.5 text-sm mt-1 outline-none focus:border-accent transition-colors placeholder:text-muted"
                   />
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Health summary */}
-          <div className="card-surface p-5 mt-4 lg:mt-0 shadow-soft">
+          <div className="bg-panel border border-border rounded-xl2 p-5 mt-4 lg:mt-0">
             <p className="font-bold mb-4">Health Summary</p>
             <div className="space-y-4">
               {HEALTH_ROWS.map(({ key, label, icon: Icon, type = "text", placeholder }) => (
@@ -92,14 +89,15 @@ export default function Profile() {
                       value={profile[key]}
                       onChange={(e) => update(key, e.target.value)}
                       placeholder={placeholder}
-                      className="w-full bg-transparent outline-none text-sm placeholder:text-muted"
+                      className="w-full bg-transparent border-b border-border px-0 py-1 text-sm outline-none focus:border-accent transition-colors placeholder:text-muted"
                     />
                   </div>
                 </div>
               ))}
 
-              <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-lg bg-panel2 flex items-center justify-center shrink-0">
+              {/* Gender — used for treatment */}
+              <div className="flex items-start gap-3">
+                <div className="w-9 h-9 rounded-lg bg-panel2 flex items-center justify-center shrink-0 mt-1">
                   <Users size={15} className="text-accent" />
                 </div>
                 <div className="flex-1 min-w-0">
@@ -107,17 +105,16 @@ export default function Profile() {
                   <select
                     value={profile.gender || ""}
                     onChange={(e) => update("gender", e.target.value)}
-                    className="w-full bg-transparent outline-none text-sm"
+                    className="w-full bg-panel2 border border-border rounded-xl px-3 py-2 text-sm mt-1 outline-none focus:border-accent"
                   >
                     <option value="">Select…</option>
-                    {GENDER_OPTIONS.filter(Boolean).map((g) => (
-                      <option key={g} value={g}>
-                        {g}
-                      </option>
-                    ))}
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
                   </select>
-                  <p className="text-[10px] text-muted mt-1">
-                    Used by Gender Health ML for male/female-specific advice.
+                  <p className="text-[10px] text-muted mt-1.5 leading-relaxed">
+                    Symptom Checker and ML Predictor use this for male / female specific
+                    treatment notes from the health knowledge base.
                   </p>
                 </div>
               </div>
@@ -126,11 +123,12 @@ export default function Profile() {
         </div>
 
         <button
+          type="button"
           onClick={handleSave}
-          className="w-full btn-primary py-3 mt-5"
+          className="w-full md:w-auto md:px-10 mt-6 bg-gradient-to-r from-accent to-accent2 text-white text-sm font-semibold py-3 rounded-full hover:opacity-90 active:scale-95 transition inline-flex items-center justify-center gap-2"
         >
           <Save size={16} />
-          {savedFlash ? "Saved!" : "Save Profile"}
+          {savedFlash ? "Saved!" : "Save profile"}
         </button>
       </div>
     </div>

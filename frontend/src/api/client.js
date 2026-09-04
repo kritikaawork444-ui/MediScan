@@ -6,21 +6,26 @@ import { getLanguage } from "../utils/language.js";
 const API_BASE = (import.meta.env.VITE_API_URL || "").replace(/\/$/, "");
 const api = axios.create({ baseURL: API_BASE || "/" });
 
-export const checkSymptomsOllama = (
+/** Offline symptom check (knowledge base + profile gender). Path kept for API compat. */
+export const checkSymptoms = (
   symptoms,
-  { painLocation, painDescription, notes, language } = {}
+  { painLocation, painDescription, notes, language, gender } = {}
 ) =>
   api
-    .post("/api/symptoms/check-ollama", {
+    .post("/api/symptoms/check", {
       symptoms,
       pain_location: painLocation,
       pain_description: painDescription,
       notes,
       language: language || getLanguage(),
+      gender: gender || undefined,
     })
     .then((r) => r.data);
 
-export const predictML = ({ fever, headache, cough, fatigue, bodyPain, language }) =>
+/** @deprecated use checkSymptoms */
+export const checkSymptomsOllama = checkSymptoms;
+
+export const predictML = ({ fever, headache, cough, fatigue, bodyPain, language, gender }) =>
   api
     .post("/api/symptoms/predict-ml", {
       fever,
@@ -29,6 +34,7 @@ export const predictML = ({ fever, headache, cough, fatigue, bodyPain, language 
       fatigue,
       body_pain: bodyPain,
       language: language || getLanguage(),
+      gender: gender || undefined,
     })
     .then((r) => r.data);
 

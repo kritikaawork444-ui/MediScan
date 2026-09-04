@@ -96,6 +96,7 @@ def analyze_symptoms(
     pain_location: str | None = None,
     pain_description: str | None = None,
     language: str = "en",
+    gender: str | None = None,
 ) -> dict:
     """Send symptoms to a local Ollama model and get back 2-3 differential
     possible causes (ranked by likelihood) + confidence + treatment/solutions,
@@ -106,6 +107,7 @@ A user selected these symptoms: {symptom_text}.
 Where it hurts (body location): {pain_location or "not specified"}.
 What the pain/discomfort feels like (e.g. sharp, dull, burning, throbbing, tight): {pain_description or "not specified"}.
 Additional notes from the user: {notes or "none"}.
+Patient gender (from profile — tailor treatment for male/female differences when relevant): {gender or "not specified"}.
 
 Use the location and quality of pain as important clues - the same symptom in a different body part or with a different quality of pain often points to a different condition. Weigh them accordingly.
 
@@ -290,6 +292,7 @@ def generate_treatment_plan(
     symptom_scores: dict,
     confidence: float,
     language: str = "en",
+    gender: str | None = None,
 ) -> dict:
     """Takes a disease predicted by the local ML model (app/ml, a
     RandomForestClassifier - NOT an LLM) plus the raw symptom scores that
@@ -300,6 +303,7 @@ def generate_treatment_plan(
     scores_text = ", ".join(f"{k}: {v}" for k, v in symptom_scores.items())
     prompt = f"""You are a medical assistant inside a health app called MediScan.
 A machine-learning model analyzed a user's symptom readings ({scores_text}) and predicted the most likely condition is: "{disease}" (model confidence: {confidence}%).
+Patient gender (from profile): {gender or "not specified"}. When gender is male or female, tailor treatment and recommendations to known sex-specific considerations (e.g. pregnancy caution for females, typical presentation differences) in plain language.
 
 Respond with ONLY a JSON object (no markdown, no preamble, no explanation outside the JSON) in exactly this shape:
 {{

@@ -1,79 +1,106 @@
-import { Stethoscope, Pill, ShieldAlert, Sparkles, Download } from "lucide-react";
+import { Stethoscope, Pill, ShieldAlert, Sparkles, Download, Users } from "lucide-react";
 import ConfidenceBar, { confidenceColor } from "./ConfidenceBar.jsx";
 import { downloadSymptomReceipt } from "../utils/pdfReceipt.js";
-import { useLanguage } from "../context/LanguageContext.jsx";
 
-const ringTone = {
-  high: "from-emerald-400 to-green-500 text-emerald-700 ring-emerald-200",
-  medium: "from-amber-400 to-orange-500 text-amber-700 ring-amber-200",
-  low: "from-rose-400 to-red-500 text-rose-700 ring-rose-200",
+const ringColor = {
+  high: "border-high text-high",
+  medium: "border-medium text-medium",
+  low: "border-low text-low",
 };
 
+function genderBadgeClass(g) {
+  const v = (g || "").toLowerCase();
+  if (v === "female") return "bg-pink-50 border-pink-200 text-pink-800";
+  if (v === "male") return "bg-sky-50 border-sky-200 text-sky-800";
+  return "bg-slate-50 border-slate-200 text-slate-700";
+}
+
 export default function SymptomResultCard({ result, contextLine, symptoms = [], patientName }) {
-  const { t, language } = useLanguage();
   const causes = result.possible_causes?.length
     ? result.possible_causes
     : [{ condition: result.condition, confidence: result.confidence, why: "" }];
   const top = causes[0];
   const rest = causes.slice(1);
   const tone = confidenceColor(top.confidence);
+  const gender = result.gender;
+  const genderNotes = result.gender_notes;
 
   return (
-    <div className="card-surface p-5 mt-5 mb-4 animate-fade-slide-up shadow-card overflow-hidden relative">
-      <div className="absolute -right-8 -top-8 w-28 h-28 rounded-full bg-accent/10 blur-2xl pointer-events-none" />
-
-      <div className="flex items-center justify-between gap-3 relative">
+    <div className="bg-panel border border-border rounded-xl2 p-4 mt-5 mb-4 animate-fade-slide-up shadow-sm">
+      <div className="flex items-center justify-between gap-3">
         <div className="min-w-0">
-          <p className="text-[11px] font-bold text-muted uppercase tracking-wider flex items-center gap-1">
-            <Sparkles size={11} className="text-accent" /> {t("mostLikelyCause")}
+          <p className="text-[11px] text-muted uppercase tracking-wide flex items-center gap-1">
+            <Sparkles size={11} className="text-accent" /> Most likely cause
           </p>
-          <h4 className="text-lg font-extrabold mt-1 text-ink truncate">{top.condition}</h4>
-          {top.why && <p className="text-xs text-muted mt-0.5 leading-relaxed">{top.why}</p>}
+          <h4 className="text-lg font-bold mt-1 truncate">{top.condition}</h4>
+          {top.why && <p className="text-xs text-muted mt-0.5">{top.why}</p>}
         </div>
         <div
-          className={`relative w-16 h-16 flex items-center justify-center rounded-2xl bg-gradient-to-br ${ringTone[tone].split(" ").slice(0, 2).join(" ")} text-white shadow-glow shrink-0 animate-pop-in`}
+          className={`relative w-14 h-14 flex items-center justify-center rounded-full border-4 shrink-0 animate-pop-in ${ringColor[tone]}`}
         >
-          <span className="text-sm font-extrabold">{Math.round(top.confidence)}%</span>
+          <span className="text-sm font-bold">{Math.round(top.confidence)}%</span>
         </div>
       </div>
 
-      {contextLine && (
-        <p className="text-[11px] text-muted mt-3 bg-panel2/80 rounded-xl px-3 py-2 border border-border/60">
-          {contextLine}
-        </p>
+      {contextLine && <p className="text-[11px] text-muted mt-2">{contextLine}</p>}
+
+      {gender && gender !== "unknown" && (
+        <div
+          className={`mt-3 inline-flex items-center gap-1.5 text-[11px] font-bold px-2.5 py-1 rounded-full border ${genderBadgeClass(
+            gender
+          )}`}
+        >
+          <Users size={12} />
+          Treatment for: {gender}
+        </div>
       )}
 
       {rest.length > 0 && (
-        <div className="mt-4 pt-4 border-t border-border/70 space-y-3">
-          <p className="text-xs font-bold text-muted uppercase tracking-wide">
-            {t("otherPossibleCauses")}
-          </p>
+        <div className="mt-4 pt-4 border-t border-border space-y-2.5">
+          <p className="text-xs font-semibold text-muted">Other possible causes</p>
           {rest.map((c, i) => (
-            <div key={i} className="bg-panel2/50 rounded-xl p-3 border border-border/50">
-              <div className="flex items-center justify-between gap-2 mb-1">
-                <span className="text-sm font-semibold text-ink">{c.condition}</span>
+            <div key={i}>
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-sm">{c.condition}</span>
               </div>
               <ConfidenceBar value={c.confidence} />
-              {c.why && <p className="text-[11px] text-muted mt-1">{c.why}</p>}
+              {c.why && <p className="text-[11px] text-muted mt-0.5">{c.why}</p>}
             </div>
           ))}
         </div>
       )}
 
-      {result.recommendations?.length > 0 && (
-        <div className="mt-4 pt-4 border-t border-border/70">
-          <p className="text-sm font-bold mb-2.5 flex items-center gap-1.5 text-ink">
-            <span className="w-7 h-7 rounded-lg bg-accent2/10 text-accent2 flex items-center justify-center">
-              <Stethoscope size={14} />
-            </span>
-            {t("recommendations")}
+      {genderNotes ? (
+        <div
+          className={`mt-4 pt-4 border-t border-border rounded-xl p-3 ${
+            (gender || "").toLowerCase() === "female"
+              ? "bg-pink-50/80 border border-pink-100"
+              : (gender || "").toLowerCase() === "male"
+                ? "bg-sky-50/80 border border-sky-100"
+                : "bg-panel2 border border-border"
+          }`}
+        >
+          <p className="text-sm font-semibold mb-1.5 flex items-center gap-1.5">
+            <Users size={14} className="text-accent2" />
+            {(gender || "").toLowerCase() === "male"
+              ? "Male-specific notes"
+              : (gender || "").toLowerCase() === "female"
+                ? "Female-specific notes"
+                : "Gender notes"}
           </p>
-          <ul className="text-xs text-muted space-y-2">
+          <p className="text-xs text-ink leading-relaxed">{genderNotes}</p>
+        </div>
+      ) : null}
+
+      {result.recommendations?.length > 0 && (
+        <div className="mt-4 pt-4 border-t border-border">
+          <p className="text-sm font-semibold mb-2 flex items-center gap-1.5">
+            <Stethoscope size={14} className="text-accent2" /> Recommendations
+          </p>
+          <ul className="text-xs text-muted space-y-1.5">
             {result.recommendations.map((r, i) => (
-              <li key={i} className="flex items-start gap-2.5 leading-relaxed">
-                <span className="w-5 h-5 rounded-full bg-accent2/10 text-accent2 text-[10px] font-bold flex items-center justify-center shrink-0 mt-0.5">
-                  {i + 1}
-                </span>
+              <li key={i} className="flex items-start gap-2">
+                <span className="w-1 h-1 rounded-full bg-accent2 mt-1.5 shrink-0" />
                 {r}
               </li>
             ))}
@@ -82,38 +109,36 @@ export default function SymptomResultCard({ result, contextLine, symptoms = [], 
       )}
 
       {result.treatment?.length > 0 && (
-        <div className="mt-4 pt-4 border-t border-border/70">
-          <p className="text-sm font-bold mb-2.5 flex items-center gap-1.5 text-ink">
-            <span className="w-7 h-7 rounded-lg bg-accent/10 text-accent flex items-center justify-center">
-              <Pill size={14} />
-            </span>
-            {t("treatmentSolutions")}
+        <div className="mt-4 pt-4 border-t border-border">
+          <p className="text-sm font-semibold mb-2 flex items-center gap-1.5">
+            <Pill size={14} className="text-accent" /> Treatment & solutions
+            {gender && gender !== "unknown" ? (
+              <span className="text-[10px] font-bold text-accent2 normal-case">({gender})</span>
+            ) : null}
           </p>
-          <ul className="text-xs text-muted space-y-2">
-            {result.treatment.map((item, i) => (
-              <li key={i} className="flex items-start gap-2.5 leading-relaxed">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0" />
-                {item}
+          <ul className="text-xs text-muted space-y-1.5">
+            {result.treatment.map((t, i) => (
+              <li key={i} className="flex items-start gap-2">
+                <span className="w-1 h-1 rounded-full bg-accent mt-1.5 shrink-0" />
+                {t}
               </li>
             ))}
           </ul>
         </div>
       )}
 
-      <div className="mt-4 pt-3 border-t border-border/70 flex gap-2 items-start bg-amber-50/80 rounded-xl p-3 border border-amber-100">
-        <ShieldAlert size={14} className="text-amber-600 shrink-0 mt-0.5" />
-        <p className="text-[10px] text-amber-900/80 leading-relaxed">{result.disclaimer}</p>
+      <div className="mt-4 pt-3 border-t border-border flex gap-2 items-start">
+        <ShieldAlert size={13} className="text-medium shrink-0 mt-0.5" />
+        <p className="text-[10px] text-muted italic">{result.disclaimer}</p>
       </div>
 
       <button
         type="button"
-        onClick={() =>
-          downloadSymptomReceipt({ result, symptoms, contextLine, patientName, language })
-        }
-        className="w-full flex items-center justify-center gap-2 btn-ghost text-xs font-bold py-2.5 mt-3"
+        onClick={() => downloadSymptomReceipt({ result, symptoms, contextLine, patientName })}
+        className="w-full flex items-center justify-center gap-2 bg-panel2 hover:bg-border/60 text-ink text-xs font-semibold py-2.5 rounded-xl mt-3 transition-colors"
       >
         <Download size={14} className="text-accent" />
-        {t("downloadPdf")}
+        Download PDF Receipt
       </button>
     </div>
   );

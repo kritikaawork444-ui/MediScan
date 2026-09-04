@@ -38,7 +38,7 @@ export default function Encyclopedia() {
       setAiError(
         e.response?.data?.detail ||
           e.message ||
-          "Could not look up that condition. Please try another name."
+          "Could not look up this condition. Is the backend running?"
       );
     } finally {
       setAiLoading(false);
@@ -46,7 +46,7 @@ export default function Encyclopedia() {
   };
 
   return (
-    <div className="page-enter">
+    <div>
       <TopBar showBack />
       <div className="px-5 md:px-8 lg:px-10">
         <h2 className="text-xl font-bold">Health Encyclopedia</h2>

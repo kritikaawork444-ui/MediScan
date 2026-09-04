@@ -1,58 +1,10 @@
 import jsPDF from "jspdf";
-import { getLanguage } from "./language.js";
-
-const LABELS = {
-  en: {
-    subtitle: "AI Symptom Check Receipt",
-    patient: "Patient",
-    symptoms: "Symptoms Checked",
-    causes: "Possible Causes",
-    match: "match",
-    recommendations: "Recommendations",
-    treatment: "Treatment & Solutions",
-    footer: "Generated locally by MediScan using a private, on-device AI model.",
-    disclaimerFallback: "This is not a medical diagnosis. Please consult a doctor.",
-  },
-  hi: {
-    // Romanized so default PDF fonts render correctly (Devanagari needs embedded fonts)
-    subtitle: "AI Lakshan Jaanch Raseed",
-    patient: "Mareez",
-    symptoms: "Chune hue lakshan",
-    causes: "Sambhavit karan",
-    match: "match",
-    recommendations: "Sujhav",
-    treatment: "Upchaar aur samadhan",
-    footer: "MediScan dwara local / private model se banayi gayi raseed.",
-    disclaimerFallback: "Yeh medical diagnosis nahi hai. Doctor se salah lein.",
-  },
-  hinglish: {
-    subtitle: "AI Symptom Check Receipt",
-    patient: "Patient",
-    symptoms: "Selected symptoms",
-    causes: "Possible causes",
-    match: "match",
-    recommendations: "Recommendations (sujhav)",
-    treatment: "Treatment & solutions",
-    footer: "MediScan ne local private model se generate kiya.",
-    disclaimerFallback: "Yeh medical diagnosis nahi hai. Doctor se salah lein.",
-  },
-};
 
 /**
  * Builds and downloads a PDF "receipt" of a symptom-check result.
  * Runs entirely in the browser - no backend call involved.
- * Section titles follow app language (hi uses Romanized Hindi for font safety).
  */
-export function downloadSymptomReceipt({
-  result,
-  symptoms = [],
-  contextLine,
-  patientName,
-  language,
-}) {
-  const lang = language || getLanguage() || "en";
-  const L = LABELS[lang] || LABELS.en;
-
+export function downloadSymptomReceipt({ result, symptoms = [], contextLine, patientName }) {
   const doc = new jsPDF({ unit: "pt", format: "a4" });
   const pageWidth = doc.internal.pageSize.getWidth();
   const margin = 48;
@@ -81,7 +33,7 @@ export function downloadSymptomReceipt({
   doc.setFont("helvetica", "normal");
   doc.setFontSize(9);
   doc.setTextColor(...muted);
-  doc.text(L.subtitle, margin + 26, y + 13);
+  doc.text("AI Symptom Check Receipt", margin + 26, y + 13);
 
   doc.setFontSize(9);
   doc.setTextColor(...muted);
@@ -97,7 +49,7 @@ export function downloadSymptomReceipt({
     doc.setFont("helvetica", "bold");
     doc.setFontSize(11);
     doc.setTextColor(...ink);
-    doc.text(`${L.patient}: ${patientName}`, margin, y);
+    doc.text(`Patient: ${patientName}`, margin, y);
     addSpace(20);
   }
 
@@ -105,7 +57,7 @@ export function downloadSymptomReceipt({
   doc.setFont("helvetica", "bold");
   doc.setFontSize(11);
   doc.setTextColor(...ink);
-  doc.text(L.symptoms, margin, y);
+  doc.text("Symptoms Checked", margin, y);
   addSpace(16);
   doc.setFont("helvetica", "normal");
   doc.setFontSize(10);
@@ -130,7 +82,7 @@ export function downloadSymptomReceipt({
   doc.setFont("helvetica", "bold");
   doc.setFontSize(11);
   doc.setTextColor(...ink);
-  doc.text(L.causes, margin, y);
+  doc.text("Possible Causes", margin, y);
   addSpace(18);
 
   causes.forEach((c, i) => {
@@ -138,15 +90,14 @@ export function downloadSymptomReceipt({
     doc.setFont("helvetica", "bold");
     doc.setFontSize(10.5);
     doc.setTextColor(...(i === 0 ? deepBlue : ink));
-    // Devanagari may not render in Helvetica — still write; many viewers substitute fonts
-    doc.text(`${i + 1}. ${c.condition || ""}`, margin, y);
+    doc.text(`${i + 1}. ${c.condition}`, margin, y);
     doc.setFont("helvetica", "normal");
     doc.setTextColor(...muted);
-    doc.text(`${Math.round(c.confidence)}% ${L.match}`, pageWidth - margin, y, { align: "right" });
+    doc.text(`${Math.round(c.confidence)}% match`, pageWidth - margin, y, { align: "right" });
     addSpace(14);
     if (c.why) {
       doc.setFontSize(9.5);
-      const whyLines = doc.splitTextToSize(String(c.why), pageWidth - margin * 2);
+      const whyLines = doc.splitTextToSize(c.why, pageWidth - margin * 2);
       doc.text(whyLines, margin, y);
       addSpace(whyLines.length * 12 + 8);
     } else {
@@ -174,8 +125,8 @@ export function downloadSymptomReceipt({
     });
   };
 
-  renderList(L.recommendations, result.recommendations);
-  renderList(L.treatment, result.treatment);
+  renderList("Recommendations", result.recommendations);
+  renderList("Treatment & Solutions", result.treatment);
 
   // Disclaimer
   ensureRoom(40);
@@ -187,7 +138,7 @@ export function downloadSymptomReceipt({
   doc.setFontSize(8.5);
   doc.setTextColor(...muted);
   const disclaimerLines = doc.splitTextToSize(
-    result.disclaimer || L.disclaimerFallback,
+    result.disclaimer || "This is not a medical diagnosis. Please consult a doctor.",
     pageWidth - margin * 2
   );
   doc.text(disclaimerLines, margin, y);
@@ -196,11 +147,8 @@ export function downloadSymptomReceipt({
   doc.setFont("helvetica", "normal");
   doc.setFontSize(8);
   doc.setTextColor(...muted);
-  doc.text(L.footer, margin, y);
+  doc.text("Generated locally by MediScan using a private, on-device AI model.", margin, y);
 
-  const fileSafeCondition = String(causes[0]?.condition || "symptom-check")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/gi, "-")
-    .replace(/^-|-$/g, "") || "symptom-check";
+  const fileSafeCondition = (causes[0]?.condition || "symptom-check").toLowerCase().replace(/[^a-z0-9]+/g, "-");
   doc.save(`mediscan-receipt-${fileSafeCondition}.pdf`);
 }

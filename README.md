@@ -35,15 +35,15 @@ npm run dev
 - App: http://localhost:5173  
 - Dev proxy: `/api` → backend `:8000`
 
-### Optional: Ollama (richer AI text)
+### Optional: offline ML (richer AI text)
 
 ```bash
-ollama serve
-ollama pull llama3.1
-# ollama pull llava   # vision; injury still has offline ML
+offline-ml serve
+offline-ml pull llama3.1
+# offline-ml pull llava   # vision; injury still has offline ML
 ```
 
-App works **without** Ollama via offline KB + scikit-learn models.
+App works **without** offline ML via offline KB + scikit-learn models.
 
 ---
 
@@ -61,7 +61,7 @@ See **[DEPLOY.md](./DEPLOY.md)** for:
 
 | Feature | Notes |
 |---------|--------|
-| AI Symptom Checker | Offline guide + optional Ollama; localized results |
+| AI Symptom Checker | Offline guide + optional offline ML; localized results |
 | ML Symptom Predictor | Trained RandomForest |
 | Gender Health ML | Spreadsheet male/female notes |
 | Injury Analyzer | ML v2 binary gate + injury families |

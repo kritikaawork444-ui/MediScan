@@ -23,7 +23,7 @@ export default function ReportSummary() {
   const { result, filename } = state;
 
   return (
-    <div className="page-enter">
+    <div>
       <TopBar showBack />
       <div className="px-5 md:px-8 lg:px-10">
         <div className="flex items-center justify-between">
@@ -53,7 +53,7 @@ export default function ReportSummary() {
         <div className="bg-panel border border-border rounded-xl2 p-4 mt-4 flex items-start gap-3">
           <CheckCircle2 className="text-emerald-600 mt-0.5" size={20} />
           <div>
-            <p className="text-sm font-semibold">ML Findings</p>
+            <p className="text-sm font-semibold">AI Findings</p>
             <p className="text-xs text-muted mt-1">{result.findings}</p>
           </div>
         </div>

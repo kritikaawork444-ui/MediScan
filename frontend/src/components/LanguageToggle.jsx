@@ -31,15 +31,15 @@ export default function LanguageToggle({ value, onChange, className = "" }) {
     <div className={`flex items-center gap-2 ${className}`}>
       <Languages size={14} className="text-muted shrink-0" aria-hidden />
       <span className="text-[11px] font-semibold text-muted hidden sm:inline">{t("language")}</span>
-      <div className="flex bg-panel2 border border-border rounded-full p-0.5 shadow-sm">
+      <div className="flex bg-panel2 border border-border rounded-full p-0.5">
         {languages.map((lang) => (
           <button
             key={lang.code}
             type="button"
             onClick={() => pick(lang.code)}
-            className={`px-2.5 py-1.5 rounded-full text-xs font-bold transition-all duration-150 ${
+            className={`px-2.5 py-1 rounded-full text-xs font-medium transition-all duration-150 ${
               current === lang.code
-                ? "bg-gradient-to-r from-accent to-accent2 text-white shadow-sm scale-[1.02]"
+                ? "bg-accent text-white shadow-sm"
                 : "text-muted hover:text-ink"
             }`}
             aria-pressed={current === lang.code}

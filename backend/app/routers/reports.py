@@ -7,7 +7,6 @@ from app.database import get_db
 from app.models import Analysis
 from app.schemas import ReportAnalysisResponse
 from app.services.ocr_service import extract_text
-from app.services.ollama_service import analyze_report_text
 from app.services import offline_fallback, report_ml_predictor
 
 router = APIRouter(prefix="/api/reports", tags=["Report Scanner"])
@@ -58,7 +57,6 @@ async def scan_report(
         try:
             result = report_ml_predictor.predict_from_text(raw_text, filename)
             source = "report_ml"
-            # If ML found no metrics, try ollama/offline for narrative
             if not result.get("metrics"):
                 result = None
         except Exception:
@@ -82,25 +80,20 @@ async def scan_report(
             }
             source = "offline"
         else:
-            try:
-                result = analyze_report_text(raw_text, filename, language)
-                source = "ollama"
-            except Exception:
-                # Prefer ML even with partial parse; else regex offline
-                if report_ml_predictor.is_ready():
-                    try:
-                        result = report_ml_predictor.predict_from_text(raw_text, filename)
-                        source = "report_ml"
-                    except Exception:
-                        result = offline_fallback.analyze_report_text_offline(
-                            raw_text, filename, language
-                        )
-                        source = "offline"
-                else:
+            if report_ml_predictor.is_ready():
+                try:
+                    result = report_ml_predictor.predict_from_text(raw_text, filename)
+                    source = "report_ml"
+                except Exception:
                     result = offline_fallback.analyze_report_text_offline(
                         raw_text, filename, language
                     )
                     source = "offline"
+            else:
+                result = offline_fallback.analyze_report_text_offline(
+                    raw_text, filename, language
+                )
+                source = "offline"
 
     result.setdefault("metrics", [])
     result.setdefault("findings", "")
@@ -117,14 +110,16 @@ async def scan_report(
             label = "Normal"
         else:
             label = result.get("overall_status") or result.get("pattern") or "Attention needed"
+    elif result.get("findings"):
+        label = "Reviewed"
 
     record = Analysis(
         analysis_type="report",
         title=filename,
         input_summary=f"source={source}",
-        result_label=str(label)[:120],
-        confidence=result["confidence"],
-        severity=result.get("overall_status"),
+        result_label=label,
+        confidence=result.get("confidence"),
+        severity=None,
         details_json=json.dumps({**result, "source": source}),
     )
     db.add(record)

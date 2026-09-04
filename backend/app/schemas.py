@@ -16,6 +16,7 @@ class SymptomCheckRequest(BaseModel):
     pain_description: Optional[str] = None
     notes: Optional[str] = None
     language: Optional[str] = "en"  # "en" | "hi" | "hinglish"
+    gender: Optional[str] = None  # from profile: male | female | ...
 
 
 class PossibleCause(BaseModel):
@@ -31,6 +32,8 @@ class OllamaSymptomCheckResponse(BaseModel):
     recommendations: List[str]
     treatment: List[str]
     disclaimer: str
+    gender: Optional[str] = None
+    gender_notes: Optional[str] = ""
 
 
 # ---------- Report Scanner ----------
@@ -79,7 +82,7 @@ class DiseaseLookupResponse(BaseModel):
     source: str  # "cache" | "ai"
 
 
-# ---------- ML Symptom Predictor (trained model + Ollama treatment) ----------
+# ---------- ML Symptom Predictor (trained model + offline treatment) ----------
 
 class MLPredictRequest(BaseModel):
     fever: float
@@ -88,6 +91,7 @@ class MLPredictRequest(BaseModel):
     fatigue: float
     body_pain: float
     language: Optional[str] = "en"  # "en" | "hi" | "hinglish"
+    gender: Optional[str] = None  # from profile: male | female | ...
 
 
 class DiseaseProbability(BaseModel):
@@ -104,6 +108,8 @@ class MLPredictResponse(BaseModel):
     treatment: List[str]
     when_to_see_doctor: str
     disclaimer: str
+    gender: Optional[str] = None
+    gender_notes: Optional[str] = ""
 
 
 # ---------- Gender-aware ML (spreadsheet KB) ----------
