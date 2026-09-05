@@ -1,6 +1,7 @@
 # Python
 __pycache__/
 *.py[cod]
+*$py.class
 *.egg-info/
 .venv/
 venv/
@@ -11,19 +12,20 @@ env/
 .pytest_cache/
 .ruff_cache/
 
-# Secrets — never commit
+# Secrets — never commit real env
 .env
 .env.*
 !.env.example
 backend/.env
 **/.env
 
-# Node
+# Node / frontend build
 node_modules/
 frontend/dist/
 frontend/.vite/
 npm-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
 # OS / IDE
 .DS_Store
@@ -41,16 +43,18 @@ coverage/
 .cache/
 *.log
 
-# Local ML retrain scratch (keep trained .joblib in repo for demo)
+# Local ML retrain scratch (keep trained .joblib in repo)
 backend/app/ml/data/~$*
 
-# Transfer / debug junk (never commit)
+# Transfer / debug junk
 *.bundle
 *.tgz
 *.tar.gz
+*.zip
 mediscan-for-mac.*
 mediscan-main.*
 ui-working.png
 frontend/preview-home.png
 blank-*.png
 *-debug.png
+preview-*.png
