@@ -43,3 +43,14 @@ coverage/
 
 # Local ML retrain scratch (keep trained .joblib in repo for demo)
 backend/app/ml/data/~$*
+
+# Transfer / debug junk (never commit)
+*.bundle
+*.tgz
+*.tar.gz
+mediscan-for-mac.*
+mediscan-main.*
+ui-working.png
+frontend/preview-home.png
+blank-*.png
+*-debug.png
