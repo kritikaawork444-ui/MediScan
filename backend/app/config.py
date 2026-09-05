@@ -11,13 +11,8 @@ class Settings(BaseSettings):
     database_url: str = "sqlite:///./mediscan.db"
     frontend_origin: str = "http://localhost:5173"
 
-    # Legacy keys ignored (app runs fully offline / local ML — no Ollama required)
-    anthropic_api_key: str = ""
-    claude_model: str = ""
-    ollama_base_url: str = ""
-    ollama_model: str = ""
-    ollama_vision_model: str = ""
-
+    # App runs fully offline / local ML only — no cloud AI keys required.
+    # Extra env keys (if present in old .env) are ignored.
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
 

@@ -1,7 +1,7 @@
 """
-Report files (PDF or image) need to become plain text before Claude can
-read the lab values out of them. PDFs with a text layer are parsed directly;
-scanned PDFs/images fall back to OCR (pytesseract).
+Report files (PDF or image) need to become plain text before local ML /
+offline analysis can read the lab values. PDFs with a text layer are parsed
+directly; scanned PDFs/images fall back to OCR (pytesseract).
 """
 import io
 

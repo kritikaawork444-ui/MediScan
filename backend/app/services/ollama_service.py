@@ -1,9 +1,7 @@
 """
-This module is the only place in the backend that talks to a local Ollama
-server (https://ollama.com). It now powers ALL AI features in the app -
-Symptom Checker, Encyclopedia "Ask AI" lookup, Report Scanner, and Injury
-Analyzer - so no data ever leaves the machine and no Claude API key is
-needed.
+Optional local Ollama helpers (legacy). The live app path uses offline
+knowledge base + scikit-learn models only — no cloud AI and no required
+Ollama install.
 
 Ollama must be running locally first:
     ollama serve
