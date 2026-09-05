@@ -97,6 +97,8 @@ export const getDoctors = (params = {}) =>
   api.get("/api/consult/doctors", { params }).then((r) => r.data);
 export const getDoctor = (id) =>
   api.get(`/api/consult/doctors/${id}`).then((r) => r.data);
+export const addDoctor = (payload) =>
+  api.post("/api/consult/doctors", payload).then((r) => r.data);
 export const bookConsult = (payload) =>
   api.post("/api/consult/book", payload).then((r) => r.data);
 export const getConsultBookings = () =>

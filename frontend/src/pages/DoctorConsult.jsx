@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   Search,
   Star,
@@ -14,12 +14,17 @@ import {
   AlertTriangle,
   BadgeCheck,
   Gift,
+  UserPlus,
+  Camera,
+  ImagePlus,
+  Trash2,
 } from "lucide-react";
 import TopBar from "../components/TopBar.jsx";
 import DoctorAvatar, { DoctorHeroFloat } from "../components/DoctorAvatar.jsx";
 import {
   getConsultSpecialties,
   getDoctors,
+  addDoctor,
   bookConsult,
   getConsultBookings,
   cancelConsultBooking,
@@ -59,7 +64,7 @@ function statusStyle(status) {
 export default function DoctorConsult() {
   const profile = getProfile();
   const { t, language } = useLanguage();
-  const [tab, setTab] = useState("find"); // find | bookings
+  const [tab, setTab] = useState("find"); // find | bookings | add
   const [q, setQ] = useState("");
   const [specialty, setSpecialty] = useState("All");
   const [mode, setMode] = useState("all");
@@ -72,6 +77,25 @@ export default function DoctorConsult() {
   const [selected, setSelected] = useState(null);
   const [booking, setBooking] = useState(false);
   const [booked, setBooked] = useState(null);
+  const [savingDoctor, setSavingDoctor] = useState(false);
+  const [addDone, setAddDone] = useState(null);
+  const [addForm, setAddForm] = useState({
+    name: "",
+    specialty: "General Physician",
+    qualification: "MBBS",
+    experience_years: "5",
+    hospital: "",
+    city: "Mumbai",
+    languages: "English, Hindi",
+    phone: "",
+    about: "",
+    mode: "both",
+    available_days: "Mon–Sat",
+    photo_data: null,
+    photo_name: "",
+  });
+  const photoInputRef = useRef(null);
+
   const [form, setForm] = useState(() => ({
     patient_name: profile.name || "",
     patient_phone: profile.phone || "",
@@ -175,7 +199,105 @@ export default function DoctorConsult() {
     }
   };
 
-  const availableModes = useMemo(() => {
+  
+  const updateAddForm = (key, value) => setAddForm((f) => ({ ...f, [key]: value }));
+
+  const onPickDoctorPhoto = (e) => {
+    const file = e.target.files?.[0];
+    e.target.value = "";
+    if (!file) return;
+    if (!file.type?.startsWith("image/")) {
+      setError("Please choose an image file (JPG, PNG, or WebP)");
+      return;
+    }
+    if (file.size > 10 * 1024 * 1024) {
+      setError("Photo is too large (maximum 10MB)");
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = () => {
+      setAddForm((f) => ({
+        ...f,
+        photo_data: String(reader.result || ""),
+        photo_name: file.name || "doctor.jpg",
+      }));
+      setError(null);
+    };
+    reader.onerror = () => setError("Could not read the photo");
+    reader.readAsDataURL(file);
+  };
+
+  const submitAddDoctor = async () => {
+    const name = addForm.name.trim();
+    const phone = addForm.phone.trim();
+    if (!name) {
+      setError("Doctor name is required");
+      return;
+    }
+    if (!phone || phone.replace(/\D/g, "").length < 8) {
+      setError("Enter a valid mobile number");
+      return;
+    }
+    setSavingDoctor(true);
+    setError(null);
+    setAddDone(null);
+    try {
+      const payload = {
+        name,
+        specialty: addForm.specialty.trim() || "General Physician",
+        qualification: addForm.qualification.trim() || "MBBS",
+        experience_years: parseInt(addForm.experience_years, 10) || 5,
+        hospital: addForm.hospital.trim() || "Private practice",
+        city: addForm.city.trim() || "Mumbai",
+        languages: addForm.languages.trim() || "English, Hindi",
+        phone,
+        about: addForm.about.trim() || undefined,
+        mode: addForm.mode || "both",
+        available_days: addForm.available_days.trim() || "Mon–Sat",
+        photo_data: addForm.photo_data || undefined,
+        photo_name: addForm.photo_name || undefined,
+        consultation_fee: 0,
+      };
+      const doc = await addDoctor(payload);
+      setAddDone(doc);
+      loadDoctors();
+      getConsultSpecialties()
+        .then((d) => setSpecialties(["All", ...(d.specialties || [])]))
+        .catch(() => {});
+      addNotification({
+        title: "Doctor added",
+        body: `${doc.name} is now available for free booking / call.`,
+        type: "doctor",
+        href: "/consult",
+      });
+    } catch (e) {
+      setError(e.response?.data?.detail || e.message || "Could not add doctor");
+    } finally {
+      setSavingDoctor(false);
+    }
+  };
+
+  const resetAddForm = () => {
+    setAddDone(null);
+    setAddForm({
+      name: "",
+      specialty: "General Physician",
+      qualification: "MBBS",
+      experience_years: "5",
+      hospital: "",
+      city: "Mumbai",
+      languages: "English, Hindi",
+      phone: "",
+      about: "",
+      mode: "both",
+      available_days: "Mon–Sat",
+      photo_data: null,
+      photo_name: "",
+    });
+  };
+
+
+const availableModes = useMemo(() => {
     if (!selected) return ["online", "clinic"];
     if (selected.mode === "online") return ["online"];
     if (selected.mode === "clinic") return ["clinic"];
@@ -217,6 +339,7 @@ export default function DoctorConsult() {
           {[
             { id: "find", label: t("findDoctors") },
             { id: "bookings", label: `${t("bookings")}${bookings.length ? ` (${bookings.length})` : ""}` },
+            { id: "add", label: "Add doctor", icon: UserPlus },
           ].map((tabItem) => (
             <button
               key={tabItem.id}
@@ -234,6 +357,7 @@ export default function DoctorConsult() {
                   : "text-muted hover:text-ink"
               }`}
             >
+              {tabItem.icon && <tabItem.icon size={13} className="shrink-0" />}
               {tabItem.label}
             </button>
           ))}
@@ -708,6 +832,287 @@ export default function DoctorConsult() {
               </button>
             </div>
 
+          </div>
+        )}
+
+
+        {/* ADD DOCTOR TAB */}
+        {tab === "add" && (
+          <div className="mt-5 space-y-4 animate-fade-slide-up">
+            {addDone ? (
+              <div className="card-surface p-6 text-center shadow-card">
+                <div className="w-14 h-14 rounded-full bg-emerald-100 flex items-center justify-center mx-auto mb-3">
+                  <CheckCircle2 size={28} className="text-emerald-600" />
+                </div>
+                <h3 className="text-lg font-bold">Doctor added</h3>
+                <p className="text-sm text-muted mt-1">
+                  <strong>{addDone.name}</strong> is now in Find doctors (FREE consult).
+                </p>
+                {addDone.photo_data && (
+                  <img
+                    src={addDone.photo_data}
+                    alt={addDone.name}
+                    className="mt-3 mx-auto w-20 h-20 rounded-2xl object-cover border-2 border-white shadow-md"
+                  />
+                )}
+                {addDone.phone && (
+                  <a
+                    href={`tel:${String(addDone.phone).replace(/\s/g, "")}`}
+                    className="mt-2 inline-flex items-center gap-1 text-sm font-bold text-accent2 hover:underline"
+                  >
+                    <Phone size={14} /> {addDone.phone}
+                  </a>
+                )}
+                <div className="flex gap-2 mt-5">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setTab("find");
+                      setAddDone(null);
+                      loadDoctors();
+                    }}
+                    className="flex-1 bg-gradient-to-r from-accent to-accent2 text-white text-sm font-semibold py-2.5 rounded-full"
+                  >
+                    View in Find doctors
+                  </button>
+                  <button
+                    type="button"
+                    onClick={resetAddForm}
+                    className="flex-1 bg-panel2 border border-border text-sm font-semibold py-2.5 rounded-full"
+                  >
+                    Add another
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div className="card-surface p-4 space-y-3 shadow-card">
+                <div className="flex items-start gap-3 mb-1">
+                  <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-emerald-400 to-sky-500 flex items-center justify-center text-white shadow-md shrink-0">
+                    <UserPlus size={20} />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-sm font-extrabold text-ink">Add a doctor</p>
+                    <p className="text-xs text-muted mt-0.5 leading-relaxed">
+                      Name + mobile required. Optional photo (up to 10MB). Fee is always{" "}
+                      <span className="font-bold text-emerald-600">₹0 / FREE</span>. They appear under
+                      Find doctors for book or call.
+                    </p>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="text-[11px] text-muted flex items-center gap-1">
+                    <User size={11} /> Doctor name *
+                  </label>
+                  <input
+                    value={addForm.name}
+                    onChange={(e) => updateAddForm("name", e.target.value)}
+                    placeholder="e.g. Dr. Ananya Sharma"
+                    className="input-field mt-1"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-[11px] text-muted flex items-center gap-1">
+                    <Phone size={11} /> Mobile number *
+                  </label>
+                  <input
+                    type="tel"
+                    value={addForm.phone}
+                    onChange={(e) => updateAddForm("phone", e.target.value)}
+                    placeholder="e.g. 98765 43210"
+                    className="input-field mt-1"
+                  />
+                </div>
+
+                <div className="rounded-2xl border border-dashed border-sky-200 bg-sky-50/50 p-3">
+                  <p className="text-[11px] font-bold text-ink mb-1 flex items-center gap-1.5">
+                    <Camera size={13} className="text-sky-600" />
+                    Doctor photo (optional)
+                  </p>
+                  <p className="text-[10px] text-muted mb-2">JPG, PNG, or WebP · up to 10MB</p>
+                  <input
+                    ref={photoInputRef}
+                    type="file"
+                    accept="image/*"
+                    className="hidden"
+                    onChange={onPickDoctorPhoto}
+                  />
+                  {addForm.photo_data ? (
+                    <div className="flex items-center gap-3">
+                      <img
+                        src={addForm.photo_data}
+                        alt="Preview"
+                        className="w-20 h-20 rounded-xl object-cover border border-white shadow"
+                      />
+                      <div className="min-w-0 flex-1">
+                        <p className="text-[11px] font-semibold text-ink truncate">
+                          {addForm.photo_name || "photo"}
+                        </p>
+                        <div className="flex flex-wrap gap-2 mt-1.5">
+                          <button
+                            type="button"
+                            onClick={() => photoInputRef.current?.click()}
+                            className="text-[11px] font-bold text-sky-700 hover:underline"
+                          >
+                            Change
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() =>
+                              setAddForm((f) => ({ ...f, photo_data: null, photo_name: "" }))
+                            }
+                            className="text-[11px] font-bold text-rose-600 inline-flex items-center gap-1 hover:underline"
+                          >
+                            <Trash2 size={12} /> Remove
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => photoInputRef.current?.click()}
+                      className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-sky-200 bg-white text-sky-700 text-xs font-bold py-3 hover:bg-sky-50 transition"
+                    >
+                      <ImagePlus size={16} />
+                      Choose / upload photo
+                    </button>
+                  )}
+                </div>
+
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="text-[11px] text-muted">Specialty</label>
+                    <input
+                      value={addForm.specialty}
+                      onChange={(e) => updateAddForm("specialty", e.target.value)}
+                      list="specialty-suggestions"
+                      className="input-field mt-1"
+                    />
+                    <datalist id="specialty-suggestions">
+                      {specialties.filter((s) => s !== "All").map((s) => (
+                        <option key={s} value={s} />
+                      ))}
+                      <option value="General Physician" />
+                      <option value="Dermatologist" />
+                      <option value="Pediatrician" />
+                      <option value="Orthopedic" />
+                      <option value="Gynecologist" />
+                      <option value="Cardiologist" />
+                      <option value="ENT" />
+                    </datalist>
+                  </div>
+                  <div>
+                    <label className="text-[11px] text-muted">Qualification</label>
+                    <input
+                      value={addForm.qualification}
+                      onChange={(e) => updateAddForm("qualification", e.target.value)}
+                      placeholder="MBBS, MD…"
+                      className="input-field mt-1"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="text-[11px] text-muted">Experience (years)</label>
+                    <input
+                      value={addForm.experience_years}
+                      onChange={(e) => updateAddForm("experience_years", e.target.value)}
+                      className="input-field mt-1"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-[11px] text-muted">City</label>
+                    <input
+                      value={addForm.city}
+                      onChange={(e) => updateAddForm("city", e.target.value)}
+                      className="input-field mt-1"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="text-[11px] text-muted">Hospital / clinic</label>
+                  <input
+                    value={addForm.hospital}
+                    onChange={(e) => updateAddForm("hospital", e.target.value)}
+                    placeholder="e.g. Apollo, private clinic"
+                    className="input-field mt-1"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-[11px] text-muted">Languages</label>
+                  <input
+                    value={addForm.languages}
+                    onChange={(e) => updateAddForm("languages", e.target.value)}
+                    className="input-field mt-1"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-[11px] text-muted">Consult mode</label>
+                  <div className="flex gap-2 mt-1">
+                    {[
+                      { id: "online", label: "Online" },
+                      { id: "clinic", label: "Clinic" },
+                      { id: "both", label: "Both" },
+                    ].map((m) => (
+                      <button
+                        key={m.id}
+                        type="button"
+                        onClick={() => updateAddForm("mode", m.id)}
+                        className={`flex-1 py-2 rounded-xl text-xs font-semibold border transition ${
+                          addForm.mode === m.id
+                            ? "bg-accent/10 border-accent text-accent2"
+                            : "bg-panel2 border-border text-muted"
+                        }`}
+                      >
+                        {m.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <label className="text-[11px] text-muted">Available days</label>
+                  <input
+                    value={addForm.available_days}
+                    onChange={(e) => updateAddForm("available_days", e.target.value)}
+                    className="input-field mt-1"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-[11px] text-muted">About / description</label>
+                  <textarea
+                    value={addForm.about}
+                    onChange={(e) => updateAddForm("about", e.target.value)}
+                    rows={3}
+                    placeholder="Specialty focus, languages, notes for patients…"
+                    className="input-field mt-1 resize-none"
+                  />
+                </div>
+
+                <div className="flex items-center justify-between pt-1 text-sm">
+                  <span className="text-muted">Consultation fee</span>
+                  <span className="font-bold text-emerald-600 flex items-center gap-1">
+                    <Gift size={14} /> FREE (₹0)
+                  </span>
+                </div>
+
+                <button
+                  type="button"
+                  disabled={savingDoctor}
+                  onClick={submitAddDoctor}
+                  className="w-full btn-primary py-3 disabled:opacity-50"
+                >
+                  {savingDoctor ? "Saving…" : "Save doctor"}
+                </button>
+              </div>
+            )}
           </div>
         )}
 

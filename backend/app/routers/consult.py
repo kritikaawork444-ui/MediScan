@@ -386,6 +386,109 @@ def get_doctor(doctor_id: int, db: Session = Depends(get_db)):
     return _doctor_to_out(d)
 
 
+
+class AddDoctorRequest(BaseModel):
+    name: str
+    specialty: str = "General Physician"
+    qualification: Optional[str] = "MBBS"
+    experience_years: Optional[int] = 5
+    hospital: Optional[str] = "Private practice"
+    city: Optional[str] = "Mumbai"
+    languages: Optional[str] = "English, Hindi"
+    phone: str
+    about: Optional[str] = None
+    mode: str = "both"  # online | clinic | both
+    available_days: Optional[str] = "Mon–Sat"
+    photo_data: Optional[str] = None
+    photo_name: Optional[str] = None
+    consultation_fee: int = 0
+    rating: Optional[float] = 4.8
+
+
+@router.post("/doctors", response_model=DoctorOut)
+def add_doctor(payload: AddDoctorRequest, db: Session = Depends(get_db)):
+    """Add a real doctor to the directory (bookable + callable). Fee forced to ₹0."""
+    _ensure_seed(db)
+    name = (payload.name or "").strip()
+    phone = (payload.phone or "").strip()
+    specialty = (payload.specialty or "General Physician").strip() or "General Physician"
+    if not name:
+        raise HTTPException(400, "Doctor name is required")
+    if not phone:
+        raise HTTPException(400, "Mobile number is required")
+    digits = "".join(ch for ch in phone if ch.isdigit())
+    if len(digits) < 8:
+        raise HTTPException(400, "Enter a valid mobile number (at least 8 digits)")
+
+    mode = (payload.mode or "both").lower().strip()
+    if mode not in ("online", "clinic", "both"):
+        mode = "both"
+
+    photo_data = payload.photo_data
+    if photo_data:
+        if len(photo_data) > 14_000_000:
+            raise HTTPException(400, "Photo too large (max 10MB)")
+        if not str(photo_data).startswith("data:image/"):
+            raise HTTPException(400, "photo_data must be an image data URL")
+
+    about = (payload.about or "").strip() or f"Real doctor contact. Call {phone} to confirm."
+    photo_name = (payload.photo_name or "").strip() or None
+
+    # Upsert by phone (preferred) or name
+    existing = db.query(Doctor).filter(Doctor.phone == phone).first()
+    if existing is None:
+        existing = db.query(Doctor).filter(Doctor.name.ilike(name)).first()
+
+    if existing is None:
+        doc = Doctor(
+            name=name,
+            specialty=specialty,
+            qualification=(payload.qualification or "MBBS").strip() or "MBBS",
+            experience_years=int(payload.experience_years or 5),
+            hospital=(payload.hospital or "Private practice").strip() or "Private practice",
+            city=(payload.city or "Mumbai").strip() or "Mumbai",
+            languages=(payload.languages or "English, Hindi").strip() or "English, Hindi",
+            consultation_fee=0,
+            rating=float(payload.rating or 4.8),
+            about=about,
+            mode=mode,
+            available_days=(payload.available_days or "Mon–Sat").strip() or "Mon–Sat",
+            slot_json=json.dumps(DEFAULT_SLOTS),
+            phone=phone,
+            photo_data=photo_data,
+            photo_name=photo_name,
+            source="manual",
+            is_active=1,
+        )
+        db.add(doc)
+    else:
+        doc = existing
+        doc.name = name
+        doc.specialty = specialty
+        doc.qualification = (payload.qualification or doc.qualification or "MBBS").strip()
+        doc.experience_years = int(payload.experience_years if payload.experience_years is not None else (doc.experience_years or 5))
+        doc.hospital = (payload.hospital or doc.hospital or "Private practice").strip()
+        doc.city = (payload.city or doc.city or "Mumbai").strip()
+        doc.languages = (payload.languages or doc.languages or "English, Hindi").strip()
+        doc.consultation_fee = 0
+        doc.about = about
+        doc.mode = mode
+        doc.available_days = (payload.available_days or doc.available_days or "Mon–Sat").strip()
+        doc.phone = phone
+        if photo_data:
+            doc.photo_data = photo_data
+            doc.photo_name = photo_name
+        if not doc.slot_json:
+            doc.slot_json = json.dumps(DEFAULT_SLOTS)
+        doc.source = "manual"
+        doc.is_active = 1
+        db.add(doc)
+
+    db.commit()
+    db.refresh(doc)
+    return _doctor_to_out(doc)
+
+
 @router.post("/book", response_model=ConsultationOut)
 def book_consult(payload: BookConsultRequest, db: Session = Depends(get_db)):
     _ensure_seed(db)
