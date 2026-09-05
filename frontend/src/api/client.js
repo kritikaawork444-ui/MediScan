@@ -99,6 +99,8 @@ export const getDoctor = (id) =>
   api.get(`/api/consult/doctors/${id}`).then((r) => r.data);
 export const addDoctor = (payload) =>
   api.post("/api/consult/doctors", payload).then((r) => r.data);
+export const deleteDoctor = (id) =>
+  api.delete(`/api/consult/doctors/${id}`).then((r) => r.data);
 export const bookConsult = (payload) =>
   api.post("/api/consult/book", payload).then((r) => r.data);
 export const getConsultBookings = () =>

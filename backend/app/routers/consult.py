@@ -489,6 +489,25 @@ def add_doctor(payload: AddDoctorRequest, db: Session = Depends(get_db)):
     return _doctor_to_out(doc)
 
 
+
+@router.delete("/doctors/{doctor_id}")
+def delete_doctor(doctor_id: int, db: Session = Depends(get_db)):
+    """Soft-delete a doctor (hide from Find doctors). Bookings history kept."""
+    _ensure_seed(db)
+    doc = db.query(Doctor).filter(Doctor.id == doctor_id).first()
+    if not doc:
+        raise HTTPException(404, "Doctor not found")
+    doc.is_active = 0
+    db.add(doc)
+    db.commit()
+    return {
+        "ok": True,
+        "id": doctor_id,
+        "name": doc.name,
+        "message": f"{doc.name} removed from doctor list",
+    }
+
+
 @router.post("/book", response_model=ConsultationOut)
 def book_consult(payload: BookConsultRequest, db: Session = Depends(get_db)):
     _ensure_seed(db)

@@ -25,6 +25,7 @@ import {
   getConsultSpecialties,
   getDoctors,
   addDoctor,
+  deleteDoctor,
   bookConsult,
   getConsultBookings,
   cancelConsultBooking,
@@ -78,6 +79,7 @@ export default function DoctorConsult() {
   const [booking, setBooking] = useState(false);
   const [booked, setBooked] = useState(null);
   const [savingDoctor, setSavingDoctor] = useState(false);
+  const [deletingId, setDeletingId] = useState(null);
   const [addDone, setAddDone] = useState(null);
   const [addForm, setAddForm] = useState({
     name: "",
@@ -296,6 +298,35 @@ export default function DoctorConsult() {
     });
   };
 
+
+
+  const handleDeleteDoctor = async (doc) => {
+    if (!doc?.id) return;
+    const ok = window.confirm(
+      `Remove ${doc.name} from the doctor list?\n\nThey will no longer show under Find doctors. Past bookings stay in history.`
+    );
+    if (!ok) return;
+    setDeletingId(doc.id);
+    setError(null);
+    try {
+      await deleteDoctor(doc.id);
+      if (selected?.id === doc.id) {
+        setSelected(null);
+        setBooked(null);
+      }
+      addNotification({
+        title: "Doctor removed",
+        body: `${doc.name} was removed from the list.`,
+        type: "doctor",
+        href: "/consult",
+      });
+      loadDoctors();
+    } catch (e) {
+      setError(e.response?.data?.detail || e.message || "Could not delete doctor");
+    } finally {
+      setDeletingId(null);
+    }
+  };
 
 const availableModes = useMemo(() => {
     if (!selected) return ["online", "clinic"];
@@ -523,6 +554,16 @@ const availableModes = useMemo(() => {
                             {t("callDoctor")}
                           </a>
                         )}
+                        <button
+                          type="button"
+                          disabled={deletingId === doc.id}
+                          onClick={() => handleDeleteDoctor(doc)}
+                          className="inline-flex items-center justify-center gap-1.5 text-xs font-bold px-3 py-2 rounded-full border border-rose-200 bg-rose-50 text-rose-700 hover:bg-rose-100 transition disabled:opacity-50"
+                          title="Remove doctor"
+                        >
+                          <Trash2 size={13} />
+                          {deletingId === doc.id ? "Removing…" : "Delete"}
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -591,6 +632,15 @@ const availableModes = useMemo(() => {
                   <Star size={11} className="text-amber-500" fill="currentColor" />
                   {selected.rating} · {selected.experience_years}+ yrs exp
                 </p>
+                <button
+                  type="button"
+                  disabled={deletingId === selected.id}
+                  onClick={() => handleDeleteDoctor(selected)}
+                  className="mt-2 text-[11px] font-bold text-rose-600 inline-flex items-center gap-1 hover:underline disabled:opacity-50"
+                >
+                  <Trash2 size={12} />
+                  {deletingId === selected.id ? "Removing…" : "Delete doctor"}
+                </button>
               </div>
             </div>
 
