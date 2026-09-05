@@ -47,16 +47,6 @@ App works **without** offline ML via offline KB + scikit-learn models.
 
 ---
 
-## GitHub + live deploy
-
-See **[DEPLOY.md](./DEPLOY.md)** for:
-
-1. `git init` / push to GitHub  
-2. Backend on **Render**  
-3. Frontend on **Vercel** + `VITE_API_URL`  
-
----
-
 ## Features
 
 | Feature | Notes |
@@ -86,7 +76,7 @@ python -m app.ml.train_model
 ```
 backend/app/          FastAPI, routers, services, ml/
 frontend/src/         React pages & components
-DEPLOY.md             GitHub + Render + Vercel
+PUSH_TO_GITHUB.sh     Push main to GitHub (run on Mac)
 ```
 
 ---
