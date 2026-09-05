@@ -14,11 +14,9 @@ import {
   AlertTriangle,
   BadgeCheck,
   Gift,
-  MessageSquareHeart,
 } from "lucide-react";
 import TopBar from "../components/TopBar.jsx";
 import DoctorAvatar, { DoctorHeroFloat } from "../components/DoctorAvatar.jsx";
-import DoctorFeedbackPanel from "../components/DoctorFeedback.jsx";
 import {
   getConsultSpecialties,
   getDoctors,
@@ -61,7 +59,7 @@ function statusStyle(status) {
 export default function DoctorConsult() {
   const profile = getProfile();
   const { t, language } = useLanguage();
-  const [tab, setTab] = useState("find"); // find | bookings | feedback
+  const [tab, setTab] = useState("find"); // find | bookings
   const [q, setQ] = useState("");
   const [specialty, setSpecialty] = useState("All");
   const [mode, setMode] = useState("all");
@@ -219,26 +217,24 @@ export default function DoctorConsult() {
           {[
             { id: "find", label: t("findDoctors") },
             { id: "bookings", label: `${t("bookings")}${bookings.length ? ` (${bookings.length})` : ""}` },
-            { id: "feedback", label: t("feedback"), icon: MessageSquareHeart },
-          ].map((t) => (
+          ].map((tabItem) => (
             <button
-              key={t.id}
+              key={tabItem.id}
               type="button"
               onClick={() => {
-                setTab(t.id);
+                setTab(tabItem.id);
                 setSelected(null);
                 setBooked(null);
                 setError(null);
-                if (t.id === "bookings") loadBookings();
+                if (tabItem.id === "bookings") loadBookings();
               }}
               className={`flex-1 py-2.5 rounded-xl text-[11px] sm:text-sm font-bold transition-all duration-200 inline-flex items-center justify-center gap-1 ${
-                tab === t.id
+                tab === tabItem.id
                   ? "bg-gradient-to-r from-accent to-accent2 text-white shadow-glow"
                   : "text-muted hover:text-ink"
               }`}
             >
-              {t.icon && <t.icon size={13} className="shrink-0" />}
-              {t.label}
+              {tabItem.label}
             </button>
           ))}
         </div>
@@ -784,19 +780,7 @@ export default function DoctorConsult() {
             ))}
           </div>
         )}
-
-
-        {/* FEEDBACK TAB — doctor feedback for website + photo */}
-        {tab === "feedback" && (
-          <div className="mt-5 space-y-3 animate-fade-slide-up">
-            <DoctorFeedbackPanel />
-            <p className="text-[11px] text-muted text-center px-2 leading-relaxed">
-              Add name, photo (up to 10MB), mobile, and description. The doctor then appears
-              under Find doctors for free booking or a direct call.
-            </p>
-          </div>
-        )}
-      </div>
+</div>
     </div>
   );
 }
