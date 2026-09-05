@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "node serve.mjs",
+    "serve:static": "node serve.mjs"
   },
   "dependencies": {
     "axios": "^1.7.7",
